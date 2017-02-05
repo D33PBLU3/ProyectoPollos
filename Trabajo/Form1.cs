@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Trabajo
+namespace Pollos
 {
     public partial class Form1 : Form
     {
@@ -21,18 +21,26 @@ namespace Trabajo
         {
             string respuesta = login.Buscar(txtUsuario.Text, txtContra.Text);
 
-            if (respuesta.Equals("")){
+            if (respuesta.Equals(""))
+            {
                 MessageBox.Show("Usuario o Contraseña incorrectos");
             }
-            else{
+            else
+            if(respuesta.Equals("Error base de datos"))
+            {
+                MessageBox.Show("Error al conectarse a la base de datos");
+            }
+            else
+            {
                 MessageBox.Show("Conectado");
             }
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            DatosConexion conector = new DatosConexion();
+            conector.Show();
         }
     }
 }

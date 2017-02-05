@@ -4,16 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
-namespace Trabajo
+namespace Pollos
 {
-    public class DB{
+    public class DB
+    {
         public static MySqlConnection ObtenerConexion()
         {
-            MySqlConnection conectar = new MySqlConnection("server=127.0.0.1; database=tienda1; Uid=root; pwd=;");
+            try
+            {
+                Encrypt encrypr = new Encrypt();
 
-            conectar.Open();
-            return conectar;
+                String ip = "";
+
+                System.IO.StreamReader file = new System.IO.StreamReader("conexion.txt");
+
+                ip = file.ReadLine();
+                ip = encrypr.decrypt(ip);
+
+                MySqlConnection conectar = new MySqlConnection("server=" + ip + "; database=tienda1; Uid=root; pwd=;");
+
+                file.Close();
+                conectar.Open();
+                return conectar;
+            }
+            catch (MySqlException ex)
+            {
+                int codigoError = ex.Number; ;
+            }
+            return null;
         }
     }
 }

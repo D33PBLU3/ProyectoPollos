@@ -1,4 +1,4 @@
-﻿namespace Trabajo
+﻿namespace Pollos
 {
     partial class Form1
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -39,7 +40,7 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(210, 121);
+            this.label.Location = new System.Drawing.Point(58, 35);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(43, 13);
             this.label.TabIndex = 0;
@@ -48,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(210, 175);
+            this.label1.Location = new System.Drawing.Point(58, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 1;
@@ -56,14 +57,14 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(323, 118);
+            this.txtUsuario.Location = new System.Drawing.Point(138, 28);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(100, 20);
             this.txtUsuario.TabIndex = 2;
             // 
             // txtContra
             // 
-            this.txtContra.Location = new System.Drawing.Point(323, 175);
+            this.txtContra.Location = new System.Drawing.Point(138, 71);
             this.txtContra.Name = "txtContra";
             this.txtContra.Size = new System.Drawing.Size(100, 20);
             this.txtContra.TabIndex = 3;
@@ -71,7 +72,7 @@
             // 
             // btn_ingresar
             // 
-            this.btn_ingresar.Location = new System.Drawing.Point(209, 230);
+            this.btn_ingresar.Location = new System.Drawing.Point(111, 121);
             this.btn_ingresar.Name = "btn_ingresar";
             this.btn_ingresar.Size = new System.Drawing.Size(75, 23);
             this.btn_ingresar.TabIndex = 4;
@@ -81,11 +82,11 @@
             // 
             // btnOpciones
             // 
-            this.btnOpciones.Location = new System.Drawing.Point(546, 340);
+            this.btnOpciones.Image = ((System.Drawing.Image)(resources.GetObject("btnOpciones.Image")));
+            this.btnOpciones.Location = new System.Drawing.Point(248, 139);
             this.btnOpciones.Name = "btnOpciones";
-            this.btnOpciones.Size = new System.Drawing.Size(75, 23);
+            this.btnOpciones.Size = new System.Drawing.Size(35, 35);
             this.btnOpciones.TabIndex = 5;
-            this.btnOpciones.Text = "opciones";
             this.btnOpciones.UseVisualStyleBackColor = true;
             this.btnOpciones.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -93,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 375);
+            this.ClientSize = new System.Drawing.Size(296, 188);
             this.Controls.Add(this.txtContra);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label1);
@@ -103,7 +104,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "LOGIN";
             this.ResumeLayout(false);
             this.PerformLayout();
 
