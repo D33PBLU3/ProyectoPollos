@@ -16,18 +16,39 @@ namespace Pollos
             {
                 Encrypt encrypr = new Encrypt();
 
-                String ip = "";
+                string str = "";
+                string ip = "";
+                string db = "";
+                string usu = "";
+                string pass = "";
 
-                System.IO.StreamReader file = new System.IO.StreamReader("conexion.txt");
+                try
+                {
+                    System.IO.StreamReader file = new System.IO.StreamReader("conexion.txt");
 
-                ip = file.ReadLine();
-                ip = encrypr.decrypt(ip);
 
-                MySqlConnection conectar = new MySqlConnection("server=" + ip + "; database=tienda1; Uid=root; pwd=;");
+                    str = file.ReadLine();
+                    str = encrypr.decrypt(str);
 
-                file.Close();
-                conectar.Open();
-                return conectar;
+                    char[] delimitador = { '-' };
+
+                    string[] parse = str.Split(delimitador);
+
+                    ip = parse[0];
+                    db = parse[1];
+                    usu = parse[2];
+                    pass = parse[3];
+
+                    MySqlConnection conectar = new MySqlConnection("server=" + ip + "; database=" + db + "; Uid=" + usu + "; pwd=" + pass + ";");
+
+                    file.Close();
+                    conectar.Open();
+                    return conectar;
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
             }
             catch (MySqlException ex)
             {
