@@ -9,6 +9,7 @@ namespace Pollos
 {
     class login
     {
+        
         public static string Buscar(string usuario, string contrasena)
         {
             MySqlConnection conectar = DB.ObtenerConexion();
@@ -16,7 +17,7 @@ namespace Pollos
             if(conectar != null)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format(
-                "SELECT nombre from usuarios where usuario = '{0}' and contrasena = '{1}'",
+                "SELECT nickName from usuarios where nickName = '{0}' and password = '{1}'",
                 usuario, contrasena), conectar);
 
                 MySqlDataReader lector = comando.ExecuteReader();

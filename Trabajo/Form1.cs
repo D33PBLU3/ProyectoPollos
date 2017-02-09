@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace Pollos
 {
+    
     public partial class Form1 : Form
     {
+        public bool loginSuccesful = false;
         public Form1()
         {
             InitializeComponent();
@@ -32,7 +34,11 @@ namespace Pollos
             }
             else
             {
-                MessageBox.Show("Conectado");
+                //MessageBox.Show("Conectado");
+                
+                loginSuccesful = true;
+                Close();
+                
             }
 
         }
@@ -41,6 +47,11 @@ namespace Pollos
         {
             DatosConexion conector = new DatosConexion();
             conector.Show();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //loginSuccesful = false;
         }
     }
 }
