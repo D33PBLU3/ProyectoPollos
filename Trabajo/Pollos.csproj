@@ -64,6 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clienteAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clienteAdmin.Designer.cs">
+      <DependentUpon>clienteAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes.cs" />
     <Compile Include="DatosConexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,12 +94,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Querys.cs" />
     <Compile Include="SevicioDomicilio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SevicioDomicilio.Designer.cs">
       <DependentUpon>SevicioDomicilio.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="clienteAdmin.resx">
+      <DependentUpon>clienteAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DatosConexion.resx">
       <DependentUpon>DatosConexion.cs</DependentUpon>
     </EmbeddedResource>
