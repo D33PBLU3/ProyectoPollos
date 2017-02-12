@@ -39,6 +39,7 @@ namespace Pollos
                 txtColoniaC.Text = "";
                 txtEntreC.Text = "";
 
+                this.Close();
                 MessageBox.Show("EL cliente se a registrado");
             }
             else

@@ -38,7 +38,7 @@ namespace Pollos
             if (conectar != null)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format(
-                "SELECT * FROM clientes WHERE telefonoCliente = '{0}' and estatusCliente = 'ACTIVO'", tel), conectar);
+                "SELECT * FROM clientes WHERE telefonoCliente LIKE '%" + tel + "%' and estatusCliente = 'ACTIVO'"), conectar);
 
                 MySqlDataReader lector = comando.ExecuteReader();
                 
@@ -58,6 +58,53 @@ namespace Pollos
                 return lista;
             }
             return null;
+        }
+
+        public int EditarCliente(string id, string nombre, string tel, string dir, string calle, string colonia)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+        
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "UPDATE clientes SET nombreCliente = '{0}', telefonoCliente = '{1}', direccionCliente = '{2}', entreCallesCliente = '{3}', coloniaCliente = '{4}' WHERE idClientes = '{5}'"
+                ,nombre, tel, dir, calle, colonia, id), conectar);
+
+                if(comando.ExecuteNonQuery() == 1)
+                {
+                    return 1;
+                }else
+                {
+                    return 0;
+                }
+
+                
+            }
+            return 0;
+        }
+
+        public int EliminarCliente(string id)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "UPDATE clientes SET estatusCliente = 'INACTIVO' WHERE idClientes = '{0}'"
+                , id), conectar);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+
+            }
+            return 0;
         }
     }
 }

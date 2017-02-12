@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -59,7 +59,7 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(108, 28);
             this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Actualizar datos";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -69,6 +69,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(286, 20);
             this.txtBuscar.TabIndex = 3;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // listClientes
             // 
@@ -80,7 +81,7 @@
             this.CALLES,
             this.COLONIA});
             this.listClientes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.listClientes.Location = new System.Drawing.Point(12, 46);
             this.listClientes.Name = "listClientes";
             this.listClientes.Size = new System.Drawing.Size(807, 262);
@@ -126,6 +127,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Eliminar Cliente";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -135,6 +137,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Editar Cliente";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // SevicioDomicilio
             // 

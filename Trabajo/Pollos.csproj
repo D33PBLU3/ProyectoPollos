@@ -78,6 +78,12 @@
       <DependentUpon>DatosConexion.cs</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
+    <Compile Include="EditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarCliente.Designer.cs">
+      <DependentUpon>EditarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Encrypt.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DatosConexion.resx">
       <DependentUpon>DatosConexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarCliente.resx">
+      <DependentUpon>EditarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
