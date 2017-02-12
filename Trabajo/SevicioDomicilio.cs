@@ -41,7 +41,6 @@ namespace Pollos
 
             if (lista.Count == 0)
             {
-                MessageBox.Show("No se encontro el numero de telefono");
             }
             else
             {
@@ -75,7 +74,6 @@ namespace Pollos
 
             if (lista.Count == 0)
             {
-                MessageBox.Show("No se encontro el numero de telefono");
             }
             else
             {
