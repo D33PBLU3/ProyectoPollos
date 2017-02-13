@@ -52,6 +52,7 @@
             this.btnProductos.TabIndex = 1;
             this.btnProductos.Text = "PRODUCTOS";
             this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnConfiguracionUsuarios
             // 

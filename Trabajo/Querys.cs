@@ -106,5 +106,25 @@ namespace Pollos
             }
             return 0;
         }
+        public int AgregarProducto(string nombre, string tipo,Decimal precio)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+            string preciotx = String.Format("{0:0.00}", precio);
+            preciotx = preciotx.Replace(",", ".");
+            if (conectar != null)
+            {
+
+                int retorno = 0;
+
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "INSERT INTO Productos(nombreProducto, tipoProducto, precioProducto) VALUES('{0}', '{1}', '{2}')",
+                nombre,tipo,preciotx ), conectar);
+
+                retorno = comando.ExecuteNonQuery();
+
+                return retorno;
+            }
+            return 0;
+        }
     }
 }

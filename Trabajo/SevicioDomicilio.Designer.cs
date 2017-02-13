@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -45,9 +45,9 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(12, 325);
+            this.btnClientes.Location = new System.Drawing.Point(772, 114);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(114, 28);
+            this.btnClientes.Size = new System.Drawing.Size(93, 28);
             this.btnClientes.TabIndex = 0;
             this.btnClientes.Text = "Registrar Cliente";
             this.btnClientes.UseVisualStyleBackColor = true;
@@ -81,10 +81,10 @@
             this.CALLES,
             this.COLONIA});
             this.listClientes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listClientes.Location = new System.Drawing.Point(12, 46);
             this.listClientes.Name = "listClientes";
-            this.listClientes.Size = new System.Drawing.Size(807, 262);
+            this.listClientes.Size = new System.Drawing.Size(743, 96);
             this.listClientes.TabIndex = 4;
             this.listClientes.UseCompatibleStateImageBehavior = false;
             this.listClientes.View = System.Windows.Forms.View.Details;
@@ -121,9 +121,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(704, 325);
+            this.button1.Location = new System.Drawing.Point(772, 80);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 28);
+            this.button1.Size = new System.Drawing.Size(93, 28);
             this.button1.TabIndex = 5;
             this.button1.Text = "Eliminar Cliente";
             this.button1.UseVisualStyleBackColor = true;
@@ -131,9 +131,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(355, 325);
+            this.button2.Location = new System.Drawing.Point(772, 46);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 28);
+            this.button2.Size = new System.Drawing.Size(93, 28);
             this.button2.TabIndex = 6;
             this.button2.Text = "Editar Cliente";
             this.button2.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 365);
+            this.ClientSize = new System.Drawing.Size(877, 365);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listClientes);
