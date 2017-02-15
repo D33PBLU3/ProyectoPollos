@@ -126,5 +126,80 @@ namespace Pollos
             }
             return 0;
         }
+        public int EditarProducto(int id,string nombre,string tipo,Decimal precio)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+            string preciotx = String.Format("{0:0.00}", precio);
+            preciotx = preciotx.Replace(",", ".");
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "UPDATE Productos SET nombreProducto = '{0}', tipoProducto = '{1}', precioProducto = '{2}' where idProductos='{3}'"
+                , nombre,tipo,preciotx,id ), conectar);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+
+            }
+            return 0;
+        }
+        public List<Producto> getProductos()
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            List<Producto> lista = new List<Producto>();
+
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "SELECT * FROM productos WHERE estatusProducto = 'ACTIVO'"), conectar);
+
+                MySqlDataReader lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Producto p = new Producto();
+                    p.id = Convert.ToInt32(lector.GetString(0));
+                    p.nombre = lector.GetString(1);
+                    p.tipo = lector.GetString(2);
+                    p.precio = Convert.ToDecimal(lector.GetString(3));
+                    p.estatus = lector.GetString(4);
+                    
+                    lista.Add(p);
+                }
+                return lista;
+            }
+            return null;
+        }
+        public int EliminarProducto(string id)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "UPDATE Productos SET estatusProducto = 'INACTIVO' WHERE idProductos = '{0}'"
+                , id), conectar);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+
+            }
+            return 0;
+        }
     }
 }

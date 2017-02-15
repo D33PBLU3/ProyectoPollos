@@ -139,6 +139,7 @@
             this.Controls.Add(this.txtNombreProducto);
             this.Name = "ProductosAdmin";
             this.Text = "ProductosAdmin";
+            this.Load += new System.EventHandler(this.ProductosAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

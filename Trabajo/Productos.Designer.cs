@@ -42,8 +42,8 @@
             // 
             this.listProductos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.idProducto,
-            this.tipoProducto,
             this.nombreProducto,
+            this.tipoProducto,
             this.precioProducto});
             this.listProductos.Location = new System.Drawing.Point(12, 12);
             this.listProductos.Name = "listProductos";
@@ -90,6 +90,7 @@
             this.btnEditarProducto.TabIndex = 2;
             this.btnEditarProducto.Text = "Editar";
             this.btnEditarProducto.UseVisualStyleBackColor = true;
+            this.btnEditarProducto.Click += new System.EventHandler(this.btnEditarProducto_Click);
             // 
             // btnEliminarProducto
             // 
@@ -99,6 +100,7 @@
             this.btnEliminarProducto.TabIndex = 3;
             this.btnEliminarProducto.Text = "Eliminar";
             this.btnEliminarProducto.UseVisualStyleBackColor = true;
+            this.btnEliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
             // 
             // Productos
             // 
@@ -111,6 +113,7 @@
             this.Controls.Add(this.listProductos);
             this.Name = "Productos";
             this.Text = "Productos";
+            this.Load += new System.EventHandler(this.Productos_Load);
             this.ResumeLayout(false);
 
         }
