@@ -44,5 +44,11 @@ namespace Pollos
             Productos productos=new Productos();
             productos.Show();
         }
+
+        private void btnConfiguracionUsuarios_Click(object sender, EventArgs e)
+        {
+            Configuracion config = new Configuracion();
+            config.Show();
+        }
     }
 }

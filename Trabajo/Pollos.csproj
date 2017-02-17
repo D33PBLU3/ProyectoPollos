@@ -64,13 +64,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addEdit.Designer.cs">
+      <DependentUpon>addEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="clienteAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="clienteAdmin.Designer.cs">
       <DependentUpon>clienteAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios.cs" />
     <Compile Include="Clientes.cs" />
+    <Compile Include="Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatosConexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,8 +133,14 @@
     <Compile Include="SevicioDomicilio.Designer.cs">
       <DependentUpon>SevicioDomicilio.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addEdit.resx">
+      <DependentUpon>addEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="clienteAdmin.resx">
       <DependentUpon>clienteAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DatosConexion.resx">
       <DependentUpon>DatosConexion.cs</DependentUpon>

@@ -29,23 +29,30 @@ namespace Pollos
             string colonia = txtColoniaC.Text;
             string entre = txtEntreC.Text;
 
-            resultado = query.AgregarCliente(nombre, tel, direccion, colonia, entre);
-
-            if(resultado > 0)
+            if(nombre == "" || direccion == "" || tel == "" || colonia == "" || entre == "")
             {
-                txtNombreC.Text = "";
-                txtDirC.Text = "";
-                txtTelC.Text = "";
-                txtColoniaC.Text = "";
-                txtEntreC.Text = "";
-
-                this.Close();
-                MessageBox.Show("EL cliente se a registrado");
-            }
-            else
+                MessageBox.Show("Todos los campos deben de estar llenos");
+            }else
             {
-                MessageBox.Show("Error al registrar el cliente");
+                resultado = query.AgregarCliente(nombre, tel, direccion, colonia, entre);
+                if (resultado > 0)
+                {
+                    txtNombreC.Text = "";
+                    txtDirC.Text = "";
+                    txtTelC.Text = "";
+                    txtColoniaC.Text = "";
+                    txtEntreC.Text = "";
+
+                    this.Close();
+                    MessageBox.Show("EL cliente se a registrado");
+                }
+                else
+                {
+                    MessageBox.Show("Error al registrar el cliente");
+                }
             }
+
+            
 
         }
     }
