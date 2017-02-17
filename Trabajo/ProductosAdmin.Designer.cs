@@ -36,6 +36,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.listSubProductos = new System.Windows.Forms.ListView();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.btn_agregarSubP = new System.Windows.Forms.Button();
+            this.btn_quitarSubP = new System.Windows.Forms.Button();
+            this.listSubProductosAg = new System.Windows.Forms.ListView();
+            this.idProductos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nombreProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.idProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nombreP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +65,7 @@
             this.txtTipoProducto.Name = "txtTipoProducto";
             this.txtTipoProducto.Size = new System.Drawing.Size(121, 21);
             this.txtTipoProducto.TabIndex = 1;
+            this.txtTipoProducto.TextChanged += new System.EventHandler(this.txtTipoProducto_TextChanged);
             // 
             // txtPrecio
             // 
@@ -107,11 +115,15 @@
             // 
             // listSubProductos
             // 
+            this.listSubProductos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.idProductos,
+            this.nombreProducto});
             this.listSubProductos.Location = new System.Drawing.Point(48, 85);
             this.listSubProductos.Name = "listSubProductos";
-            this.listSubProductos.Size = new System.Drawing.Size(400, 133);
+            this.listSubProductos.Size = new System.Drawing.Size(175, 133);
             this.listSubProductos.TabIndex = 6;
             this.listSubProductos.UseCompatibleStateImageBehavior = false;
+            this.listSubProductos.View = System.Windows.Forms.View.Details;
             this.listSubProductos.Visible = false;
             // 
             // btnAceptar
@@ -124,11 +136,67 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // btn_agregarSubP
+            // 
+            this.btn_agregarSubP.Location = new System.Drawing.Point(258, 98);
+            this.btn_agregarSubP.Name = "btn_agregarSubP";
+            this.btn_agregarSubP.Size = new System.Drawing.Size(75, 23);
+            this.btn_agregarSubP.TabIndex = 8;
+            this.btn_agregarSubP.Text = "Agregar";
+            this.btn_agregarSubP.UseVisualStyleBackColor = true;
+            this.btn_agregarSubP.Visible = false;
+            // 
+            // btn_quitarSubP
+            // 
+            this.btn_quitarSubP.Location = new System.Drawing.Point(258, 156);
+            this.btn_quitarSubP.Name = "btn_quitarSubP";
+            this.btn_quitarSubP.Size = new System.Drawing.Size(75, 23);
+            this.btn_quitarSubP.TabIndex = 9;
+            this.btn_quitarSubP.Text = "Eliminar";
+            this.btn_quitarSubP.UseVisualStyleBackColor = true;
+            this.btn_quitarSubP.Visible = false;
+            // 
+            // listSubProductosAg
+            // 
+            this.listSubProductosAg.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.idProducto,
+            this.nombreP});
+            this.listSubProductosAg.Location = new System.Drawing.Point(361, 85);
+            this.listSubProductosAg.Name = "listSubProductosAg";
+            this.listSubProductosAg.Size = new System.Drawing.Size(175, 133);
+            this.listSubProductosAg.TabIndex = 10;
+            this.listSubProductosAg.UseCompatibleStateImageBehavior = false;
+            this.listSubProductosAg.View = System.Windows.Forms.View.Details;
+            this.listSubProductosAg.Visible = false;
+            // 
+            // idProductos
+            // 
+            this.idProductos.Text = "ID";
+            this.idProductos.Width = 31;
+            // 
+            // nombreProducto
+            // 
+            this.nombreProducto.Text = "NOMBRE";
+            this.nombreProducto.Width = 139;
+            // 
+            // idProducto
+            // 
+            this.idProducto.Text = "ID";
+            this.idProducto.Width = 29;
+            // 
+            // nombreP
+            // 
+            this.nombreP.Text = "NOMBRE";
+            this.nombreP.Width = 141;
+            // 
             // ProductosAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 230);
+            this.Controls.Add(this.listSubProductosAg);
+            this.Controls.Add(this.btn_quitarSubP);
+            this.Controls.Add(this.btn_agregarSubP);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.listSubProductos);
             this.Controls.Add(this.label3);
@@ -156,5 +224,12 @@
         private System.Windows.Forms.ListView listSubProductos;
         private System.Windows.Forms.ComboBox txtTipoProducto;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btn_agregarSubP;
+        private System.Windows.Forms.Button btn_quitarSubP;
+        private System.Windows.Forms.ListView listSubProductosAg;
+        private System.Windows.Forms.ColumnHeader idProductos;
+        private System.Windows.Forms.ColumnHeader nombreProducto;
+        private System.Windows.Forms.ColumnHeader idProducto;
+        private System.Windows.Forms.ColumnHeader nombreP;
     }
 }

@@ -70,5 +70,24 @@ namespace Pollos
                 txtTipoProducto.Text = prod.tipo;
             }
         }
+
+        private void txtTipoProducto_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTipoProducto.Text == "PAQUETE")
+            {
+                listSubProductos.Visible = true;
+                listSubProductosAg.Visible = true;
+                btn_agregarSubP.Visible = true;
+                btn_quitarSubP.Visible = true;
+
+            }else
+            {
+                listSubProductos.Visible = false;
+                listSubProductosAg.Visible = false;
+                btn_agregarSubP.Visible = false;
+                btn_quitarSubP.Visible = false;
+
+            }
+        }
     }
 }
