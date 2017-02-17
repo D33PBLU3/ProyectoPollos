@@ -31,18 +31,24 @@ namespace Pollos
         {
             Querys query = new Querys();
 
-            int respuesta = query.EditarCliente(id, txtNombreC.Text, txtTelC.Text, txtDirC.Text, txtEntreC.Text, txtColoniaC.Text);
-
-            if(respuesta == 1)
+            if(txtNombreC.Text == "" || txtTelC.Text == "" || txtEntreC.Text == "" || txtColoniaC.Text == "" || txtDirC.Text == "")
             {
-
-                this.Close();
-                MessageBox.Show("Los datos se editaron correctamente");
+                MessageBox.Show("Todos los campos deben de estar llenos");
             }else
             {
-                MessageBox.Show("Ocurrio un error vuelva a intentarlo");
+                int respuesta = query.EditarCliente(id, txtNombreC.Text, txtTelC.Text, txtDirC.Text, txtEntreC.Text, txtColoniaC.Text);
+
+                if (respuesta == 1)
+                {
+
+                    this.Close();
+                    MessageBox.Show("Los datos se editaron correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrio un error vuelva a intentarlo");
+                }
             }
-            
         }
     }
 }

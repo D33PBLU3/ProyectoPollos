@@ -33,9 +33,7 @@ namespace Pollos
                 MessageBox.Show("Error al conectarse a la base de datos");
             }
             else
-            {
-                //MessageBox.Show("Conectado");
-                
+            {                
                 loginSuccesful = true;
                 Close();
                 

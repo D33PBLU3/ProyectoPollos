@@ -16,16 +16,23 @@ namespace Pollos
         {
             InitializeComponent();
             listClientes.FullRowSelect = true;
+            Actualizar();
 
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
             clienteAdmin admin = new clienteAdmin();
-            admin.Show();
+            admin.ShowDialog();
+            Actualizar();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Actualizar()
         {
             listClientes.Items.Clear();
 
@@ -60,35 +67,7 @@ namespace Pollos
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            listClientes.Items.Clear();
-
-            List<Clientes> lista = new List<Clientes>();
-
-            Querys query = new Querys();
-
-            string buscar = txtBuscar.Text;
-
-            lista = query.BuscarCliente(buscar);
-
-            int cont = 0;
-
-            if (lista.Count == 0)
-            {
-            }
-            else
-            {
-                foreach (Clientes cliente in lista)
-                {
-                    listClientes.Items.Add(cliente.id, 0);
-                    listClientes.Items[cont].SubItems.Add(cliente.nombre);
-                    listClientes.Items[cont].SubItems.Add(cliente.tel);
-                    listClientes.Items[cont].SubItems.Add(cliente.direccion);
-                    listClientes.Items[cont].SubItems.Add(cliente.calles);
-                    listClientes.Items[cont].SubItems.Add(cliente.colonia);
-
-                    cont++;
-                }
-            }
+            Actualizar();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -103,7 +82,9 @@ namespace Pollos
                 string colonia = listClientes.SelectedItems[0].SubItems[5].Text;
 
                 EditarCliente editaCliente = new EditarCliente(id, nombre, tel, dir, calles, colonia);
-                editaCliente.Show();
+                editaCliente.ShowDialog();
+                Actualizar();
+
             }
             catch
             {
@@ -136,6 +117,11 @@ namespace Pollos
             {
                 MessageBox.Show("No se ha seleccionado algun cliente");
             }
+        }
+
+        private void listClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

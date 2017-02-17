@@ -30,8 +30,8 @@
         {
             this.listProductos = new System.Windows.Forms.ListView();
             this.idProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tipoProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nombreProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tipoProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.precioProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.btnEditarProducto = new System.Windows.Forms.Button();
@@ -57,15 +57,15 @@
             this.idProducto.Text = "ID";
             this.idProducto.Width = 89;
             // 
-            // tipoProducto
-            // 
-            this.tipoProducto.Text = "TIPO";
-            this.tipoProducto.Width = 101;
-            // 
             // nombreProducto
             // 
             this.nombreProducto.Text = "NOMBRE";
             this.nombreProducto.Width = 178;
+            // 
+            // tipoProducto
+            // 
+            this.tipoProducto.Text = "TIPO";
+            this.tipoProducto.Width = 101;
             // 
             // precioProducto
             // 
@@ -74,31 +74,31 @@
             // 
             // btnAgregarProducto
             // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(506, 12);
+            this.btnAgregarProducto.Location = new System.Drawing.Point(495, 12);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarProducto.Size = new System.Drawing.Size(102, 23);
             this.btnAgregarProducto.TabIndex = 1;
-            this.btnAgregarProducto.Text = "agregar";
+            this.btnAgregarProducto.Text = "Agregar Producto";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
             this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // btnEditarProducto
             // 
-            this.btnEditarProducto.Location = new System.Drawing.Point(506, 55);
+            this.btnEditarProducto.Location = new System.Drawing.Point(495, 41);
             this.btnEditarProducto.Name = "btnEditarProducto";
-            this.btnEditarProducto.Size = new System.Drawing.Size(75, 23);
+            this.btnEditarProducto.Size = new System.Drawing.Size(102, 23);
             this.btnEditarProducto.TabIndex = 2;
-            this.btnEditarProducto.Text = "Editar";
+            this.btnEditarProducto.Text = "Editar Producto";
             this.btnEditarProducto.UseVisualStyleBackColor = true;
             this.btnEditarProducto.Click += new System.EventHandler(this.btnEditarProducto_Click);
             // 
             // btnEliminarProducto
             // 
-            this.btnEliminarProducto.Location = new System.Drawing.Point(506, 102);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(495, 70);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
-            this.btnEliminarProducto.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarProducto.Size = new System.Drawing.Size(102, 23);
             this.btnEliminarProducto.TabIndex = 3;
-            this.btnEliminarProducto.Text = "Eliminar";
+            this.btnEliminarProducto.Text = "Eliminar Producto";
             this.btnEliminarProducto.UseVisualStyleBackColor = true;
             this.btnEliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
             // 
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 358);
+            this.ClientSize = new System.Drawing.Size(604, 358);
             this.Controls.Add(this.btnEliminarProducto);
             this.Controls.Add(this.btnEditarProducto);
             this.Controls.Add(this.btnAgregarProducto);

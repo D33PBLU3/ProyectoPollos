@@ -178,6 +178,7 @@ namespace Pollos
             }
             return null;
         }
+
         public int EliminarProducto(string id)
         {
             MySqlConnection conectar = DB.ObtenerConexion();
@@ -186,6 +187,103 @@ namespace Pollos
             {
                 MySqlCommand comando = new MySqlCommand(String.Format(
                 "UPDATE Productos SET estatusProducto = 'INACTIVO' WHERE idProductos = '{0}'"
+                , id), conectar);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+
+            }
+            return 0;
+        }
+
+        public List<Usuarios> BuscarUsuario(string nick)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            List<Usuarios> lista = new List<Usuarios>();
+
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "SELECT * FROM usuarios WHERE nickName LIKE '%" + nick + "%' and estatusUsuario = 'ACTIVO'"), conectar);
+
+                MySqlDataReader lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Usuarios usuario = new Usuarios();
+                    usuario.id = lector.GetString(0);
+                    usuario.nickName = lector.GetString(1);
+                    usuario.pass = lector.GetString(2);
+                    usuario.tipo = lector.GetString(3);
+                    usuario.status = lector.GetString(4);
+
+                    lista.Add(usuario);
+                }
+                return lista;
+            }
+            return null;
+        }
+
+        public int AgregarUsuario(string nombre, string pass, string permis)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            if (conectar != null)
+            {
+
+                int retorno = 0;
+
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "INSERT INTO usuarios(nickName, password, tipoPermiso) VALUES('{0}', '{1}', '{2}')",
+                nombre, pass, permis), conectar);
+
+                retorno = comando.ExecuteNonQuery();
+
+                return retorno;
+            }
+            return 0;
+        }
+
+        public int EditarUsuario(string id, string nick, string pass, string permis)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "UPDATE usuarios SET nickName = '{0}', password = '{1}', tipoPermiso = '{2}' WHERE idUsuario = '{3}'"
+                , nick, pass, permis, id), conectar);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+
+            }
+            return 0;
+        }
+
+        public int EliminarUsuario(string id)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "UPDATE usuarios SET estatusUsuario = 'INACTIVO' WHERE idUsuario = '{0}'"
                 , id), conectar);
 
                 if (comando.ExecuteNonQuery() == 1)

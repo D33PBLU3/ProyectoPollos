@@ -45,7 +45,7 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(772, 114);
+            this.btnClientes.Location = new System.Drawing.Point(686, 46);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(93, 28);
             this.btnClientes.TabIndex = 0;
@@ -84,10 +84,11 @@
             listViewItem1});
             this.listClientes.Location = new System.Drawing.Point(12, 46);
             this.listClientes.Name = "listClientes";
-            this.listClientes.Size = new System.Drawing.Size(743, 96);
+            this.listClientes.Size = new System.Drawing.Size(668, 307);
             this.listClientes.TabIndex = 4;
             this.listClientes.UseCompatibleStateImageBehavior = false;
             this.listClientes.View = System.Windows.Forms.View.Details;
+            this.listClientes.SelectedIndexChanged += new System.EventHandler(this.listClientes_SelectedIndexChanged);
             // 
             // ID
             // 
@@ -97,31 +98,31 @@
             // NOMBRE
             // 
             this.NOMBRE.Text = "NOMBRE";
-            this.NOMBRE.Width = 156;
+            this.NOMBRE.Width = 139;
             // 
             // TELEFONO
             // 
             this.TELEFONO.Text = "TELEFONO";
-            this.TELEFONO.Width = 131;
+            this.TELEFONO.Width = 122;
             // 
             // DIRECCION
             // 
             this.DIRECCION.Text = "DIRECCION";
-            this.DIRECCION.Width = 184;
+            this.DIRECCION.Width = 121;
             // 
             // CALLES
             // 
             this.CALLES.Text = "CALLES";
-            this.CALLES.Width = 131;
+            this.CALLES.Width = 110;
             // 
             // COLONIA
             // 
             this.COLONIA.Text = "COLONIA";
-            this.COLONIA.Width = 129;
+            this.COLONIA.Width = 123;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(772, 80);
+            this.button1.Location = new System.Drawing.Point(686, 114);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 28);
             this.button1.TabIndex = 5;
@@ -131,7 +132,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(772, 46);
+            this.button2.Location = new System.Drawing.Point(686, 80);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 28);
             this.button2.TabIndex = 6;
@@ -143,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 365);
+            this.ClientSize = new System.Drawing.Size(787, 365);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listClientes);

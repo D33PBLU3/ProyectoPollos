@@ -62,6 +62,7 @@
             this.btnConfiguracionUsuarios.TabIndex = 2;
             this.btnConfiguracionUsuarios.Text = "CONFIGURACION";
             this.btnConfiguracionUsuarios.UseVisualStyleBackColor = true;
+            this.btnConfiguracionUsuarios.Click += new System.EventHandler(this.btnConfiguracionUsuarios_Click);
             // 
             // btnVentas
             // 

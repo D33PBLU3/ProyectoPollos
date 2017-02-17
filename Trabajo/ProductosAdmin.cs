@@ -47,11 +47,11 @@ namespace Pollos
             if (resultado > 0)
                 {
                     Close();
-                    MessageBox.Show("Producto registrado");
+                    MessageBox.Show("Producto Actualizado");
                 }
                 else
                 {
-                    MessageBox.Show("Error al registrar el producto");
+                    MessageBox.Show("Error al actualizar el producto");
 
                 }
            
