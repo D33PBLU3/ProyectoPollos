@@ -35,15 +35,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.listSubProductos = new System.Windows.Forms.ListView();
+            this.idProductos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nombreProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btn_agregarSubP = new System.Windows.Forms.Button();
             this.btn_quitarSubP = new System.Windows.Forms.Button();
             this.listSubProductosAg = new System.Windows.Forms.ListView();
-            this.idProductos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nombreProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.idProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nombreP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cantidadSubP = new System.Windows.Forms.NumericUpDown();
+            this.cantidadSubProductos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cantidadSubP)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombreProducto
@@ -126,6 +129,16 @@
             this.listSubProductos.View = System.Windows.Forms.View.Details;
             this.listSubProductos.Visible = false;
             // 
+            // idProductos
+            // 
+            this.idProductos.Text = "ID";
+            this.idProductos.Width = 31;
+            // 
+            // nombreProducto
+            // 
+            this.nombreProducto.Text = "NOMBRE";
+            this.nombreProducto.Width = 139;
+            // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(500, 22);
@@ -138,13 +151,14 @@
             // 
             // btn_agregarSubP
             // 
-            this.btn_agregarSubP.Location = new System.Drawing.Point(258, 98);
+            this.btn_agregarSubP.Location = new System.Drawing.Point(258, 127);
             this.btn_agregarSubP.Name = "btn_agregarSubP";
             this.btn_agregarSubP.Size = new System.Drawing.Size(75, 23);
             this.btn_agregarSubP.TabIndex = 8;
             this.btn_agregarSubP.Text = "Agregar";
             this.btn_agregarSubP.UseVisualStyleBackColor = true;
             this.btn_agregarSubP.Visible = false;
+            this.btn_agregarSubP.Click += new System.EventHandler(this.btn_agregarSubP_Click);
             // 
             // btn_quitarSubP
             // 
@@ -155,29 +169,21 @@
             this.btn_quitarSubP.Text = "Eliminar";
             this.btn_quitarSubP.UseVisualStyleBackColor = true;
             this.btn_quitarSubP.Visible = false;
+            this.btn_quitarSubP.Click += new System.EventHandler(this.btn_quitarSubP_Click);
             // 
             // listSubProductosAg
             // 
             this.listSubProductosAg.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.idProducto,
-            this.nombreP});
+            this.nombreP,
+            this.cantidadSubProductos});
             this.listSubProductosAg.Location = new System.Drawing.Point(361, 85);
             this.listSubProductosAg.Name = "listSubProductosAg";
-            this.listSubProductosAg.Size = new System.Drawing.Size(175, 133);
+            this.listSubProductosAg.Size = new System.Drawing.Size(193, 133);
             this.listSubProductosAg.TabIndex = 10;
             this.listSubProductosAg.UseCompatibleStateImageBehavior = false;
             this.listSubProductosAg.View = System.Windows.Forms.View.Details;
             this.listSubProductosAg.Visible = false;
-            // 
-            // idProductos
-            // 
-            this.idProductos.Text = "ID";
-            this.idProductos.Width = 31;
-            // 
-            // nombreProducto
-            // 
-            this.nombreProducto.Text = "NOMBRE";
-            this.nombreProducto.Width = 139;
             // 
             // idProducto
             // 
@@ -187,13 +193,33 @@
             // nombreP
             // 
             this.nombreP.Text = "NOMBRE";
-            this.nombreP.Width = 141;
+            this.nombreP.Width = 89;
+            // 
+            // cantidadSubP
+            // 
+            this.cantidadSubP.DecimalPlaces = 1;
+            this.cantidadSubP.Location = new System.Drawing.Point(258, 85);
+            this.cantidadSubP.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.cantidadSubP.Name = "cantidadSubP";
+            this.cantidadSubP.Size = new System.Drawing.Size(46, 20);
+            this.cantidadSubP.TabIndex = 11;
+            this.cantidadSubP.Visible = false;
+            // 
+            // cantidadSubProductos
+            // 
+            this.cantidadSubProductos.Text = "CANTIDAD";
+            this.cantidadSubProductos.Width = 82;
             // 
             // ProductosAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 230);
+            this.Controls.Add(this.cantidadSubP);
             this.Controls.Add(this.listSubProductosAg);
             this.Controls.Add(this.btn_quitarSubP);
             this.Controls.Add(this.btn_agregarSubP);
@@ -209,6 +235,7 @@
             this.Text = "ProductosAdmin";
             this.Load += new System.EventHandler(this.ProductosAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cantidadSubP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +258,7 @@
         private System.Windows.Forms.ColumnHeader nombreProducto;
         private System.Windows.Forms.ColumnHeader idProducto;
         private System.Windows.Forms.ColumnHeader nombreP;
+        private System.Windows.Forms.NumericUpDown cantidadSubP;
+        private System.Windows.Forms.ColumnHeader cantidadSubProductos;
     }
 }

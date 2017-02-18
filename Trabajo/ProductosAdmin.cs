@@ -18,6 +18,9 @@ namespace Pollos
         public ProductosAdmin()
         {
             InitializeComponent();
+            listSubProductos.FullRowSelect = true;
+            listSubProductos.CheckBoxes = true;
+            listSubProductosAg.CheckBoxes = true;
             operacion = 0;
             prod = new Producto();
         }
@@ -29,7 +32,7 @@ namespace Pollos
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            
+            SubProducto sp = new SubProducto();
                 Querys query = new Querys();
                 int resultado = 0;
                 prod.nombre = txtNombreProducto.Text;
@@ -41,9 +44,22 @@ namespace Pollos
                     return;
                 }
             if (operacion == 1)
+            {
                 resultado = query.AgregarProducto(prod.nombre, prod.tipo, prod.precio);
+                if (prod.tipo == "PAQUETE")
+                {
+                    sp.idProductos = query.getLastProducto();
+                    for (int i = 0; i < listSubProductosAg.Items.Count; i++)
+                    {
+                        sp.idSubProducto = Convert.ToInt32(listSubProductosAg.Items[i].Text);
+                        sp.cantidad = Convert.ToDecimal(listSubProductosAg.Items[i].SubItems[2].Text);
+                        query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
+                
+                    }
+                }   
+            }
             else
-                resultado = query.EditarProducto(prod.id,prod.nombre, prod.tipo, prod.precio);
+                resultado = query.EditarProducto(prod.id, prod.nombre, prod.tipo, prod.precio);
             if (resultado > 0)
                 {
                     Close();
@@ -79,13 +95,69 @@ namespace Pollos
                 listSubProductosAg.Visible = true;
                 btn_agregarSubP.Visible = true;
                 btn_quitarSubP.Visible = true;
+                cantidadSubP.Visible = true;
+                Querys query = new Querys();
+                List<Producto> lista;
+                lista = query.getProductos();
+                int cont = 0;
+                if (lista.Count == 0)
+                {
+                }
+                else
+                {
+                    foreach (Producto p in lista)
+                    {
+                        listSubProductos.Items.Add(Convert.ToString(p.id), 0);
+                        listSubProductos.Items[cont].SubItems.Add(p.nombre);
+                        
 
-            }else
+                        cont++;
+                    }
+                }
+
+            }
+            else
             {
                 listSubProductos.Visible = false;
                 listSubProductosAg.Visible = false;
                 btn_agregarSubP.Visible = false;
                 btn_quitarSubP.Visible = false;
+                cantidadSubP.Visible = false;
+
+            }
+        }
+
+        private void btn_agregarSubP_Click(object sender, EventArgs e)
+        {
+            string cantidad;
+            cantidad = cantidadSubP.Text;
+            cantidadSubP.Text = "0,00";
+            int j = listSubProductosAg.Items.Count;
+            for (int i = 0; i < listSubProductos.Items.Count; i++)
+            {
+                if (listSubProductos.Items[i].Checked)
+                {
+                    listSubProductosAg.Items.Add(listSubProductos.Items[i].Text);
+                    listSubProductosAg.Items[j].SubItems.Add(listSubProductos.Items[i].SubItems[1].Text);
+                    listSubProductosAg.Items[j].SubItems.Add(cantidad);
+                    listSubProductos.Items[i].Checked = false;
+                    j++;
+
+                }
+                    
+            }
+        }
+
+        private void btn_quitarSubP_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listSubProductosAg.Items.Count; i++)
+            {
+                if (listSubProductosAg.Items[i].Checked)
+                {
+                    listSubProductosAg.Items[i].Remove();
+                    i--;
+
+                }
 
             }
         }

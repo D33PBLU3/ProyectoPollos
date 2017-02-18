@@ -83,8 +83,8 @@ namespace Pollos
                 foreach (Producto p in lista)
                 {
                     listProductos.Items.Add(Convert.ToString(p.id), 0);
-                    listProductos.Items[cont].SubItems.Add(p.tipo);
                     listProductos.Items[cont].SubItems.Add(p.nombre);
+                    listProductos.Items[cont].SubItems.Add(p.tipo);
                     listProductos.Items[cont].SubItems.Add(Convert.ToString(p.precio));
                     
 

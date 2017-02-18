@@ -76,6 +76,7 @@
     <Compile Include="clienteAdmin.Designer.cs">
       <DependentUpon>clienteAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubProducto.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Clientes.cs" />
     <Compile Include="Configuracion.cs">

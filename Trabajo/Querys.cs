@@ -167,8 +167,8 @@ namespace Pollos
                 {
                     Producto p = new Producto();
                     p.id = Convert.ToInt32(lector.GetString(0));
-                    p.nombre = lector.GetString(1);
-                    p.tipo = lector.GetString(2);
+                    p.nombre = lector.GetString(2);
+                    p.tipo = lector.GetString(1);
                     p.precio = Convert.ToDecimal(lector.GetString(3));
                     p.estatus = lector.GetString(4);
                     
@@ -298,6 +298,49 @@ namespace Pollos
 
             }
             return 0;
+        }
+        public int AgregarSubProducto(int idProductos, int idSubProductos, decimal cantidad)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+            string cantidadtx = String.Format("{0:0.00}", cantidad);
+            cantidadtx = cantidadtx.Replace(",", ".");
+            if (conectar != null)
+            {
+
+                int retorno = 0;
+
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "INSERT INTO subProductos(idproductos,idSubProducto, cantidad) VALUES('{0}', '{1}', '{2}')",
+                idProductos, idSubProductos, cantidadtx), conectar);
+
+                retorno = comando.ExecuteNonQuery();
+
+                return retorno;
+            }
+            return 0;
+        }
+        public int getLastProducto()
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            List<Usuarios> lista = new List<Usuarios>();
+            Producto p = new Producto();
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "SELECT max(idProductos) FROM productos WHERE estatusProducto='ACTIVO'"), conectar);
+
+                MySqlDataReader lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                   
+                    p.id = Convert.ToInt32(lector.GetString(0));
+                    
+                }
+                return p.id;
+            }
+            return -1;
         }
     }
 }
