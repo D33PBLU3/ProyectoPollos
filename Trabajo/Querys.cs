@@ -319,6 +319,50 @@ namespace Pollos
             }
             return 0;
         }
+        /*public int EditarSubProducto(int idProductos, int idSubProducto, Decimal cantidad)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+            string cantidadtx = String.Format("{0:0.00}", cantidad);
+            cantidadtx = cantidadtx.Replace(",", ".");
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "UPDATE SubProductos SET idProductos = '{0}', idSubProducto = '{1}', cantidad = '{2}' where idProductos='{3}' and idSubProducto='{1}'"
+                , nombre, tipo, preciotx, id), conectar);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+
+            }
+            return 0;
+        }*/
+        public int EliminarSubProductos (int idProductos)
+        {
+
+            MySqlConnection conectar = DB.ObtenerConexion();
+            if (conectar != null)
+            {
+
+                int retorno = 0;
+
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "DELETE FROM subProductos WHERE idProductos='{0}'",
+                idProductos), conectar);
+
+                retorno = comando.ExecuteNonQuery();
+
+                return retorno;
+            }
+            return 0;
+
+        }
         public int getLastProducto()
         {
             MySqlConnection conectar = DB.ObtenerConexion();
@@ -341,6 +385,31 @@ namespace Pollos
                 return p.id;
             }
             return -1;
+        }
+        public List<SubProducto> getSubProductos(int idProducto)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            List<SubProducto> lista = new List<SubProducto>();
+
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "select productos.idproductos,productos.nombreproducto,subproductos.cantidad from productos,subproductos where '{0}'=subproductos.idProductos and productos.idProductos=subProductos.idSubProducto",idProducto) ,conectar);
+
+                MySqlDataReader lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    SubProducto sp = new SubProducto();
+                    sp.idProductos = Convert.ToInt32(lector.GetString(0));
+                    sp.nombre = lector.GetString(1);
+                    sp.cantidad = Convert.ToDecimal(lector.GetString(2));
+                    lista.Add(sp);
+                }
+                return lista;
+            }
+            return null;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Pollos
        public int idProductos;
        public int idSubProducto;
        public Decimal cantidad;
+        public string nombre; 
        public  SubProducto()
         {
             idProductos = 0;

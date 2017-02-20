@@ -54,13 +54,28 @@ namespace Pollos
                         sp.idSubProducto = Convert.ToInt32(listSubProductosAg.Items[i].Text);
                         sp.cantidad = Convert.ToDecimal(listSubProductosAg.Items[i].SubItems[2].Text);
                         query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
-                
+
                     }
-                }   
+                }
             }
             else
+            {   
                 resultado = query.EditarProducto(prod.id, prod.nombre, prod.tipo, prod.precio);
-            if (resultado > 0)
+                query.EliminarSubProductos(prod.id);
+                if (prod.tipo == "PAQUETE")
+                {
+                    sp.idProductos = query.getLastProducto();
+                    for (int i = 0; i < listSubProductosAg.Items.Count; i++)
+                    {
+                        sp.idSubProducto = Convert.ToInt32(listSubProductosAg.Items[i].Text);
+                        sp.cantidad = Convert.ToDecimal(listSubProductosAg.Items[i].SubItems[2].Text);
+                       
+                        query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
+
+                    }
+                }
+            }
+                if (resultado > 0)
                 {
                     Close();
                     MessageBox.Show("Producto Actualizado");
@@ -79,11 +94,26 @@ namespace Pollos
 
         private void ProductosAdmin_Load(object sender, EventArgs e)
         {
+            Querys query = new Querys();
+            int cont = 0;
+            List<SubProducto> listaSub=new List<SubProducto>();
             if (operacion == 2)
             {
+                listaSub = query.getSubProductos(prod.id);
                 txtNombreProducto.Text = prod.nombre;
                 txtPrecio.Text = Convert.ToString(prod.precio);
                 txtTipoProducto.Text = prod.tipo;
+                foreach (SubProducto sp in listaSub)
+                {
+                    listSubProductosAg.Items.Add(Convert.ToString(sp.idProductos), 0);
+                    listSubProductosAg.Items[cont].SubItems.Add(sp.nombre);
+                    listSubProductosAg.Items[cont].SubItems.Add(Convert.ToString(sp.cantidad));
+
+
+                    cont++;
+                }
+
+
             }
         }
 
