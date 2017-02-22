@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.btnServicioDomicilio = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnConfiguracionUsuarios = new System.Windows.Forms.Button();
@@ -36,54 +37,55 @@
             // 
             // btnServicioDomicilio
             // 
-            this.btnServicioDomicilio.Location = new System.Drawing.Point(27, 72);
+            this.btnServicioDomicilio.Image = ((System.Drawing.Image)(resources.GetObject("btnServicioDomicilio.Image")));
+            this.btnServicioDomicilio.Location = new System.Drawing.Point(12, 12);
             this.btnServicioDomicilio.Name = "btnServicioDomicilio";
-            this.btnServicioDomicilio.Size = new System.Drawing.Size(199, 84);
+            this.btnServicioDomicilio.Size = new System.Drawing.Size(67, 57);
             this.btnServicioDomicilio.TabIndex = 0;
-            this.btnServicioDomicilio.Text = "SERVICIO DOMICILIO";
             this.btnServicioDomicilio.UseVisualStyleBackColor = true;
             this.btnServicioDomicilio.Click += new System.EventHandler(this.btnServicioDomicilio_Click);
             // 
             // btnProductos
             // 
-            this.btnProductos.Location = new System.Drawing.Point(496, 72);
+            this.btnProductos.Image = ((System.Drawing.Image)(resources.GetObject("btnProductos.Image")));
+            this.btnProductos.Location = new System.Drawing.Point(158, 12);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(205, 84);
+            this.btnProductos.Size = new System.Drawing.Size(67, 57);
             this.btnProductos.TabIndex = 1;
-            this.btnProductos.Text = "PRODUCTOS";
             this.btnProductos.UseVisualStyleBackColor = true;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnConfiguracionUsuarios
             // 
-            this.btnConfiguracionUsuarios.Location = new System.Drawing.Point(734, 72);
+            this.btnConfiguracionUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnConfiguracionUsuarios.Image")));
+            this.btnConfiguracionUsuarios.Location = new System.Drawing.Point(231, 12);
             this.btnConfiguracionUsuarios.Name = "btnConfiguracionUsuarios";
-            this.btnConfiguracionUsuarios.Size = new System.Drawing.Size(198, 84);
+            this.btnConfiguracionUsuarios.Size = new System.Drawing.Size(67, 57);
             this.btnConfiguracionUsuarios.TabIndex = 2;
-            this.btnConfiguracionUsuarios.Text = "CONFIGURACION";
             this.btnConfiguracionUsuarios.UseVisualStyleBackColor = true;
             this.btnConfiguracionUsuarios.Click += new System.EventHandler(this.btnConfiguracionUsuarios_Click);
             // 
             // btnVentas
             // 
-            this.btnVentas.Location = new System.Drawing.Point(259, 72);
+            this.btnVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnVentas.Image")));
+            this.btnVentas.Location = new System.Drawing.Point(85, 12);
             this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Size = new System.Drawing.Size(207, 84);
+            this.btnVentas.Size = new System.Drawing.Size(67, 57);
             this.btnVentas.TabIndex = 3;
-            this.btnVentas.Text = "VENTAS";
             this.btnVentas.UseVisualStyleBackColor = true;
             // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 217);
+            this.ClientSize = new System.Drawing.Size(311, 80);
             this.Controls.Add(this.btnVentas);
             this.Controls.Add(this.btnConfiguracionUsuarios);
             this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.btnServicioDomicilio);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuPrincipal";
-            this.Text = "MenuPrincipal";
+            this.Text = "Menu Principal";
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.ResumeLayout(false);
 

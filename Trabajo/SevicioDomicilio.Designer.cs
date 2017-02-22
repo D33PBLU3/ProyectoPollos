@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SevicioDomicilio));
             this.btnClientes = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.listClientes = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -53,16 +53,6 @@
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(304, 7);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(108, 28);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Actualizar datos";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // txtBuscar
             // 
             this.txtBuscar.Location = new System.Drawing.Point(12, 12);
@@ -81,7 +71,7 @@
             this.CALLES,
             this.COLONIA});
             this.listClientes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.listClientes.Location = new System.Drawing.Point(12, 46);
             this.listClientes.Name = "listClientes";
             this.listClientes.Size = new System.Drawing.Size(668, 307);
@@ -149,10 +139,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listClientes);
             this.Controls.Add(this.txtBuscar);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnClientes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SevicioDomicilio";
-            this.Text = "SevicioDomicilio";
+            this.Text = "Sevicio a Domicilio";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,7 +151,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.ListView listClientes;
         private System.Windows.Forms.ColumnHeader ID;

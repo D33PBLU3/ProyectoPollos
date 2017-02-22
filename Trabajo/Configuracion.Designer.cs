@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracion));
             this.textBuscar = new System.Windows.Forms.TextBox();
             this.listaUsuarios = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -121,6 +122,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listaUsuarios);
             this.Controls.Add(this.textBuscar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Configuracion";
             this.Text = "Configuracion";
             this.ResumeLayout(false);
