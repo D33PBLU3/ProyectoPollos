@@ -78,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 80);
+            this.ClientSize = new System.Drawing.Size(308, 79);
             this.Controls.Add(this.btnVentas);
             this.Controls.Add(this.btnConfiguracionUsuarios);
             this.Controls.Add(this.btnProductos);
