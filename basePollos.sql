@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `pollos`.`clientes` (
   `estatusCliente` VARCHAR(45) NOT NULL DEFAULT 'ACTIVO',
   PRIMARY KEY (`idclientes`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -58,11 +59,12 @@ CREATE TABLE IF NOT EXISTS `pollos`.`productos` (
   `idproductos` INT(11) NOT NULL AUTO_INCREMENT,
   `tipoproducto` VARCHAR(100) NOT NULL,
   `nombreproducto` VARCHAR(100) NULL DEFAULT NULL,
-  `precioproducto` FLOAT NULL DEFAULT NULL,
+  `precioproducto` DECIMAL(10,2) NULL DEFAULT NULL,
   `estatusProducto` VARCHAR(45) NULL DEFAULT 'ACTIVO',
   PRIMARY KEY (`idproductos`),
   UNIQUE INDEX `idproductos_UNIQUE` (`idproductos` ASC))
 ENGINE = InnoDB
+AUTO_INCREMENT = 16
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -103,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `pollos`.`usuarios` (
   UNIQUE INDEX `idUsuario_UNIQUE` (`idUsuario` ASC),
   UNIQUE INDEX `nickName_UNIQUE` (`nickName` ASC))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -156,6 +159,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `pollos`.`subproductos` (
   `idProductos` INT(11) NOT NULL,
   `idSubProducto` INT(11) NOT NULL,
+  `cantidad` DECIMAL(10,0) NULL DEFAULT NULL,
   INDEX `idSubProducto_idx` (`idSubProducto` ASC),
   INDEX `idProducto_idx` (`idProductos` ASC),
   CONSTRAINT `idProducto`
