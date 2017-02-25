@@ -123,5 +123,36 @@ namespace Pollos
         {
 
         }
+
+        private void gridProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void SevicioDomicilio_Load(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void gridProductos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void gridProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            buscarProductos bp = new buscarProductos();
+            bp.ShowDialog();
+            if (bp.encontrado)
+            {
+                DataGridViewRow row = (DataGridViewRow)gridProductos.Rows[0].Clone();
+                row.Cells[0].Value = Convert.ToString(bp.p.id);
+                row.Cells[1].Value = bp.p.nombre;
+                row.Cells[2].Value = bp.p.tipo;
+                row.Cells[3].Value = Convert.ToString(bp.p.precio);
+                row.Cells[4].Value = "1";
+                gridProductos.Rows.Add(row);
+            }
+        }
     }
 }

@@ -70,12 +70,20 @@
     <Compile Include="addEdit.Designer.cs">
       <DependentUpon>addEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="buscarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buscarProductos.Designer.cs">
+      <DependentUpon>buscarProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="clienteAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="clienteAdmin.Designer.cs">
       <DependentUpon>clienteAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="detallePedido.cs" />
+    <Compile Include="Pedido.cs" />
     <Compile Include="SubProducto.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Clientes.cs" />
@@ -136,6 +144,9 @@
     </Compile>
     <EmbeddedResource Include="addEdit.resx">
       <DependentUpon>addEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="buscarProductos.resx">
+      <DependentUpon>buscarProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="clienteAdmin.resx">
       <DependentUpon>clienteAdmin.cs</DependentUpon>

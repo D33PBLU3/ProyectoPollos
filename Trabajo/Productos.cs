@@ -42,8 +42,8 @@ namespace Pollos
                 productosAd.ShowDialog();
                 actualizar();
             }
-            catch
-            {
+           catch
+           {
                 MessageBox.Show("No se ha seleccionado algun producto");
            }
         }

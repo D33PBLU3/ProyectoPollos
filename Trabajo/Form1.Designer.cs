@@ -59,20 +59,20 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(138, 28);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(177, 20);
             this.txtUsuario.TabIndex = 2;
             // 
             // txtContra
             // 
             this.txtContra.Location = new System.Drawing.Point(138, 71);
             this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(100, 20);
+            this.txtContra.Size = new System.Drawing.Size(177, 20);
             this.txtContra.TabIndex = 3;
             this.txtContra.UseSystemPasswordChar = true;
             // 
             // btn_ingresar
             // 
-            this.btn_ingresar.Location = new System.Drawing.Point(111, 121);
+            this.btn_ingresar.Location = new System.Drawing.Point(410, 25);
             this.btn_ingresar.Name = "btn_ingresar";
             this.btn_ingresar.Size = new System.Drawing.Size(75, 23);
             this.btn_ingresar.TabIndex = 4;
@@ -83,7 +83,7 @@
             // btnOpciones
             // 
             this.btnOpciones.Image = ((System.Drawing.Image)(resources.GetObject("btnOpciones.Image")));
-            this.btnOpciones.Location = new System.Drawing.Point(248, 139);
+            this.btnOpciones.Location = new System.Drawing.Point(436, 63);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(35, 35);
             this.btnOpciones.TabIndex = 5;
@@ -94,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 188);
+            this.ClientSize = new System.Drawing.Size(497, 108);
             this.Controls.Add(this.txtContra);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label1);
@@ -104,7 +104,9 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(500, 500);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "LOGIN";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.ResumeLayout(false);

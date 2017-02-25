@@ -49,12 +49,19 @@ namespace Pollos
                 if (prod.tipo == "PAQUETE")
                 {
                     sp.idProductos = query.getLastProducto();
-                    for (int i = 0; i < listSubProductosAg.Items.Count; i++)
+                    /*for (int i = 0; i < listSubProductosAg.Items.Count; i++)
                     {
                         sp.idSubProducto = Convert.ToInt32(listSubProductosAg.Items[i].Text);
                         sp.cantidad = Convert.ToDecimal(listSubProductosAg.Items[i].SubItems[2].Text);
                         query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
 
+                    }*/
+                    foreach (DataGridViewRow row in gridProductos.Rows)
+                    {
+
+                        sp.idProductos  = Convert.ToInt32(row.Cells[0].Value);
+                        sp.cantidad = Convert.ToDecimal(row.Cells[4].Value);
+                        query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
                     }
                 }
             }
@@ -64,14 +71,17 @@ namespace Pollos
                 query.EliminarSubProductos(prod.id);
                 if (prod.tipo == "PAQUETE")
                 {
-                    sp.idProductos = query.getLastProducto();
-                    for (int i = 0; i < listSubProductosAg.Items.Count; i++)
+                    sp.idProductos = prod.id;
+                   // sp.idProductos = query.getLastProducto();
+                    foreach (DataGridViewRow row in gridProductos.Rows)
                     {
-                        sp.idSubProducto = Convert.ToInt32(listSubProductosAg.Items[i].Text);
-                        sp.cantidad = Convert.ToDecimal(listSubProductosAg.Items[i].SubItems[2].Text);
-                       
-                        query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
 
+                        sp.idSubProducto = Convert.ToInt32(row.Cells[0].Value);
+                        if (sp.idSubProducto != 0)
+                        {
+                            sp.cantidad = Convert.ToDecimal(row.Cells[4].Value);
+                            query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
+                        }
                     }
                 }
             }
@@ -95,7 +105,6 @@ namespace Pollos
         private void ProductosAdmin_Load(object sender, EventArgs e)
         {
             Querys query = new Querys();
-            int cont = 0;
             List<SubProducto> listaSub=new List<SubProducto>();
             if (operacion == 2)
             {
@@ -105,12 +114,14 @@ namespace Pollos
                 txtTipoProducto.Text = prod.tipo;
                 foreach (SubProducto sp in listaSub)
                 {
-                    listSubProductosAg.Items.Add(Convert.ToString(sp.idProductos), 0);
-                    listSubProductosAg.Items[cont].SubItems.Add(sp.nombre);
-                    listSubProductosAg.Items[cont].SubItems.Add(Convert.ToString(sp.cantidad));
+                    DataGridViewRow row = (DataGridViewRow)gridProductos.Rows[0].Clone();
+                    row.Cells[0].Value = Convert.ToString(sp.idSubProducto);
+                    row.Cells[1].Value = sp.nombre;
+                    row.Cells[2].Value = sp.tipo;
+                    row.Cells[3].Value = Convert.ToString(sp.precio);
+                    row.Cells[4].Value = Convert.ToString(sp.cantidad);
 
-
-                    cont++;
+                    gridProductos.Rows.Add(row);
                 }
 
 
@@ -126,6 +137,7 @@ namespace Pollos
                 btn_agregarSubP.Visible = true;
                 btn_quitarSubP.Visible = true;
                 cantidadSubP.Visible = true;
+                gridProductos.Visible = true;
                 Querys query = new Querys();
                 List<Producto> lista;
                 lista = query.getProductos();
@@ -153,6 +165,7 @@ namespace Pollos
                 btn_agregarSubP.Visible = false;
                 btn_quitarSubP.Visible = false;
                 cantidadSubP.Visible = false;
+                gridProductos.Visible = false;
 
             }
         }
@@ -189,6 +202,22 @@ namespace Pollos
 
                 }
 
+            }
+        }
+
+        private void gridProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            buscarProductos bp = new buscarProductos();
+            bp.ShowDialog();
+            if (bp.encontrado)
+            {
+                DataGridViewRow row = (DataGridViewRow)gridProductos.Rows[0].Clone();
+                row.Cells[0].Value = Convert.ToString(bp.p.id);
+                row.Cells[1].Value = bp.p.nombre;
+                row.Cells[2].Value = bp.p.tipo;
+                row.Cells[3].Value = Convert.ToString(bp.p.precio);
+                row.Cells[4].Value = "1";
+                gridProductos.Rows.Add(row);
             }
         }
     }

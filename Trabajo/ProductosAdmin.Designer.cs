@@ -43,10 +43,17 @@
             this.listSubProductosAg = new System.Windows.Forms.ListView();
             this.idProducto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nombreP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cantidadSubP = new System.Windows.Forms.NumericUpDown();
             this.cantidadSubProductos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cantidadSubP = new System.Windows.Forms.NumericUpDown();
+            this.gridProductos = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cantidadSubP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombreProducto
@@ -121,7 +128,7 @@
             this.listSubProductos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.idProductos,
             this.nombreProducto});
-            this.listSubProductos.Location = new System.Drawing.Point(48, 85);
+            this.listSubProductos.Location = new System.Drawing.Point(31, 333);
             this.listSubProductos.Name = "listSubProductos";
             this.listSubProductos.Size = new System.Drawing.Size(175, 133);
             this.listSubProductos.TabIndex = 6;
@@ -151,7 +158,7 @@
             // 
             // btn_agregarSubP
             // 
-            this.btn_agregarSubP.Location = new System.Drawing.Point(258, 127);
+            this.btn_agregarSubP.Location = new System.Drawing.Point(240, 375);
             this.btn_agregarSubP.Name = "btn_agregarSubP";
             this.btn_agregarSubP.Size = new System.Drawing.Size(75, 23);
             this.btn_agregarSubP.TabIndex = 8;
@@ -162,7 +169,7 @@
             // 
             // btn_quitarSubP
             // 
-            this.btn_quitarSubP.Location = new System.Drawing.Point(258, 156);
+            this.btn_quitarSubP.Location = new System.Drawing.Point(240, 404);
             this.btn_quitarSubP.Name = "btn_quitarSubP";
             this.btn_quitarSubP.Size = new System.Drawing.Size(75, 23);
             this.btn_quitarSubP.TabIndex = 9;
@@ -177,7 +184,7 @@
             this.idProducto,
             this.nombreP,
             this.cantidadSubProductos});
-            this.listSubProductosAg.Location = new System.Drawing.Point(361, 85);
+            this.listSubProductosAg.Location = new System.Drawing.Point(343, 333);
             this.listSubProductosAg.Name = "listSubProductosAg";
             this.listSubProductosAg.Size = new System.Drawing.Size(193, 133);
             this.listSubProductosAg.TabIndex = 10;
@@ -195,10 +202,15 @@
             this.nombreP.Text = "NOMBRE";
             this.nombreP.Width = 89;
             // 
+            // cantidadSubProductos
+            // 
+            this.cantidadSubProductos.Text = "CANTIDAD";
+            this.cantidadSubProductos.Width = 82;
+            // 
             // cantidadSubP
             // 
             this.cantidadSubP.DecimalPlaces = 1;
-            this.cantidadSubP.Location = new System.Drawing.Point(258, 85);
+            this.cantidadSubP.Location = new System.Drawing.Point(240, 333);
             this.cantidadSubP.Maximum = new decimal(new int[] {
             200,
             0,
@@ -209,16 +221,59 @@
             this.cantidadSubP.TabIndex = 11;
             this.cantidadSubP.Visible = false;
             // 
-            // cantidadSubProductos
+            // gridProductos
             // 
-            this.cantidadSubProductos.Text = "CANTIDAD";
-            this.cantidadSubProductos.Width = 82;
+            this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.tipoProducto,
+            this.precioProducto,
+            this.cantidad});
+            this.gridProductos.Location = new System.Drawing.Point(31, 61);
+            this.gridProductos.Name = "gridProductos";
+            this.gridProductos.Size = new System.Drawing.Size(543, 132);
+            this.gridProductos.TabIndex = 12;
+            this.gridProductos.Visible = false;
+            this.gridProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellDoubleClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "NOMBRE";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // tipoProducto
+            // 
+            this.tipoProducto.HeaderText = "TIPO";
+            this.tipoProducto.Name = "tipoProducto";
+            this.tipoProducto.ReadOnly = true;
+            // 
+            // precioProducto
+            // 
+            this.precioProducto.HeaderText = "PRECIO";
+            this.precioProducto.Name = "precioProducto";
+            this.precioProducto.ReadOnly = true;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "CANTIDAD";
+            this.cantidad.Name = "cantidad";
             // 
             // ProductosAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 230);
+            this.ClientSize = new System.Drawing.Size(608, 207);
+            this.Controls.Add(this.gridProductos);
             this.Controls.Add(this.cantidadSubP);
             this.Controls.Add(this.listSubProductosAg);
             this.Controls.Add(this.btn_quitarSubP);
@@ -236,6 +291,7 @@
             this.Load += new System.EventHandler(this.ProductosAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cantidadSubP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,5 +316,11 @@
         private System.Windows.Forms.ColumnHeader nombreP;
         private System.Windows.Forms.NumericUpDown cantidadSubP;
         private System.Windows.Forms.ColumnHeader cantidadSubProductos;
+        private System.Windows.Forms.DataGridView gridProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
     }
 }

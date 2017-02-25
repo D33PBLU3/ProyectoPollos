@@ -395,16 +395,19 @@ namespace Pollos
             if (conectar != null)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format(
-                "select productos.idproductos,productos.nombreproducto,subproductos.cantidad from productos,subproductos where '{0}'=subproductos.idProductos and productos.idProductos=subProductos.idSubProducto",idProducto) ,conectar);
+                "select productos.idproductos,productos.nombreproducto,productos.tipoProducto,productos.precioProducto,subproductos.cantidad from productos,subproductos where '{0}'="+
+                "subproductos.idProductos and productos.idProductos=subProductos.idSubProducto",idProducto) ,conectar);
 
                 MySqlDataReader lector = comando.ExecuteReader();
 
                 while (lector.Read())
                 {
                     SubProducto sp = new SubProducto();
-                    sp.idProductos = Convert.ToInt32(lector.GetString(0));
+                    sp.idSubProducto = Convert.ToInt32(lector.GetString(0));
                     sp.nombre = lector.GetString(1);
-                    sp.cantidad = Convert.ToDecimal(lector.GetString(2));
+                    sp.tipo = lector.GetString(2);
+                    sp.precio = Convert.ToDecimal(lector.GetString(3));
+                    sp.cantidad = Convert.ToDecimal(lector.GetString(4));
                     lista.Add(sp);
                 }
                 return lista;

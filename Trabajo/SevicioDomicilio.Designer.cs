@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SevicioDomicilio));
             this.btnClientes = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -41,6 +41,17 @@
             this.COLONIA = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.gridProductos = new System.Windows.Forms.DataGridView();
+            this.textTicketPedido = new System.Windows.Forms.TextBox();
+            this.idProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAceptarPedido = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClientes
@@ -63,6 +74,7 @@
             // 
             // listClientes
             // 
+            this.listClientes.CheckBoxes = true;
             this.listClientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.NOMBRE,
@@ -70,11 +82,12 @@
             this.DIRECCION,
             this.CALLES,
             this.COLONIA});
+            listViewItem1.StateImageIndex = 0;
             this.listClientes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listClientes.Location = new System.Drawing.Point(12, 46);
             this.listClientes.Name = "listClientes";
-            this.listClientes.Size = new System.Drawing.Size(668, 307);
+            this.listClientes.Size = new System.Drawing.Size(668, 96);
             this.listClientes.TabIndex = 4;
             this.listClientes.UseCompatibleStateImageBehavior = false;
             this.listClientes.View = System.Windows.Forms.View.Details;
@@ -130,11 +143,98 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // gridProductos
+            // 
+            this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProductos,
+            this.nombreProducto,
+            this.tipoProducto,
+            this.precioProducto,
+            this.cantidad});
+            this.gridProductos.Location = new System.Drawing.Point(23, 196);
+            this.gridProductos.Name = "gridProductos";
+            this.gridProductos.Size = new System.Drawing.Size(657, 257);
+            this.gridProductos.TabIndex = 7;
+            this.gridProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellContentClick);
+            this.gridProductos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellContentDoubleClick);
+            this.gridProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellDoubleClick);
+            // 
+            // textTicketPedido
+            // 
+            this.textTicketPedido.Location = new System.Drawing.Point(785, 46);
+            this.textTicketPedido.Multiline = true;
+            this.textTicketPedido.Name = "textTicketPedido";
+            this.textTicketPedido.Size = new System.Drawing.Size(282, 257);
+            this.textTicketPedido.TabIndex = 8;
+            // 
+            // idProductos
+            // 
+            this.idProductos.HeaderText = "ID";
+            this.idProductos.Name = "idProductos";
+            this.idProductos.ReadOnly = true;
+            this.idProductos.Width = 50;
+            // 
+            // nombreProducto
+            // 
+            this.nombreProducto.HeaderText = "NOMBRE";
+            this.nombreProducto.Name = "nombreProducto";
+            this.nombreProducto.ReadOnly = true;
+            this.nombreProducto.Width = 150;
+            // 
+            // tipoProducto
+            // 
+            this.tipoProducto.HeaderText = "TIPO";
+            this.tipoProducto.Name = "tipoProducto";
+            this.tipoProducto.ReadOnly = true;
+            // 
+            // precioProducto
+            // 
+            this.precioProducto.HeaderText = "PRECIO";
+            this.precioProducto.Name = "precioProducto";
+            this.precioProducto.ReadOnly = true;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "CANTIDAD";
+            this.cantidad.Name = "cantidad";
+            // 
+            // txt
+            // 
+            this.txt.Location = new System.Drawing.Point(785, 381);
+            this.txt.Multiline = true;
+            this.txt.Name = "txt";
+            this.txt.Size = new System.Drawing.Size(282, 72);
+            this.txt.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(782, 353);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Comentarios:";
+            // 
+            // btnAceptarPedido
+            // 
+            this.btnAceptarPedido.Location = new System.Drawing.Point(992, 309);
+            this.btnAceptarPedido.Name = "btnAceptarPedido";
+            this.btnAceptarPedido.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptarPedido.TabIndex = 11;
+            this.btnAceptarPedido.Text = "Aceptar";
+            this.btnAceptarPedido.UseVisualStyleBackColor = true;
+            // 
             // SevicioDomicilio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 365);
+            this.ClientSize = new System.Drawing.Size(1079, 465);
+            this.Controls.Add(this.btnAceptarPedido);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txt);
+            this.Controls.Add(this.textTicketPedido);
+            this.Controls.Add(this.gridProductos);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listClientes);
@@ -143,6 +243,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SevicioDomicilio";
             this.Text = "Sevicio a Domicilio";
+            this.Load += new System.EventHandler(this.SevicioDomicilio_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +263,15 @@
         private System.Windows.Forms.ColumnHeader COLONIA;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView gridProductos;
+        private System.Windows.Forms.TextBox textTicketPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.TextBox txt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAceptarPedido;
     }
 }
