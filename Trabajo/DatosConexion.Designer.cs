@@ -44,14 +44,14 @@
             this.txtIp.Location = new System.Drawing.Point(183, 22);
             this.txtIp.Name = "txtIp";
             this.txtIp.Size = new System.Drawing.Size(100, 20);
-            this.txtIp.TabIndex = 3;
+            this.txtIp.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(111, 185);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -70,14 +70,14 @@
             this.txtDB.Location = new System.Drawing.Point(183, 61);
             this.txtDB.Name = "txtDB";
             this.txtDB.Size = new System.Drawing.Size(100, 20);
-            this.txtDB.TabIndex = 9;
+            this.txtDB.TabIndex = 2;
             // 
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(183, 101);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(100, 20);
-            this.txtUsuario.TabIndex = 10;
+            this.txtUsuario.TabIndex = 3;
             // 
             // label2
             // 
@@ -112,7 +112,7 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(100, 20);
-            this.txtContrasena.TabIndex = 14;
+            this.txtContrasena.TabIndex = 4;
             // 
             // DatosConexion
             // 

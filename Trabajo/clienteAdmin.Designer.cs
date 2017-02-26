@@ -53,28 +53,28 @@
             this.txtTelC.Location = new System.Drawing.Point(22, 115);
             this.txtTelC.Name = "txtTelC";
             this.txtTelC.Size = new System.Drawing.Size(100, 20);
-            this.txtTelC.TabIndex = 1;
+            this.txtTelC.TabIndex = 3;
             // 
             // txtColoniaC
             // 
             this.txtColoniaC.Location = new System.Drawing.Point(163, 115);
             this.txtColoniaC.Name = "txtColoniaC";
             this.txtColoniaC.Size = new System.Drawing.Size(100, 20);
-            this.txtColoniaC.TabIndex = 2;
+            this.txtColoniaC.TabIndex = 4;
             // 
             // txtEntreC
             // 
             this.txtEntreC.Location = new System.Drawing.Point(299, 35);
             this.txtEntreC.Name = "txtEntreC";
             this.txtEntreC.Size = new System.Drawing.Size(100, 20);
-            this.txtEntreC.TabIndex = 3;
+            this.txtEntreC.TabIndex = 2;
             // 
             // txtDirC
             // 
             this.txtDirC.Location = new System.Drawing.Point(163, 35);
             this.txtDirC.Name = "txtDirC";
             this.txtDirC.Size = new System.Drawing.Size(100, 20);
-            this.txtDirC.TabIndex = 4;
+            this.txtDirC.TabIndex = 1;
             // 
             // label1
             // 
@@ -126,7 +126,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(299, 115);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 12;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.button1_Click);

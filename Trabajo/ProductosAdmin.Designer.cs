@@ -93,7 +93,7 @@
             -2147483648});
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(87, 20);
-            this.txtPrecio.TabIndex = 2;
+            this.txtPrecio.TabIndex = 3;
             // 
             // label1
             // 
@@ -151,7 +151,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(500, 22);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 7;
+            this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -223,6 +223,7 @@
             // 
             // gridProductos
             // 
+            this.gridProductos.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonDropDownGrid;
             this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -233,7 +234,7 @@
             this.gridProductos.Location = new System.Drawing.Point(31, 61);
             this.gridProductos.Name = "gridProductos";
             this.gridProductos.Size = new System.Drawing.Size(543, 132);
-            this.gridProductos.TabIndex = 12;
+            this.gridProductos.TabIndex = 2;
             this.gridProductos.Visible = false;
             this.gridProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellDoubleClick);
             // 

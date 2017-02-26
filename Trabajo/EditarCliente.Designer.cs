@@ -46,7 +46,7 @@
             this.btnEditar.Location = new System.Drawing.Point(289, 109);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 23;
+            this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -101,35 +101,35 @@
             this.txtDirC.Location = new System.Drawing.Point(153, 29);
             this.txtDirC.Name = "txtDirC";
             this.txtDirC.Size = new System.Drawing.Size(100, 20);
-            this.txtDirC.TabIndex = 17;
+            this.txtDirC.TabIndex = 2;
             // 
             // txtEntreC
             // 
             this.txtEntreC.Location = new System.Drawing.Point(289, 29);
             this.txtEntreC.Name = "txtEntreC";
             this.txtEntreC.Size = new System.Drawing.Size(100, 20);
-            this.txtEntreC.TabIndex = 16;
+            this.txtEntreC.TabIndex = 3;
             // 
             // txtColoniaC
             // 
             this.txtColoniaC.Location = new System.Drawing.Point(153, 109);
             this.txtColoniaC.Name = "txtColoniaC";
             this.txtColoniaC.Size = new System.Drawing.Size(100, 20);
-            this.txtColoniaC.TabIndex = 15;
+            this.txtColoniaC.TabIndex = 5;
             // 
             // txtTelC
             // 
             this.txtTelC.Location = new System.Drawing.Point(12, 109);
             this.txtTelC.Name = "txtTelC";
             this.txtTelC.Size = new System.Drawing.Size(100, 20);
-            this.txtTelC.TabIndex = 14;
+            this.txtTelC.TabIndex = 4;
             // 
             // txtNombreC
             // 
             this.txtNombreC.Location = new System.Drawing.Point(12, 29);
             this.txtNombreC.Name = "txtNombreC";
             this.txtNombreC.Size = new System.Drawing.Size(100, 20);
-            this.txtNombreC.TabIndex = 13;
+            this.txtNombreC.TabIndex = 1;
             // 
             // EditarCliente
             // 

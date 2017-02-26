@@ -60,14 +60,14 @@
             this.txtUsuario.Location = new System.Drawing.Point(138, 28);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(177, 20);
-            this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.TabIndex = 0;
             // 
             // txtContra
             // 
             this.txtContra.Location = new System.Drawing.Point(138, 71);
             this.txtContra.Name = "txtContra";
             this.txtContra.Size = new System.Drawing.Size(177, 20);
-            this.txtContra.TabIndex = 3;
+            this.txtContra.TabIndex = 1;
             this.txtContra.UseSystemPasswordChar = true;
             // 
             // btn_ingresar
@@ -75,7 +75,7 @@
             this.btn_ingresar.Location = new System.Drawing.Point(410, 25);
             this.btn_ingresar.Name = "btn_ingresar";
             this.btn_ingresar.Size = new System.Drawing.Size(75, 23);
-            this.btn_ingresar.TabIndex = 4;
+            this.btn_ingresar.TabIndex = 2;
             this.btn_ingresar.Text = "Ingresar";
             this.btn_ingresar.UseVisualStyleBackColor = true;
             this.btn_ingresar.Click += new System.EventHandler(this.button1_Click);
@@ -86,7 +86,7 @@
             this.btnOpciones.Location = new System.Drawing.Point(436, 63);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(35, 35);
-            this.btnOpciones.TabIndex = 5;
+            this.btnOpciones.TabIndex = 3;
             this.btnOpciones.UseVisualStyleBackColor = true;
             this.btnOpciones.Click += new System.EventHandler(this.button2_Click);
             // 

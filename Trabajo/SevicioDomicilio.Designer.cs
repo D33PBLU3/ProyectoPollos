@@ -59,7 +59,7 @@
             this.btnClientes.Location = new System.Drawing.Point(686, 46);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(93, 28);
-            this.btnClientes.TabIndex = 0;
+            this.btnClientes.TabIndex = 1;
             this.btnClientes.Text = "Registrar Cliente";
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
@@ -69,7 +69,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(12, 12);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(286, 20);
-            this.txtBuscar.TabIndex = 3;
+            this.txtBuscar.TabIndex = 0;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // listClientes
@@ -91,8 +91,6 @@
             this.listClientes.TabIndex = 4;
             this.listClientes.UseCompatibleStateImageBehavior = false;
             this.listClientes.View = System.Windows.Forms.View.Details;
-            this.listClientes.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listClientes_ItemCheck);
-            this.listClientes.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listClientes_ItemChecked);
             this.listClientes.SelectedIndexChanged += new System.EventHandler(this.listClientes_SelectedIndexChanged);
             // 
             // ID
@@ -130,7 +128,7 @@
             this.button1.Location = new System.Drawing.Point(686, 114);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 28);
-            this.button1.TabIndex = 5;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Eliminar Cliente";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -140,7 +138,7 @@
             this.button2.Location = new System.Drawing.Point(686, 80);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 28);
-            this.button2.TabIndex = 6;
+            this.button2.TabIndex = 2;
             this.button2.Text = "Editar Cliente";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -157,7 +155,7 @@
             this.gridProductos.Location = new System.Drawing.Point(23, 196);
             this.gridProductos.Name = "gridProductos";
             this.gridProductos.Size = new System.Drawing.Size(657, 257);
-            this.gridProductos.TabIndex = 7;
+            this.gridProductos.TabIndex = 5;
             this.gridProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellContentClick);
             this.gridProductos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellContentDoubleClick);
             this.gridProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellDoubleClick);
@@ -199,7 +197,7 @@
             this.textTicketPedido.Multiline = true;
             this.textTicketPedido.Name = "textTicketPedido";
             this.textTicketPedido.Size = new System.Drawing.Size(282, 257);
-            this.textTicketPedido.TabIndex = 8;
+            this.textTicketPedido.TabIndex = 4;
             // 
             // txt
             // 
@@ -207,7 +205,7 @@
             this.txt.Multiline = true;
             this.txt.Name = "txt";
             this.txt.Size = new System.Drawing.Size(282, 72);
-            this.txt.TabIndex = 9;
+            this.txt.TabIndex = 6;
             // 
             // label1
             // 
@@ -223,10 +221,9 @@
             this.btnAceptarPedido.Location = new System.Drawing.Point(992, 309);
             this.btnAceptarPedido.Name = "btnAceptarPedido";
             this.btnAceptarPedido.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptarPedido.TabIndex = 11;
+            this.btnAceptarPedido.TabIndex = 7;
             this.btnAceptarPedido.Text = "Aceptar";
             this.btnAceptarPedido.UseVisualStyleBackColor = true;
-            this.btnAceptarPedido.Click += new System.EventHandler(this.btnAceptarPedido_Click);
             // 
             // SevicioDomicilio
             // 
