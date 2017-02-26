@@ -12,11 +12,10 @@ namespace Pollos
 {
     public partial class SevicioDomicilio : Form
     {
+        Clientes c;
         public SevicioDomicilio()
         {
             InitializeComponent();
-            listClientes.FullRowSelect = true;
-            Actualizar();
 
         }
 
@@ -29,7 +28,7 @@ namespace Pollos
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Actualizar()
@@ -75,7 +74,7 @@ namespace Pollos
             try
             {
                 string id = listClientes.SelectedItems[0].SubItems[0].Text;
-                string nombre= listClientes.SelectedItems[0].SubItems[1].Text;
+                string nombre = listClientes.SelectedItems[0].SubItems[1].Text;
                 string tel = listClientes.SelectedItems[0].SubItems[2].Text;
                 string dir = listClientes.SelectedItems[0].SubItems[3].Text;
                 string calles = listClientes.SelectedItems[0].SubItems[4].Text;
@@ -131,12 +130,14 @@ namespace Pollos
 
         private void SevicioDomicilio_Load(object sender, EventArgs e)
         {
-          
+            listClientes.FullRowSelect = true;
+            Actualizar();
+
         }
 
         private void gridProductos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void gridProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -154,5 +155,42 @@ namespace Pollos
                 gridProductos.Rows.Add(row);
             }
         }
+
+        private void btnAceptarPedido_Click(object sender, EventArgs e)
+        {
+
+            for (int i = 0; i < listClientes.Items.Count; i++)
+            {
+                if (listClientes.Items[i].Checked)
+                {
+                    c.id = listClientes.Items[i].Text;
+                    c.nombre = listClientes.Items[i].SubItems[1].Text;
+                    c.tel = listClientes.Items[i].SubItems[2].Text;
+
+
+                }
+
+            }
+        }
+
+        private void listClientes_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            /*  bool check;
+              check = e.Item.Checked;
+              for (int i = 0; i < listClientes.Items.Count; i++)
+              {
+                  listClientes.Items[i].Checked = false;
+
+              }
+              e.Item.Checked = check;
+          }*/
+        }
+
+        private void listClientes_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked)
+                for (int ix = 0; ix < listClientes.Items.Count; ++ix)
+                    if (e.Index != ix) listClientes.Items[ix].Checked = false;
+        }
     }
-}
+    }
