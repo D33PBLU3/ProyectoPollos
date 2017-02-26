@@ -132,7 +132,9 @@ namespace Pollos
         {
             listClientes.FullRowSelect = true;
             Actualizar();
-
+            DateTime Hoy = DateTime.Today;
+            string fecha_actual = Hoy.ToString("dd-MM-yyyy");
+            lbFecha.Text = fecha_actual;
         }
 
         private void gridProductos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -191,11 +193,18 @@ namespace Pollos
             c = new Clientes();
             if (e.NewValue == CheckState.Checked)
             {
-                
+                c.id=listClientes.Items[e.Index].Text;
+                c.nombre = listClientes.Items[e.Index].SubItems[1].Text;
+                c.tel = listClientes.Items[e.Index].SubItems[2].Text;
+                c.direccion= listClientes.Items[e.Index].SubItems[3].Text;
+                c.calles= listClientes.Items[e.Index].SubItems[4].Text;
+                c.colonia= listClientes.Items[e.Index].SubItems[5].Text;
+                lbNomCliente.Text = c.nombre;
                 for (int ix = 0; ix < listClientes.Items.Count; ++ix)
                     if (e.Index != ix) listClientes.Items[ix].Checked = false;
 
             }
+            //lbNomCliente.Text = c.nombre;
         }
     }
     }
