@@ -188,14 +188,9 @@ namespace Pollos
 
         private void listClientes_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            c = new Clientes();
             if (e.NewValue == CheckState.Checked)
-            {
-                
                 for (int ix = 0; ix < listClientes.Items.Count; ++ix)
                     if (e.Index != ix) listClientes.Items[ix].Checked = false;
-
-            }
         }
     }
     }
