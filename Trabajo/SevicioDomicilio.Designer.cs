@@ -51,6 +51,12 @@
             this.txt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAceptarPedido = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbFecha = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbTotal = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbNomCliente = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,9 +199,16 @@
             this.cantidad.HeaderText = "CANTIDAD";
             this.cantidad.Name = "cantidad";
             // 
+            // textTicketPedido
+            // 
+            this.textTicketPedido.Location = new System.Drawing.Point(785, 416);
+            this.textTicketPedido.Name = "textTicketPedido";
+            this.textTicketPedido.Size = new System.Drawing.Size(100, 20);
+            this.textTicketPedido.TabIndex = 11;
+            // 
             // txt
             // 
-            this.txt.Location = new System.Drawing.Point(785, 381);
+            this.txt.Location = new System.Drawing.Point(785, 338);
             this.txt.Multiline = true;
             this.txt.Name = "txt";
             this.txt.Size = new System.Drawing.Size(282, 72);
@@ -204,7 +217,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(782, 353);
+            this.label1.Location = new System.Drawing.Point(782, 310);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 10;
@@ -212,7 +225,7 @@
             // 
             // btnAceptarPedido
             // 
-            this.btnAceptarPedido.Location = new System.Drawing.Point(992, 309);
+            this.btnAceptarPedido.Location = new System.Drawing.Point(992, 430);
             this.btnAceptarPedido.Name = "btnAceptarPedido";
             this.btnAceptarPedido.Size = new System.Drawing.Size(75, 23);
             this.btnAceptarPedido.TabIndex = 7;
@@ -220,11 +233,68 @@
             this.btnAceptarPedido.UseVisualStyleBackColor = true;
             this.btnAceptarPedido.Click += new System.EventHandler(this.btnAceptarPedido_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(886, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Fecha:";
+            // 
+            // lbFecha
+            // 
+            this.lbFecha.AutoSize = true;
+            this.lbFecha.Location = new System.Drawing.Point(933, 80);
+            this.lbFecha.Name = "lbFecha";
+            this.lbFecha.Size = new System.Drawing.Size(0, 13);
+            this.lbFecha.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(886, 114);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Total:";
+            // 
+            // lbTotal
+            // 
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.Location = new System.Drawing.Point(936, 114);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(0, 13);
+            this.lbTotal.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(885, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Cliente:";
+            // 
+            // lbNomCliente
+            // 
+            this.lbNomCliente.AutoSize = true;
+            this.lbNomCliente.Location = new System.Drawing.Point(939, 46);
+            this.lbNomCliente.Name = "lbNomCliente";
+            this.lbNomCliente.Size = new System.Drawing.Size(0, 13);
+            this.lbNomCliente.TabIndex = 17;
+            // 
             // SevicioDomicilio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 465);
+            this.Controls.Add(this.lbNomCliente);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbTotal);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbFecha);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAceptarPedido);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt);
@@ -268,5 +338,11 @@
         private System.Windows.Forms.TextBox txt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAceptarPedido;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbFecha;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbTotal;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbNomCliente;
     }
 }
