@@ -91,6 +91,8 @@
             this.listClientes.TabIndex = 4;
             this.listClientes.UseCompatibleStateImageBehavior = false;
             this.listClientes.View = System.Windows.Forms.View.Details;
+            this.listClientes.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listClientes_ItemCheck);
+            this.listClientes.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listClientes_ItemChecked);
             this.listClientes.SelectedIndexChanged += new System.EventHandler(this.listClientes_SelectedIndexChanged);
             // 
             // ID
@@ -191,14 +193,6 @@
             this.cantidad.HeaderText = "CANTIDAD";
             this.cantidad.Name = "cantidad";
             // 
-            // textTicketPedido
-            // 
-            this.textTicketPedido.Location = new System.Drawing.Point(785, 46);
-            this.textTicketPedido.Multiline = true;
-            this.textTicketPedido.Name = "textTicketPedido";
-            this.textTicketPedido.Size = new System.Drawing.Size(282, 257);
-            this.textTicketPedido.TabIndex = 4;
-            // 
             // txt
             // 
             this.txt.Location = new System.Drawing.Point(785, 381);
@@ -224,6 +218,7 @@
             this.btnAceptarPedido.TabIndex = 7;
             this.btnAceptarPedido.Text = "Aceptar";
             this.btnAceptarPedido.UseVisualStyleBackColor = true;
+            this.btnAceptarPedido.Click += new System.EventHandler(this.btnAceptarPedido_Click);
             // 
             // SevicioDomicilio
             // 
