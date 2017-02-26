@@ -49,7 +49,7 @@
             this.textPass.Location = new System.Drawing.Point(75, 54);
             this.textPass.Name = "textPass";
             this.textPass.Size = new System.Drawing.Size(100, 20);
-            this.textPass.TabIndex = 2;
+            this.textPass.TabIndex = 1;
             // 
             // button1
             // 
@@ -99,7 +99,7 @@
             this.comboPermiso.Location = new System.Drawing.Point(75, 94);
             this.comboPermiso.Name = "comboPermiso";
             this.comboPermiso.Size = new System.Drawing.Size(121, 21);
-            this.comboPermiso.TabIndex = 7;
+            this.comboPermiso.TabIndex = 2;
             this.comboPermiso.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // addEdit
@@ -115,7 +115,7 @@
             this.Controls.Add(this.textPass);
             this.Controls.Add(this.textNick);
             this.Name = "addEdit";
-            this.Text = "addEdit";
+            this.Text = "Editar";
             this.ResumeLayout(false);
             this.PerformLayout();
 

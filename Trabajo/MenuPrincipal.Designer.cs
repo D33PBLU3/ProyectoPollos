@@ -51,7 +51,7 @@
             this.btnProductos.Location = new System.Drawing.Point(158, 12);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(67, 57);
-            this.btnProductos.TabIndex = 1;
+            this.btnProductos.TabIndex = 2;
             this.btnProductos.UseVisualStyleBackColor = true;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
@@ -61,7 +61,7 @@
             this.btnConfiguracionUsuarios.Location = new System.Drawing.Point(231, 12);
             this.btnConfiguracionUsuarios.Name = "btnConfiguracionUsuarios";
             this.btnConfiguracionUsuarios.Size = new System.Drawing.Size(67, 57);
-            this.btnConfiguracionUsuarios.TabIndex = 2;
+            this.btnConfiguracionUsuarios.TabIndex = 3;
             this.btnConfiguracionUsuarios.UseVisualStyleBackColor = true;
             this.btnConfiguracionUsuarios.Click += new System.EventHandler(this.btnConfiguracionUsuarios_Click);
             // 
@@ -71,7 +71,7 @@
             this.btnVentas.Location = new System.Drawing.Point(85, 12);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(67, 57);
-            this.btnVentas.TabIndex = 3;
+            this.btnVentas.TabIndex = 1;
             this.btnVentas.UseVisualStyleBackColor = true;
             // 
             // MenuPrincipal
