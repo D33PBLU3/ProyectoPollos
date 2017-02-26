@@ -42,12 +42,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.gridProductos = new System.Windows.Forms.DataGridView();
-            this.textTicketPedido = new System.Windows.Forms.TextBox();
             this.idProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textTicketPedido = new System.Windows.Forms.TextBox();
             this.txt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAceptarPedido = new System.Windows.Forms.Button();
@@ -91,6 +91,8 @@
             this.listClientes.TabIndex = 4;
             this.listClientes.UseCompatibleStateImageBehavior = false;
             this.listClientes.View = System.Windows.Forms.View.Details;
+            this.listClientes.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listClientes_ItemCheck);
+            this.listClientes.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listClientes_ItemChecked);
             this.listClientes.SelectedIndexChanged += new System.EventHandler(this.listClientes_SelectedIndexChanged);
             // 
             // ID
@@ -160,14 +162,6 @@
             this.gridProductos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellContentDoubleClick);
             this.gridProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellDoubleClick);
             // 
-            // textTicketPedido
-            // 
-            this.textTicketPedido.Location = new System.Drawing.Point(785, 46);
-            this.textTicketPedido.Multiline = true;
-            this.textTicketPedido.Name = "textTicketPedido";
-            this.textTicketPedido.Size = new System.Drawing.Size(282, 257);
-            this.textTicketPedido.TabIndex = 8;
-            // 
             // idProductos
             // 
             this.idProductos.HeaderText = "ID";
@@ -199,6 +193,14 @@
             this.cantidad.HeaderText = "CANTIDAD";
             this.cantidad.Name = "cantidad";
             // 
+            // textTicketPedido
+            // 
+            this.textTicketPedido.Location = new System.Drawing.Point(785, 46);
+            this.textTicketPedido.Multiline = true;
+            this.textTicketPedido.Name = "textTicketPedido";
+            this.textTicketPedido.Size = new System.Drawing.Size(282, 257);
+            this.textTicketPedido.TabIndex = 8;
+            // 
             // txt
             // 
             this.txt.Location = new System.Drawing.Point(785, 381);
@@ -224,6 +226,7 @@
             this.btnAceptarPedido.TabIndex = 11;
             this.btnAceptarPedido.Text = "Aceptar";
             this.btnAceptarPedido.UseVisualStyleBackColor = true;
+            this.btnAceptarPedido.Click += new System.EventHandler(this.btnAceptarPedido_Click);
             // 
             // SevicioDomicilio
             // 

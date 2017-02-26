@@ -58,10 +58,12 @@ namespace Pollos
                     }*/
                     foreach (DataGridViewRow row in gridProductos.Rows)
                     {
-
-                        sp.idProductos  = Convert.ToInt32(row.Cells[0].Value);
-                        sp.cantidad = Convert.ToDecimal(row.Cells[4].Value);
-                        query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
+                        if (sp.idSubProducto != 0)
+                        {
+                            sp.idProductos = Convert.ToInt32(row.Cells[0].Value);
+                            sp.cantidad = Convert.ToDecimal(row.Cells[4].Value);
+                            query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
+                        }
                     }
                 }
             }
