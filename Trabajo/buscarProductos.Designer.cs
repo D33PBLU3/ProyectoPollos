@@ -85,7 +85,7 @@
             this.ClientSize = new System.Drawing.Size(431, 464);
             this.Controls.Add(this.gridBusquedaProductos);
             this.Name = "buscarProductos";
-            this.Text = "buscarProductos";
+            this.Text = "Buscar Productos";
             this.Load += new System.EventHandler(this.buscarProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridBusquedaProductos)).EndInit();
             this.ResumeLayout(false);

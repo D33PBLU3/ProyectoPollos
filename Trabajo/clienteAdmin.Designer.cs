@@ -148,7 +148,7 @@
             this.Controls.Add(this.txtTelC);
             this.Controls.Add(this.txtNombreC);
             this.Name = "clienteAdmin";
-            this.Text = "clienteAdmin";
+            this.Text = "Registrar Cliente";
             this.ResumeLayout(false);
             this.PerformLayout();
 
