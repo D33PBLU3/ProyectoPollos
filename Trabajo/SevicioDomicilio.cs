@@ -16,7 +16,6 @@ namespace Pollos
         public SevicioDomicilio()
         {
             InitializeComponent();
-
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
@@ -125,7 +124,17 @@ namespace Pollos
 
         private void gridProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            double auxTotal = 0;
+            double total = 0;
 
+            for(int i = 0; i < gridProductos.RowCount - 1; i++)
+            {
+                auxTotal = Convert.ToDouble(gridProductos.Rows[i].Cells[3].Value) * Convert.ToDouble(gridProductos.Rows[i].Cells[4].Value);
+
+                total = total + auxTotal;
+                
+                labelTotal.Text = Convert.ToString(total);
+            }
         }
 
         private void SevicioDomicilio_Load(object sender, EventArgs e)
@@ -144,6 +153,7 @@ namespace Pollos
 
         private void gridProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             buscarProductos bp = new buscarProductos();
             bp.ShowDialog();
             if (bp.encontrado)
@@ -154,19 +164,33 @@ namespace Pollos
                 row.Cells[2].Value = bp.p.tipo;
                 row.Cells[3].Value = Convert.ToString(bp.p.precio);
                 row.Cells[4].Value = "1";
+                
                 gridProductos.Rows.Add(row);
             }
         }
 
         private void btnAceptarPedido_Click(object sender, EventArgs e)
         {
+            Querys query = new Querys();
             if (c.id == "")
             {
                 return;
             }
             else
             {
+                long idped = query.AgregarPedido(Convert.ToInt32(c.id), txtComen.Text, Convert.ToDecimal(labelTotal.Text));
 
+                for (int i = 0; i < gridProductos.RowCount - 1; i++)
+                {
+                    Decimal cant = Convert.ToDecimal(gridProductos.Rows[i].Cells[4].Value);
+                    Decimal pre = Convert.ToDecimal(gridProductos.Rows[i].Cells[4].Value);
+                    
+                    int idpro = Convert.ToInt32(gridProductos.Rows[i].Cells[0].Value);
+                    query.AgregarDetallePedido(cant, pre, Convert.ToInt32(idped), idpro);
+                }
+
+                MessageBox.Show("Pedido creado exitosamente");
+                Close();
             }
            /* for (int i = 0; i < listClientes.Items.Count; i++)
             {

@@ -48,7 +48,7 @@
             this.precioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textTicketPedido = new System.Windows.Forms.TextBox();
-            this.txt = new System.Windows.Forms.TextBox();
+            this.txtComen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAceptarPedido = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,6 +57,7 @@
             this.lbNomCliente = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbTotal = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,9 +161,9 @@
             this.tipoProducto,
             this.precioProducto,
             this.cantidad});
-            this.gridProductos.Location = new System.Drawing.Point(23, 196);
+            this.gridProductos.Location = new System.Drawing.Point(12, 159);
             this.gridProductos.Name = "gridProductos";
-            this.gridProductos.Size = new System.Drawing.Size(657, 257);
+            this.gridProductos.Size = new System.Drawing.Size(543, 257);
             this.gridProductos.TabIndex = 5;
             this.gridProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellContentClick);
             this.gridProductos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellContentDoubleClick);
@@ -206,18 +207,18 @@
             this.textTicketPedido.Size = new System.Drawing.Size(100, 20);
             this.textTicketPedido.TabIndex = 11;
             // 
-            // txt
+            // txtComen
             // 
-            this.txt.Location = new System.Drawing.Point(785, 381);
-            this.txt.Multiline = true;
-            this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(282, 72);
-            this.txt.TabIndex = 6;
+            this.txtComen.Location = new System.Drawing.Point(561, 309);
+            this.txtComen.Multiline = true;
+            this.txtComen.Name = "txtComen";
+            this.txtComen.Size = new System.Drawing.Size(272, 72);
+            this.txtComen.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(782, 353);
+            this.label1.Location = new System.Drawing.Point(655, 284);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 10;
@@ -225,7 +226,7 @@
             // 
             // btnAceptarPedido
             // 
-            this.btnAceptarPedido.Location = new System.Drawing.Point(992, 309);
+            this.btnAceptarPedido.Location = new System.Drawing.Point(658, 393);
             this.btnAceptarPedido.Name = "btnAceptarPedido";
             this.btnAceptarPedido.Size = new System.Drawing.Size(75, 23);
             this.btnAceptarPedido.TabIndex = 7;
@@ -236,7 +237,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(851, 46);
+            this.label2.Location = new System.Drawing.Point(573, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 12;
@@ -245,7 +246,7 @@
             // lbFecha
             // 
             this.lbFecha.AutoSize = true;
-            this.lbFecha.Location = new System.Drawing.Point(908, 46);
+            this.lbFecha.Location = new System.Drawing.Point(630, 159);
             this.lbFecha.Name = "lbFecha";
             this.lbFecha.Size = new System.Drawing.Size(0, 13);
             this.lbFecha.TabIndex = 13;
@@ -253,7 +254,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(851, 80);
+            this.label3.Location = new System.Drawing.Point(573, 193);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 14;
@@ -262,7 +263,7 @@
             // lbNomCliente
             // 
             this.lbNomCliente.AutoSize = true;
-            this.lbNomCliente.Location = new System.Drawing.Point(911, 80);
+            this.lbNomCliente.Location = new System.Drawing.Point(633, 193);
             this.lbNomCliente.Name = "lbNomCliente";
             this.lbNomCliente.Size = new System.Drawing.Size(0, 13);
             this.lbNomCliente.TabIndex = 15;
@@ -270,7 +271,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(851, 122);
+            this.label4.Location = new System.Drawing.Point(573, 235);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 16;
@@ -279,16 +280,25 @@
             // lbTotal
             // 
             this.lbTotal.AutoSize = true;
-            this.lbTotal.Location = new System.Drawing.Point(914, 128);
+            this.lbTotal.Location = new System.Drawing.Point(636, 241);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(0, 13);
             this.lbTotal.TabIndex = 17;
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(630, 235);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(0, 13);
+            this.labelTotal.TabIndex = 18;
             // 
             // SevicioDomicilio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 465);
+            this.ClientSize = new System.Drawing.Size(848, 432);
+            this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.lbTotal);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lbNomCliente);
@@ -297,7 +307,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAceptarPedido);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txt);
+            this.Controls.Add(this.txtComen);
             this.Controls.Add(this.textTicketPedido);
             this.Controls.Add(this.gridProductos);
             this.Controls.Add(this.button2);
@@ -335,7 +345,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.TextBox txt;
+        private System.Windows.Forms.TextBox txtComen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAceptarPedido;
         private System.Windows.Forms.Label label2;
@@ -344,5 +354,6 @@
         private System.Windows.Forms.Label lbNomCliente;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbTotal;
+        private System.Windows.Forms.Label labelTotal;
     }
 }

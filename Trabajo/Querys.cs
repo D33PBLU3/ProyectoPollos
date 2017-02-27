@@ -191,6 +191,7 @@ namespace Pollos
 
                 if (comando.ExecuteNonQuery() == 1)
                 {
+                    EliminarSubProductos(Convert.ToInt32(id));
                     return 1;
                 }
                 else
@@ -413,6 +414,49 @@ namespace Pollos
                 return lista;
             }
             return null;
+        }
+        public long AgregarPedido(int id, string comentario, decimal total)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            if (conectar != null)
+            {
+
+                int retorno = 0;
+
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "INSERT INTO pedidos(idCliente, comentarios, totalPedido) VALUES('{0}', '{1}', '{2}')",
+                id, comentario, total), conectar);
+
+                retorno = comando.ExecuteNonQuery();
+
+                if(retorno == 1)
+                {
+                    return comando.LastInsertedId;
+                }
+
+                return retorno;
+            }
+            return 0;
+        }
+        public int AgregarDetallePedido(decimal cantidad, decimal precio, int idPedido, int idProducto)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            if (conectar != null)
+            {
+
+                int retorno = 0;
+
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "INSERT INTO detallepedido(cantidad, precio, idpedido, idproducto) VALUES('{0}', '{1}', '{2}', '{3}')",
+                cantidad, precio, idPedido, idProducto), conectar);
+
+                retorno = comando.ExecuteNonQuery();
+
+                return retorno;
+            }
+            return 0;
         }
     }
 }
