@@ -8,10 +8,10 @@ namespace Pollos
 {
     class Pedido
     {
-        int idPedidos;
-        int idCliente;
-        DateTime fechaPedido;
-        string comentarios;
-        Decimal totalPedido;
+       public int idPedidos;
+        public int idCliente;
+        public DateTime fechaPedido;
+        public string comentarios;
+        public Decimal totalPedido;
     }
 }

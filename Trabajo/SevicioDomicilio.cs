@@ -13,6 +13,7 @@ namespace Pollos
     public partial class SevicioDomicilio : Form
     {
         Clientes c;
+        Pedido pedido;
         public SevicioDomicilio()
         {
             InitializeComponent();
@@ -124,7 +125,7 @@ namespace Pollos
 
         private void gridProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            double auxTotal = 0;
+           /* double auxTotal = 0;
             double total = 0;
 
             for(int i = 0; i < gridProductos.RowCount - 1; i++)
@@ -134,13 +135,14 @@ namespace Pollos
                 total = total + auxTotal;
                 
                 labelTotal.Text = Convert.ToString(total);
-            }
+            }*/
         }
 
         private void SevicioDomicilio_Load(object sender, EventArgs e)
         {
             listClientes.FullRowSelect = true;
             Actualizar();
+            pedido = new Pedido();
             DateTime Hoy = DateTime.Today;
             string fecha_actual = Hoy.ToString("dd-MM-yyyy");
             lbFecha.Text = fecha_actual;
@@ -164,8 +166,8 @@ namespace Pollos
                 row.Cells[2].Value = bp.p.tipo;
                 row.Cells[3].Value = Convert.ToString(bp.p.precio);
                 row.Cells[4].Value = "1";
-                
                 gridProductos.Rows.Add(row);
+                actualizarTotal();
             }
         }
 
@@ -178,12 +180,13 @@ namespace Pollos
             }
             else
             {
+                actualizarTotal();
                 long idped = query.AgregarPedido(Convert.ToInt32(c.id), txtComen.Text, Convert.ToDecimal(labelTotal.Text));
 
                 for (int i = 0; i < gridProductos.RowCount - 1; i++)
                 {
                     Decimal cant = Convert.ToDecimal(gridProductos.Rows[i].Cells[4].Value);
-                    Decimal pre = Convert.ToDecimal(gridProductos.Rows[i].Cells[4].Value);
+                    Decimal pre = Convert.ToDecimal(gridProductos.Rows[i].Cells[3].Value);
                     
                     int idpro = Convert.ToInt32(gridProductos.Rows[i].Cells[0].Value);
                     query.AgregarDetallePedido(cant, pre, Convert.ToInt32(idped), idpro);
@@ -235,6 +238,30 @@ namespace Pollos
                     if (e.Index != ix) listClientes.Items[ix].Checked = false;
 
             }
+        }
+
+        private void gridProductos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            actualizarTotal();
+        }
+        private void actualizarTotal()
+        {
+            Decimal auxTotal = 0;
+            Decimal total = 0;
+
+            for (int i = 0; i < gridProductos.RowCount - 1; i++)
+            {
+                auxTotal = Convert.ToDecimal(gridProductos.Rows[i].Cells[3].Value) * Convert.ToDecimal(gridProductos.Rows[i].Cells[4].Value);
+
+                total = total + auxTotal;
+                pedido.totalPedido=total;
+                labelTotal.Text = Convert.ToString(pedido.totalPedido);
+            }
+        }
+
+        private void gridProductos_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            actualizarTotal();
         }
     }
     }

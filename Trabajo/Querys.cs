@@ -418,7 +418,8 @@ namespace Pollos
         public long AgregarPedido(int id, string comentario, decimal total)
         {
             MySqlConnection conectar = DB.ObtenerConexion();
-
+            string totaltxt = String.Format("{0:0.00}", total);
+            totaltxt = totaltxt.Replace(",", ".");
             if (conectar != null)
             {
 
@@ -426,7 +427,7 @@ namespace Pollos
 
                 MySqlCommand comando = new MySqlCommand(String.Format(
                 "INSERT INTO pedidos(idCliente, comentarios, totalPedido) VALUES('{0}', '{1}', '{2}')",
-                id, comentario, total), conectar);
+                id, comentario, totaltxt), conectar);
 
                 retorno = comando.ExecuteNonQuery();
 
@@ -442,7 +443,10 @@ namespace Pollos
         public int AgregarDetallePedido(decimal cantidad, decimal precio, int idPedido, int idProducto)
         {
             MySqlConnection conectar = DB.ObtenerConexion();
-
+            string preciotxt = String.Format("{0:0.00}", precio);
+            preciotxt = preciotxt.Replace(",", ".");
+            string cantidadtxt = String.Format("{0:0.00}", cantidad);
+            cantidadtxt = cantidadtxt.Replace(",", ".");
             if (conectar != null)
             {
 
@@ -450,7 +454,7 @@ namespace Pollos
 
                 MySqlCommand comando = new MySqlCommand(String.Format(
                 "INSERT INTO detallepedido(cantidad, precio, idpedido, idproducto) VALUES('{0}', '{1}', '{2}', '{3}')",
-                cantidad, precio, idPedido, idProducto), conectar);
+                cantidadtxt, preciotxt, idPedido, idProducto), conectar);
 
                 retorno = comando.ExecuteNonQuery();
 
