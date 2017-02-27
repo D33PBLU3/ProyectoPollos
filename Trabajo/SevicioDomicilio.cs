@@ -160,8 +160,15 @@ namespace Pollos
 
         private void btnAceptarPedido_Click(object sender, EventArgs e)
         {
+            if (c.id == "")
+            {
+                return;
+            }
+            else
+            {
 
-            for (int i = 0; i < listClientes.Items.Count; i++)
+            }
+           /* for (int i = 0; i < listClientes.Items.Count; i++)
             {
                 if (listClientes.Items[i].Checked)
                 {
@@ -172,7 +179,7 @@ namespace Pollos
 
                 }
 
-            }
+            }*/
         }
 
         private void listClientes_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -190,9 +197,16 @@ namespace Pollos
 
         private void listClientes_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            c = new Clientes();
             if (e.NewValue == CheckState.Checked)
             {
-                
+                c.id = listClientes.Items[e.Index].Text;
+                c.nombre = listClientes.Items[e.Index].SubItems[1].Text;
+                c.tel= listClientes.Items[e.Index].SubItems[2].Text;
+                c.direccion= listClientes.Items[e.Index].SubItems[3].Text;
+                c.calles=listClientes.Items[e.Index].SubItems[4].Text;
+                c.colonia= listClientes.Items[e.Index].SubItems[5].Text;
+                lbNomCliente.Text = c.nombre;
                 for (int ix = 0; ix < listClientes.Items.Count; ++ix)
                     if (e.Index != ix) listClientes.Items[ix].Checked = false;
 

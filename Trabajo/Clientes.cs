@@ -15,5 +15,15 @@ namespace Pollos
         public string calles;
         public string tel;
         public string status;
+        public Clientes()
+        {
+            nombre = "";
+            id = "";
+            colonia = "";
+            direccion = "";
+            calles = "";
+            tel = "";
+            status = "";
+        }
     }
 }
