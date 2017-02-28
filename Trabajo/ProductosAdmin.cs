@@ -34,7 +34,12 @@ namespace Pollos
         {
             SubProducto sp = new SubProducto();
                 Querys query = new Querys();
-                int resultado = 0;
+            int resultado = 0;
+
+
+                try
+            {
+
                 prod.nombre = txtNombreProducto.Text;
                 prod.tipo = txtTipoProducto.Text;
                 prod.precio = Convert.ToDecimal(txtPrecio.Text);
@@ -43,52 +48,52 @@ namespace Pollos
                     MessageBox.Show("Ingresa todo los datos");
                     return;
                 }
-            if (operacion == 1)
-            {
-                resultado = query.AgregarProducto(prod.nombre, prod.tipo, prod.precio);
-                if (prod.tipo == "PAQUETE")
+                if (operacion == 1)
                 {
-                    sp.idProductos = query.getLastProducto();
-                    /*for (int i = 0; i < listSubProductosAg.Items.Count; i++)
+                    resultado = query.AgregarProducto(prod.nombre, prod.tipo, prod.precio);
+                    if (prod.tipo == "PAQUETE")
                     {
-                        sp.idSubProducto = Convert.ToInt32(listSubProductosAg.Items[i].Text);
-                        sp.cantidad = Convert.ToDecimal(listSubProductosAg.Items[i].SubItems[2].Text);
-                        query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
-
-                    }*/ 
-                    
-                    foreach (DataGridViewRow row in gridProductos.Rows)
-                    {
-                        sp.idSubProducto = Convert.ToInt32(row.Cells[0].Value);
-                        if (sp.idSubProducto != 0)
+                        sp.idProductos = query.getLastProducto();
+                        /*for (int i = 0; i < listSubProductosAg.Items.Count; i++)
                         {
-                            //sp.idProductos = Convert.ToInt32(row.Cells[0].Value);
-                            sp.cantidad = Convert.ToDecimal(row.Cells[4].Value);
+                            sp.idSubProducto = Convert.ToInt32(listSubProductosAg.Items[i].Text);
+                            sp.cantidad = Convert.ToDecimal(listSubProductosAg.Items[i].SubItems[2].Text);
                             query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
-                       }
-                    }
-                }
-            }
-            else
-            {   
-                resultado = query.EditarProducto(prod.id, prod.nombre, prod.tipo, prod.precio);
-                query.EliminarSubProductos(prod.id);
-                if (prod.tipo == "PAQUETE")
-                {
-                    sp.idProductos = prod.id;
-                   // sp.idProductos = query.getLastProducto();
-                    foreach (DataGridViewRow row in gridProductos.Rows)
-                    {
 
-                        sp.idSubProducto = Convert.ToInt32(row.Cells[0].Value);
-                        if (sp.idSubProducto != 0)
+                        }*/
+
+                        foreach (DataGridViewRow row in gridProductos.Rows)
                         {
-                            sp.cantidad = Convert.ToDecimal(row.Cells[4].Value);
-                            query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
+                            sp.idSubProducto = Convert.ToInt32(row.Cells[0].Value);
+                            if (sp.idSubProducto != 0)
+                            {
+                                //sp.idProductos = Convert.ToInt32(row.Cells[0].Value);
+                                sp.cantidad = Convert.ToDecimal(row.Cells[4].Value);
+                                query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
+                            }
                         }
                     }
                 }
-            }
+                else
+                {
+                    resultado = query.EditarProducto(prod.id, prod.nombre, prod.tipo, prod.precio);
+                    query.EliminarSubProductos(prod.id);
+                    if (prod.tipo == "PAQUETE")
+                    {
+                        sp.idProductos = prod.id;
+                        // sp.idProductos = query.getLastProducto();
+                        foreach (DataGridViewRow row in gridProductos.Rows)
+                        {
+
+                            sp.idSubProducto = Convert.ToInt32(row.Cells[0].Value);
+                            if (sp.idSubProducto != 0)
+                            {
+                                sp.cantidad = Convert.ToDecimal(row.Cells[4].Value);
+                                query.AgregarSubProducto(sp.idProductos, sp.idSubProducto, sp.cantidad);
+                            }
+                        }
+                    }
+                }
                 if (resultado > 0)
                 {
                     Close();
@@ -99,6 +104,12 @@ namespace Pollos
                     MessageBox.Show("Error al actualizar el producto");
 
                 }
+
+            }
+            catch
+            { 
+                MessageBox.Show("Error la cantidad no es correcta");
+            }
            
         }
         public void setProducto(Producto p)
@@ -223,6 +234,12 @@ namespace Pollos
                 row.Cells[4].Value = "1";
                 gridProductos.Rows.Add(row);
             }
+        }
+
+        private void gridProductos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            string preciotx = String.Format("{0:0.00}", e.ToString());
+            preciotx = preciotx.Replace(".", ",");
         }
     }
 }

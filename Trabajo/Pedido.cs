@@ -13,5 +13,14 @@ namespace Pollos
         public DateTime fechaPedido;
         public string comentarios;
         public Decimal totalPedido;
+        public Pedido()
+        {
+            idPedidos = 0;
+            idCliente = 0;
+            comentarios = "";
+            totalPedido = 0;
+
+        }
     }
+    
 }

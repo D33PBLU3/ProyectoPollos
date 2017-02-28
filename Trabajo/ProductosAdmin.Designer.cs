@@ -237,6 +237,7 @@
             this.gridProductos.TabIndex = 2;
             this.gridProductos.Visible = false;
             this.gridProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellDoubleClick);
+            this.gridProductos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellValueChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
