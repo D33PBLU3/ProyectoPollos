@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addEdit));
             this.textNick = new System.Windows.Forms.TextBox();
             this.textPass = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -93,9 +94,7 @@
             this.comboPermiso.FormattingEnabled = true;
             this.comboPermiso.Items.AddRange(new object[] {
             "NINGUNO",
-            "NO lo se",
-            "no me has dicho",
-            "no tengo idea"});
+            "ADMINISTRADOR"});
             this.comboPermiso.Location = new System.Drawing.Point(75, 94);
             this.comboPermiso.Name = "comboPermiso";
             this.comboPermiso.Size = new System.Drawing.Size(121, 21);
@@ -114,8 +113,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textPass);
             this.Controls.Add(this.textNick);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addEdit";
-            this.Text = "Editar";
+            this.Text = "Usuario";
             this.ResumeLayout(false);
             this.PerformLayout();
 

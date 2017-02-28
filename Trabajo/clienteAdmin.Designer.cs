@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(clienteAdmin));
             this.txtNombreC = new System.Windows.Forms.TextBox();
             this.txtTelC = new System.Windows.Forms.TextBox();
             this.txtColoniaC = new System.Windows.Forms.TextBox();
@@ -147,6 +148,7 @@
             this.Controls.Add(this.txtColoniaC);
             this.Controls.Add(this.txtTelC);
             this.Controls.Add(this.txtNombreC);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "clienteAdmin";
             this.Text = "Registrar Cliente";
             this.ResumeLayout(false);

@@ -47,13 +47,17 @@ namespace Pollos
                 else
                 {
                     resultado = query.AgregarUsuario(nombre, pass, permis);
-                    if (resultado > 0)
+                    if (resultado > 0 && resultado < 10)
                     {
                         textNick.Text = "";
                         textPass.Text = "";
 
                         this.Close();
                         MessageBox.Show("EL usuario se a registrado");
+                    }else
+                    if(resultado == 10)
+                    {
+                        MessageBox.Show("El NickName ya se encuentra registrado vuelva a intentarlo");
                     }
                     else
                     {

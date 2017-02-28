@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductosAdmin));
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.txtTipoProducto = new System.Windows.Forms.ComboBox();
             this.txtPrecio = new System.Windows.Forms.NumericUpDown();
@@ -288,6 +289,7 @@
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtTipoProducto);
             this.Controls.Add(this.txtNombreProducto);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductosAdmin";
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.ProductosAdmin_Load);

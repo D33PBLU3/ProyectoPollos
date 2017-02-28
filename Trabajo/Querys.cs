@@ -246,9 +246,18 @@ namespace Pollos
                 "INSERT INTO usuarios(nickName, password, tipoPermiso) VALUES('{0}', '{1}', '{2}')",
                 nombre, pass, permis), conectar);
 
-                retorno = comando.ExecuteNonQuery();
+                try { 
 
-                return retorno;
+                    retorno = comando.ExecuteNonQuery();
+
+
+                    return retorno;
+                }
+                catch
+                {
+                    return 10;
+                }
+
             }
             return 0;
         }
