@@ -86,6 +86,7 @@
       <DependentUpon>clienteAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="detallePedido.cs" />
+    <Compile Include="Impresion.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="SubProducto.cs" />
     <Compile Include="Usuarios.cs" />

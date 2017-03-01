@@ -13,5 +13,6 @@ namespace Pollos
         public string tipo;
         public string estatus;
         public decimal precio;
+        public decimal cantidad;
     }
 }
