@@ -184,7 +184,7 @@ namespace Pollos
             else
             {
                 actualizarTotal();
-                long idped = query.AgregarPedido(Convert.ToInt32(c.id), txtComen.Text, Convert.ToDecimal(labelTotal.Text));
+                pedido.idPedidos = Convert.ToInt32(query.AgregarPedido(Convert.ToInt32(c.id), txtComen.Text, Convert.ToDecimal(labelTotal.Text)));
 
                 for (int i = 0; i < gridProductos.RowCount - 1; i++)
                 {
@@ -195,7 +195,7 @@ namespace Pollos
                     p.cantidad = Convert.ToDecimal(gridProductos.Rows[i].Cells[4].Value);
                     
                     int idpro = Convert.ToInt32(gridProductos.Rows[i].Cells[0].Value);
-                    query.AgregarDetallePedido(p.cantidad, p.precio, Convert.ToInt32(idped), p.id);
+                    query.AgregarDetallePedido(p.cantidad, p.precio, Convert.ToInt32(pedido.idPedidos), p.id);
                     listaProductos.Add(p);
                 }
                 Impresion im = new Impresion();

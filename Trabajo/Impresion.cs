@@ -16,26 +16,34 @@ namespace Pollos
         public int imprimirPedido(Clientes c, Pedido p,List<Producto> listProductos)
         {
             StringBuilder tiket = new StringBuilder();
+            DateTime thisDay = DateTime.Today;
             tiket.AppendLine("********Servicio a domicilio********");
+            tiket.AppendLine("");
             tiket.AppendLine("Numero de pedido: " + Convert.ToString(p.idPedidos));
-            //tiket.AppendLine("Fecha:"+ Convert.ToString(p.fechaPedido));
+            tiket.AppendLine("Fecha:"+ thisDay.ToString("g"));
             tiket.AppendLine("Nombre:");
             tiket.AppendLine("La Barca Rosticerias");
             tiket.AppendLine("Nombre cliente:");
             tiket.AppendLine(c.nombre+"\n");
+            tiket.AppendLine("");
             tiket.AppendLine("Telefono:");
             tiket.AppendLine(c.tel+"\n");
+            tiket.AppendLine("");
             tiket.AppendLine("Direccion de pedido:");
             tiket.AppendLine(c.direccion+"\n");
+            tiket.AppendLine("");
             tiket.AppendLine("Colonia:");
             tiket.AppendLine(c.colonia+"\n");
+            tiket.AppendLine("");
             tiket.AppendLine("Entre:");
             tiket.AppendLine(c.calles+"\n");
+            tiket.AppendLine("");
             tiket.AppendLine("Pedido:");
             foreach(Producto pr in listProductos)
             {
                 tiket.AppendLine(pr.cantidad + " " + pr.nombre + " " + pr.cantidad * pr.precio);
             }
+            tiket.AppendLine("");
             tiket.AppendLine("\nTotal: " + p.totalPedido);
 
             tiket.AppendLine(p.comentarios);
