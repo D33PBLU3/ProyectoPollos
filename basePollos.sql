@@ -178,6 +178,7 @@ CREATE TABLE IF NOT EXISTS `pollos`.`subproductos` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+INSERT INTO `pollos`.`usuarios` (`nickName`, `password`, `tipoPermiso`, `estatusUsuario`) VALUES ('root', '', '', 'ACTIVO');
 
 
 INSERT INTO `productos` VALUES (1, 'NORMAL', 'pollo', 99.00, 'ACTIVO');
