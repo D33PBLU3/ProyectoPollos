@@ -14,6 +14,7 @@ namespace Pollos
     {
         Clientes c;
         Pedido pedido;
+        List<Producto> listaProductos;
         public SevicioDomicilio()
         {
             InitializeComponent();
@@ -142,6 +143,7 @@ namespace Pollos
         {
             listClientes.FullRowSelect = true;
             Actualizar();
+            listaProductos = new List<Producto>();
             pedido = new Pedido();
             DateTime Hoy = DateTime.Today;
             string fecha_actual = Hoy.ToString("dd-MM-yyyy");
@@ -174,6 +176,7 @@ namespace Pollos
         private void btnAceptarPedido_Click(object sender, EventArgs e)
         {
             Querys query = new Querys();
+            Producto p;
             if (c.id == "")
             {
                 return;
@@ -181,17 +184,22 @@ namespace Pollos
             else
             {
                 actualizarTotal();
-                long idped = query.AgregarPedido(Convert.ToInt32(c.id), txtComen.Text, Convert.ToDecimal(labelTotal.Text));
+                pedido.idPedidos = Convert.ToInt32(query.AgregarPedido(Convert.ToInt32(c.id), txtComen.Text, Convert.ToDecimal(labelTotal.Text)));
 
                 for (int i = 0; i < gridProductos.RowCount - 1; i++)
                 {
-                    Decimal cant = Convert.ToDecimal(gridProductos.Rows[i].Cells[4].Value);
-                    Decimal pre = Convert.ToDecimal(gridProductos.Rows[i].Cells[3].Value);
+                    p = new Producto();
+                    p.id = Convert.ToInt32(gridProductos.Rows[i].Cells[0].Value);
+                    p.nombre = Convert.ToString(gridProductos.Rows[i].Cells[1].Value);
+                   p.precio= Convert.ToDecimal(gridProductos.Rows[i].Cells[3].Value);
+                    p.cantidad = Convert.ToDecimal(gridProductos.Rows[i].Cells[4].Value);
                     
                     int idpro = Convert.ToInt32(gridProductos.Rows[i].Cells[0].Value);
-                    query.AgregarDetallePedido(cant, pre, Convert.ToInt32(idped), idpro);
+                    query.AgregarDetallePedido(p.cantidad, p.precio, Convert.ToInt32(pedido.idPedidos), p.id);
+                    listaProductos.Add(p);
                 }
-
+                Impresion im = new Impresion();
+                im.imprimirPedido(c,pedido,listaProductos);
                 MessageBox.Show("Pedido creado exitosamente");
                 Close();
             }
