@@ -180,6 +180,28 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
+INSERT INTO `productos` VALUES (1, 'NORMAL', 'pollo', 99.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (2, 'NORMAL', 'tacos', 1.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (3, 'NORMAL', 'col', 15.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (4, 'NORMAL', 'codito', 15.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (5, 'NORMAL', 'pure', 15.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (6, 'NORMAL', 'verduras', 15.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (7, 'NORMAL', 'cuernitos', 20.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (8, 'NORMAL', 'p_familiar', 159.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (9, 'NORMAL', 'p_individual', 45.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (10, 'NORMAL', 'cocag', 18.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (11, 'NORMAL', 'agua', 18.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (12, 'NORMAL', 'refresco gde', 0.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (13, 'NORMAL', 'refresco chico', 10.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (14, 'NORMAL', 'medio_pollo', 50.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (15, 'NORMAL', 'cuarto_pollo', 30.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (16, 'NORMAL', 'tortillas', 15.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (17, 'NORMAL', 'medio_tortillas', 8.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (18, 'NORMAL', 'papas', 4.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (19, 'NORMAL', 'tortilla_extra', 4.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (20, 'NORMAL', 'cupon', -15.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (21, 'NORMAL', 'p_familiar_st', 244.00, 'ACTIVO');
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
