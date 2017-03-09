@@ -12,12 +12,15 @@ namespace Pollos
 {
     public partial class SevicioDomicilio : Form
     {
+        Decimal [] preciosProd;
         Clientes c;
+        Decimal TotalPedido;
         Pedido pedido;
         List<Producto> listaProductos;
         public SevicioDomicilio()
         {
             InitializeComponent();
+            TodosProductos();
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
@@ -30,6 +33,50 @@ namespace Pollos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void TodosProductos()
+        {
+            Querys query = new Querys();
+            List<Producto> lista;
+            int cont = 0;
+            lista = query.getProductos();
+            if (lista.Count == 0)
+            {
+            }
+            else
+            {
+                button3.Text = lista[0].nombre;
+                button4.Text = lista[1].nombre;
+                button5.Text = lista[2].nombre;
+                button6.Text = lista[3].nombre;
+                button7.Text = lista[4].nombre;
+                button8.Text = lista[5].nombre;
+                button9.Text = lista[6].nombre;
+                button10.Text = lista[7].nombre;
+                button11.Text = lista[8].nombre;
+                button12.Text = lista[9].nombre;
+                button13.Text = lista[10].nombre;
+                button14.Text = lista[11].nombre;
+                button15.Text = lista[12].nombre;
+                button16.Text = lista[13].nombre;
+                button17.Text = lista[14].nombre;
+                button18.Text = lista[15].nombre;
+                button19.Text = lista[16].nombre;
+                button20.Text = lista[17].nombre;
+                button21.Text = lista[18].nombre;
+                button22.Text = lista[19].nombre;
+                button23.Text = lista[20].nombre;
+
+                preciosProd = new Decimal[22];
+
+                foreach (Producto p in lista)
+                {
+                    preciosProd[cont] = p.precio;
+                    
+                    cont++;
+                }
+            }
         }
 
         private void Actualizar()
@@ -158,7 +205,7 @@ namespace Pollos
         private void gridProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             
-            buscarProductos bp = new buscarProductos();
+            /*buscarProductos bp = new buscarProductos();
             bp.ShowDialog();
             if (bp.encontrado)
             {
@@ -171,6 +218,7 @@ namespace Pollos
                 gridProductos.Rows.Add(row);
                 actualizarTotal();
             }
+            */
         }
 
         private void btnAceptarPedido_Click(object sender, EventArgs e)
@@ -186,7 +234,7 @@ namespace Pollos
                 actualizarTotal();
                 pedido.idPedidos = Convert.ToInt32(query.AgregarPedido(Convert.ToInt32(c.id), txtComen.Text, Convert.ToDecimal(labelTotal.Text)));
 
-                for (int i = 0; i < gridProductos.RowCount - 1; i++)
+                /*for (int i = 0; i < gridProductos.RowCount - 1; i++)
                 {
                     p = new Producto();
                     p.id = Convert.ToInt32(gridProductos.Rows[i].Cells[0].Value);
@@ -202,7 +250,7 @@ namespace Pollos
                 im.imprimirPedido(c,pedido,listaProductos);
                 MessageBox.Show("Pedido creado exitosamente");
                 Close();
-            }
+            }*/
            /* for (int i = 0; i < listClientes.Items.Count; i++)
             {
                 if (listClientes.Items[i].Checked)
@@ -213,8 +261,8 @@ namespace Pollos
 
 
                 }
-
-            }*/
+                */
+            }
         }
 
         private void listClientes_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -254,22 +302,148 @@ namespace Pollos
         }
         private void actualizarTotal()
         {
-            Decimal auxTotal = 0;
-            Decimal total = 0;
+           // Decimal auxTotal = 0;
+            //Decimal total = 0;
 
-            for (int i = 0; i < gridProductos.RowCount - 1; i++)
+            /*for (int i = 0; i < gridProductos.RowCount - 1; i++)
             {
                 auxTotal = Convert.ToDecimal(gridProductos.Rows[i].Cells[3].Value) * Convert.ToDecimal(gridProductos.Rows[i].Cells[4].Value);
 
                 total = total + auxTotal;
                 pedido.totalPedido=total;
                 labelTotal.Text = Convert.ToString(pedido.totalPedido);
-            }
+            }*/
         }
 
         private void gridProductos_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             actualizarTotal();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[0];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[1];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[2];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[3];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[4];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[5];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[6];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[7];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[8];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[9];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[10];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[11];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[12];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[13];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[14];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[15];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[16];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[17];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[18];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[19];
+            labelTotal.Text = Convert.ToString(TotalPedido);
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            TotalPedido = TotalPedido + preciosProd[20];
+            labelTotal.Text = Convert.ToString(TotalPedido);
         }
     }
     }
