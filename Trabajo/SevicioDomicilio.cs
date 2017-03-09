@@ -27,7 +27,7 @@ namespace Pollos
         {
             clienteAdmin admin = new clienteAdmin();
             admin.ShowDialog();
-            Actualizar();
+            Actualizar(); 
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
