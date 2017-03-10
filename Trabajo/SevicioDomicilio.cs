@@ -122,16 +122,25 @@ namespace Pollos
         {
             try
             {
-                string id = listClientes.SelectedItems[0].SubItems[0].Text;
-                string nombre = listClientes.SelectedItems[0].SubItems[1].Text;
-                string tel = listClientes.SelectedItems[0].SubItems[2].Text;
-                string dir = listClientes.SelectedItems[0].SubItems[3].Text;
-                string calles = listClientes.SelectedItems[0].SubItems[4].Text;
-                string colonia = listClientes.SelectedItems[0].SubItems[5].Text;
+                string id = idCliente.Text;
+                string colonia = textColonia.Text;
+                string nombre = txtNombreCliente.Text;
+                string dir = txtDireccionCliente.Text;
+                string calles = txtEntreCallesCliente.Text;
+                string tel = telLabel.Text;
 
-                EditarCliente editaCliente = new EditarCliente(id, nombre, tel, dir, calles, colonia);
-                editaCliente.ShowDialog();
-                Actualizar();
+
+                if (id == "")
+                {
+                    MessageBox.Show("No se ha seleccionado algun cliente");
+                }
+                else
+                { 
+
+                    EditarCliente editaCliente = new EditarCliente(id, nombre, tel, dir, calles, colonia);
+                    editaCliente.ShowDialog();
+                    Actualizar();
+                }
 
             }
             catch
@@ -147,18 +156,33 @@ namespace Pollos
             try
             {
 
-                string id = listClientes.SelectedItems[0].SubItems[0].Text;
+                string id = idCliente.Text;
 
-                int respuesta = query.EliminarCliente(id);
-
-                if (respuesta == 1)
+                if (id == "")
                 {
-                    listClientes.Items.Remove(listClientes.SelectedItems[0]);
-                    MessageBox.Show("El cliente se ha eliminado");
+                    MessageBox.Show("No se ha seleccionado algun cliente");
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrio un error vuelva a intentarlo");
+
+                    int respuesta = query.EliminarCliente(id);
+
+                    if (respuesta == 1)
+                    {
+                        idCliente.Text = "";
+                        textColonia.Text = "";
+                        txtNombreCliente.Text = "";
+                        txtDireccionCliente.Text = "";
+                        txtEntreCallesCliente.Text = "";
+                        telLabel.Text = "";
+                        txtBuscar.Text = "";
+
+                        MessageBox.Show("El cliente se ha eliminado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrio un error vuelva a intentarlo");
+                    }
                 }
             }
             catch
@@ -291,7 +315,7 @@ namespace Pollos
                 c.direccion= listClientes.Items[e.Index].SubItems[3].Text;
                 c.calles=listClientes.Items[e.Index].SubItems[4].Text;
                 c.colonia= listClientes.Items[e.Index].SubItems[5].Text;
-                lbNomCliente.Text = c.nombre;
+                //lbNomCliente.Text = c.nombre;
                 for (int ix = 0; ix < listClientes.Items.Count; ++ix)
                     if (e.Index != ix) listClientes.Items[ix].Checked = false;
 
@@ -471,7 +495,44 @@ namespace Pollos
             }
             else
             {
-                           }
+            }
+        }
+
+        private void gridProductos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Querys query = new Querys();
+                List<Clientes> listClientes;
+                listClientes = query.BuscarClienteIgual(txtBuscar.Text);
+                if (listClientes.Count == 0)
+                {
+                    idCliente.Text = "";
+                    textColonia.Text = "";
+                    txtNombreCliente.Text = "";
+                    txtDireccionCliente.Text = "";
+                    txtEntreCallesCliente.Text = "";
+                    telLabel.Text = "";
+                    MessageBox.Show("Cliente no registrado");
+                }
+                else
+                {
+                    foreach (Clientes cliente in listClientes)
+                    {
+                        idCliente.Text = cliente.id;
+                        textColonia.Text = cliente.colonia;
+                        txtNombreCliente.Text = cliente.nombre;
+                        txtDireccionCliente.Text = cliente.direccion;
+                        txtEntreCallesCliente.Text = cliente.calles;
+                        telLabel.Text = txtBuscar.Text;
+                    }
+                }
+            }
         }
     }
    

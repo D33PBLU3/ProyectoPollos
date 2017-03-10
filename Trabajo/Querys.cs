@@ -60,6 +60,37 @@ namespace Pollos
             return null;
         }
 
+        public List<Clientes> BuscarClienteIgual(string tel)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            List<Clientes> lista = new List<Clientes>();
+
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "SELECT * FROM clientes WHERE telefonoCliente = " + tel + " and estatusCliente = 'ACTIVO'"), conectar);
+
+                MySqlDataReader lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Clientes cliente = new Clientes();
+                    cliente.id = lector.GetString(0);
+                    cliente.nombre = lector.GetString(1);
+                    cliente.tel = lector.GetString(2);
+                    cliente.direccion = lector.GetString(3);
+                    cliente.calles = lector.GetString(4);
+                    cliente.colonia = lector.GetString(5);
+                    cliente.status = lector.GetString(6);
+
+                    lista.Add(cliente);
+                }
+                return lista;
+            }
+            return null;
+        }
+
         public int EditarCliente(string id, string nombre, string tel, string dir, string calle, string colonia)
         {
             MySqlConnection conectar = DB.ObtenerConexion();

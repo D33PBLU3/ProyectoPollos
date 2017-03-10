@@ -20,10 +20,10 @@ namespace Pollos
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            ProductosAdmin pAdmin = new ProductosAdmin();
+            /*ProductosAdmin pAdmin = new ProductosAdmin();
             pAdmin.operacion = 1; 
             pAdmin.ShowDialog();
-            actualizar();
+            actualizar();*/
         }
 
         private void btnEditarProducto_Click(object sender, EventArgs e)

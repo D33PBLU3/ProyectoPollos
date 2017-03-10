@@ -47,8 +47,6 @@
             this.btnAceptarPedido = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lbFecha = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbNomCliente = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbTotal = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
@@ -85,12 +83,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.idCliente = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textColonia = new System.Windows.Forms.TextBox();
+            this.telLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(854, 31);
+            this.btnClientes.Location = new System.Drawing.Point(550, 12);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(93, 28);
             this.btnClientes.TabIndex = 1;
@@ -107,6 +109,7 @@
             this.txtBuscar.TabIndex = 0;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             this.txtBuscar.Enter += new System.EventHandler(this.txtBuscar_Enter);
+            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
             // listClientes
             // 
@@ -163,7 +166,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(854, 99);
+            this.button1.Location = new System.Drawing.Point(550, 80);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 28);
             this.button1.TabIndex = 3;
@@ -173,7 +176,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(854, 65);
+            this.button2.Location = new System.Drawing.Point(550, 46);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 28);
             this.button2.TabIndex = 2;
@@ -190,7 +193,7 @@
             // 
             // txtComen
             // 
-            this.txtComen.Location = new System.Drawing.Point(931, 580);
+            this.txtComen.Location = new System.Drawing.Point(819, 496);
             this.txtComen.Multiline = true;
             this.txtComen.Name = "txtComen";
             this.txtComen.Size = new System.Drawing.Size(272, 72);
@@ -199,7 +202,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1061, 171);
+            this.label1.Location = new System.Drawing.Point(816, 467);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 10;
@@ -208,7 +211,7 @@
             // btnAceptarPedido
             // 
             this.btnAceptarPedido.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnAceptarPedido.Location = new System.Drawing.Point(1070, 679);
+            this.btnAceptarPedido.Location = new System.Drawing.Point(899, 574);
             this.btnAceptarPedido.Name = "btnAceptarPedido";
             this.btnAceptarPedido.Size = new System.Drawing.Size(133, 60);
             this.btnAceptarPedido.TabIndex = 7;
@@ -219,7 +222,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(979, 46);
+            this.label2.Location = new System.Drawing.Point(827, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 12;
@@ -228,32 +231,15 @@
             // lbFecha
             // 
             this.lbFecha.AutoSize = true;
-            this.lbFecha.Location = new System.Drawing.Point(1036, 46);
+            this.lbFecha.Location = new System.Drawing.Point(884, 26);
             this.lbFecha.Name = "lbFecha";
             this.lbFecha.Size = new System.Drawing.Size(0, 13);
             this.lbFecha.TabIndex = 13;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(979, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Cliente:";
-            // 
-            // lbNomCliente
-            // 
-            this.lbNomCliente.AutoSize = true;
-            this.lbNomCliente.Location = new System.Drawing.Point(1039, 80);
-            this.lbNomCliente.Name = "lbNomCliente";
-            this.lbNomCliente.Size = new System.Drawing.Size(0, 13);
-            this.lbNomCliente.TabIndex = 15;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(979, 122);
+            this.label4.Location = new System.Drawing.Point(827, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 16;
@@ -262,7 +248,7 @@
             // lbTotal
             // 
             this.lbTotal.AutoSize = true;
-            this.lbTotal.Location = new System.Drawing.Point(1067, 137);
+            this.lbTotal.Location = new System.Drawing.Point(915, 95);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(0, 13);
             this.lbTotal.TabIndex = 17;
@@ -270,7 +256,7 @@
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(1039, 122);
+            this.labelTotal.Location = new System.Drawing.Point(887, 80);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(0, 13);
             this.labelTotal.TabIndex = 18;
@@ -278,7 +264,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.Location = new System.Drawing.Point(27, 250);
+            this.button3.Location = new System.Drawing.Point(12, 294);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(147, 60);
             this.button3.TabIndex = 8;
@@ -289,7 +275,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button4.Location = new System.Drawing.Point(383, 250);
+            this.button4.Location = new System.Drawing.Point(329, 294);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(155, 60);
             this.button4.TabIndex = 9;
@@ -300,7 +286,7 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button5.Location = new System.Drawing.Point(199, 250);
+            this.button5.Location = new System.Drawing.Point(165, 294);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(158, 60);
             this.button5.TabIndex = 10;
@@ -311,7 +297,7 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button6.Location = new System.Drawing.Point(567, 250);
+            this.button6.Location = new System.Drawing.Point(490, 294);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(153, 60);
             this.button6.TabIndex = 11;
@@ -322,7 +308,7 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button7.Location = new System.Drawing.Point(742, 251);
+            this.button7.Location = new System.Drawing.Point(649, 295);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(146, 59);
             this.button7.TabIndex = 12;
@@ -333,7 +319,7 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button8.Location = new System.Drawing.Point(27, 338);
+            this.button8.Location = new System.Drawing.Point(15, 360);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(147, 63);
             this.button8.TabIndex = 18;
@@ -344,7 +330,7 @@
             // button9
             // 
             this.button9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button9.Location = new System.Drawing.Point(199, 338);
+            this.button9.Location = new System.Drawing.Point(165, 360);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(158, 63);
             this.button9.TabIndex = 13;
@@ -355,7 +341,7 @@
             // button10
             // 
             this.button10.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button10.Location = new System.Drawing.Point(383, 338);
+            this.button10.Location = new System.Drawing.Point(329, 359);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(155, 63);
             this.button10.TabIndex = 14;
@@ -366,7 +352,7 @@
             // button11
             // 
             this.button11.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button11.Location = new System.Drawing.Point(567, 338);
+            this.button11.Location = new System.Drawing.Point(490, 360);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(153, 63);
             this.button11.TabIndex = 15;
@@ -377,7 +363,7 @@
             // button12
             // 
             this.button12.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button12.Location = new System.Drawing.Point(742, 338);
+            this.button12.Location = new System.Drawing.Point(649, 359);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(146, 63);
             this.button12.TabIndex = 16;
@@ -388,7 +374,7 @@
             // button13
             // 
             this.button13.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button13.Location = new System.Drawing.Point(27, 422);
+            this.button13.Location = new System.Drawing.Point(15, 429);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(147, 61);
             this.button13.TabIndex = 17;
@@ -399,7 +385,7 @@
             // button14
             // 
             this.button14.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button14.Location = new System.Drawing.Point(383, 422);
+            this.button14.Location = new System.Drawing.Point(329, 429);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(155, 61);
             this.button14.TabIndex = 19;
@@ -410,7 +396,7 @@
             // button15
             // 
             this.button15.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button15.Location = new System.Drawing.Point(567, 422);
+            this.button15.Location = new System.Drawing.Point(490, 429);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(153, 61);
             this.button15.TabIndex = 20;
@@ -422,7 +408,7 @@
             // 
             this.button16.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button16.Location = new System.Drawing.Point(742, 422);
+            this.button16.Location = new System.Drawing.Point(649, 428);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(146, 61);
             this.button16.TabIndex = 21;
@@ -433,7 +419,7 @@
             // button17
             // 
             this.button17.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button17.Location = new System.Drawing.Point(27, 509);
+            this.button17.Location = new System.Drawing.Point(15, 496);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(147, 62);
             this.button17.TabIndex = 22;
@@ -444,7 +430,7 @@
             // button18
             // 
             this.button18.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button18.Location = new System.Drawing.Point(199, 422);
+            this.button18.Location = new System.Drawing.Point(165, 429);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(158, 61);
             this.button18.TabIndex = 28;
@@ -455,7 +441,7 @@
             // button19
             // 
             this.button19.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button19.Location = new System.Drawing.Point(199, 509);
+            this.button19.Location = new System.Drawing.Point(165, 496);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(158, 62);
             this.button19.TabIndex = 27;
@@ -466,7 +452,7 @@
             // button20
             // 
             this.button20.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button20.Location = new System.Drawing.Point(383, 509);
+            this.button20.Location = new System.Drawing.Point(329, 496);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(155, 62);
             this.button20.TabIndex = 26;
@@ -477,7 +463,7 @@
             // button21
             // 
             this.button21.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button21.Location = new System.Drawing.Point(567, 509);
+            this.button21.Location = new System.Drawing.Point(490, 496);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(153, 62);
             this.button21.TabIndex = 25;
@@ -488,7 +474,7 @@
             // button22
             // 
             this.button22.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button22.Location = new System.Drawing.Point(742, 509);
+            this.button22.Location = new System.Drawing.Point(649, 496);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(146, 62);
             this.button22.TabIndex = 24;
@@ -499,7 +485,7 @@
             // button23
             // 
             this.button23.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button23.Location = new System.Drawing.Point(27, 598);
+            this.button23.Location = new System.Drawing.Point(329, 564);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(147, 65);
             this.button23.TabIndex = 23;
@@ -515,11 +501,12 @@
             this.nombreProducto,
             this.precioProducto,
             this.cantidadProducto});
-            this.gridProductos.Location = new System.Drawing.Point(931, 251);
+            this.gridProductos.Location = new System.Drawing.Point(817, 133);
             this.gridProductos.Name = "gridProductos";
             this.gridProductos.ReadOnly = true;
-            this.gridProductos.Size = new System.Drawing.Size(272, 320);
+            this.gridProductos.Size = new System.Drawing.Size(274, 320);
             this.gridProductos.TabIndex = 29;
+            this.gridProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellContentClick_1);
             // 
             // idProducto
             // 
@@ -606,12 +593,51 @@
             this.label7.TabIndex = 36;
             this.label7.Text = "ENTRE CALLES:";
             // 
+            // idCliente
+            // 
+            this.idCliente.AutoSize = true;
+            this.idCliente.Location = new System.Drawing.Point(571, 151);
+            this.idCliente.Name = "idCliente";
+            this.idCliente.Size = new System.Drawing.Size(0, 13);
+            this.idCliente.TabIndex = 37;
+            this.idCliente.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(11, 258);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 13);
+            this.label8.TabIndex = 39;
+            this.label8.Text = "COLONIA:";
+            // 
+            // textColonia
+            // 
+            this.textColonia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textColonia.Location = new System.Drawing.Point(139, 251);
+            this.textColonia.Name = "textColonia";
+            this.textColonia.Size = new System.Drawing.Size(399, 26);
+            this.textColonia.TabIndex = 38;
+            // 
+            // telLabel
+            // 
+            this.telLabel.AutoSize = true;
+            this.telLabel.Location = new System.Drawing.Point(560, 181);
+            this.telLabel.Name = "telLabel";
+            this.telLabel.Size = new System.Drawing.Size(0, 13);
+            this.telLabel.TabIndex = 40;
+            this.telLabel.Visible = false;
+            // 
             // SevicioDomicilio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(1226, 755);
+            this.ClientSize = new System.Drawing.Size(1106, 640);
+            this.Controls.Add(this.telLabel);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textColonia);
+            this.Controls.Add(this.idCliente);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -644,8 +670,6 @@
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.lbTotal);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.lbNomCliente);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.lbFecha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAceptarPedido);
@@ -686,8 +710,6 @@
         private System.Windows.Forms.Button btnAceptarPedido;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbFecha;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbNomCliente;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Label labelTotal;
@@ -724,5 +746,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label idCliente;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textColonia;
+        private System.Windows.Forms.Label telLabel;
     }
 }
