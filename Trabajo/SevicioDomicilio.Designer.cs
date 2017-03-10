@@ -73,11 +73,24 @@
             this.button21 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
+            this.gridProductos = new System.Windows.Forms.DataGridView();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
+            this.txtDireccionCliente = new System.Windows.Forms.TextBox();
+            this.txtEntreCallesCliente = new System.Windows.Forms.TextBox();
+            this.txtColoniaCliente = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(683, 31);
+            this.btnClientes.Location = new System.Drawing.Point(854, 31);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(93, 28);
             this.btnClientes.TabIndex = 1;
@@ -93,6 +106,7 @@
             this.txtBuscar.Size = new System.Drawing.Size(526, 80);
             this.txtBuscar.TabIndex = 0;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.txtBuscar.Enter += new System.EventHandler(this.txtBuscar_Enter);
             // 
             // listClientes
             // 
@@ -107,9 +121,9 @@
             listViewItem1.StateImageIndex = 0;
             this.listClientes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listClientes.Location = new System.Drawing.Point(633, 31);
+            this.listClientes.Location = new System.Drawing.Point(676, 803);
             this.listClientes.Name = "listClientes";
-            this.listClientes.Size = new System.Drawing.Size(44, 96);
+            this.listClientes.Size = new System.Drawing.Size(44, 22);
             this.listClientes.TabIndex = 4;
             this.listClientes.UseCompatibleStateImageBehavior = false;
             this.listClientes.View = System.Windows.Forms.View.Details;
@@ -149,7 +163,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(683, 99);
+            this.button1.Location = new System.Drawing.Point(854, 99);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 28);
             this.button1.TabIndex = 3;
@@ -159,7 +173,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(683, 65);
+            this.button2.Location = new System.Drawing.Point(854, 65);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 28);
             this.button2.TabIndex = 2;
@@ -169,7 +183,7 @@
             // 
             // textTicketPedido
             // 
-            this.textTicketPedido.Location = new System.Drawing.Point(8, 719);
+            this.textTicketPedido.Location = new System.Drawing.Point(14, 772);
             this.textTicketPedido.Name = "textTicketPedido";
             this.textTicketPedido.Size = new System.Drawing.Size(100, 20);
             this.textTicketPedido.TabIndex = 11;
@@ -193,12 +207,13 @@
             // 
             // btnAceptarPedido
             // 
-            this.btnAceptarPedido.Location = new System.Drawing.Point(1128, 711);
+            this.btnAceptarPedido.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnAceptarPedido.Location = new System.Drawing.Point(1070, 679);
             this.btnAceptarPedido.Name = "btnAceptarPedido";
-            this.btnAceptarPedido.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptarPedido.Size = new System.Drawing.Size(133, 60);
             this.btnAceptarPedido.TabIndex = 7;
-            this.btnAceptarPedido.Text = "Aceptar";
-            this.btnAceptarPedido.UseVisualStyleBackColor = true;
+            this.btnAceptarPedido.Text = "VENDER";
+            this.btnAceptarPedido.UseVisualStyleBackColor = false;
             this.btnAceptarPedido.Click += new System.EventHandler(this.btnAceptarPedido_Click);
             // 
             // label2
@@ -492,11 +507,119 @@
             this.button23.UseVisualStyleBackColor = false;
             this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
+            // gridProductos
+            // 
+            this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProducto,
+            this.nombreProducto,
+            this.precioProducto,
+            this.cantidadProducto});
+            this.gridProductos.Location = new System.Drawing.Point(931, 251);
+            this.gridProductos.Name = "gridProductos";
+            this.gridProductos.ReadOnly = true;
+            this.gridProductos.Size = new System.Drawing.Size(272, 320);
+            this.gridProductos.TabIndex = 29;
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "ID";
+            this.idProducto.Name = "idProducto";
+            this.idProducto.ReadOnly = true;
+            this.idProducto.Width = 30;
+            // 
+            // nombreProducto
+            // 
+            this.nombreProducto.HeaderText = "NOMBRE";
+            this.nombreProducto.Name = "nombreProducto";
+            this.nombreProducto.ReadOnly = true;
+            // 
+            // precioProducto
+            // 
+            this.precioProducto.HeaderText = "PRECIO";
+            this.precioProducto.Name = "precioProducto";
+            this.precioProducto.ReadOnly = true;
+            this.precioProducto.Width = 50;
+            // 
+            // cantidadProducto
+            // 
+            this.cantidadProducto.HeaderText = "CANTIDAD";
+            this.cantidadProducto.Name = "cantidadProducto";
+            this.cantidadProducto.ReadOnly = true;
+            this.cantidadProducto.Width = 50;
+            // 
+            // txtNombreCliente
+            // 
+            this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreCliente.Location = new System.Drawing.Point(139, 115);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.Size = new System.Drawing.Size(399, 26);
+            this.txtNombreCliente.TabIndex = 30;
+            // 
+            // txtDireccionCliente
+            // 
+            this.txtDireccionCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccionCliente.Location = new System.Drawing.Point(139, 163);
+            this.txtDireccionCliente.Name = "txtDireccionCliente";
+            this.txtDireccionCliente.Size = new System.Drawing.Size(399, 26);
+            this.txtDireccionCliente.TabIndex = 31;
+            // 
+            // txtEntreCallesCliente
+            // 
+            this.txtEntreCallesCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEntreCallesCliente.Location = new System.Drawing.Point(139, 207);
+            this.txtEntreCallesCliente.Name = "txtEntreCallesCliente";
+            this.txtEntreCallesCliente.Size = new System.Drawing.Size(399, 26);
+            this.txtEntreCallesCliente.TabIndex = 32;
+            // 
+            // txtColoniaCliente
+            // 
+            this.txtColoniaCliente.Location = new System.Drawing.Point(486, 772);
+            this.txtColoniaCliente.Name = "txtColoniaCliente";
+            this.txtColoniaCliente.Size = new System.Drawing.Size(167, 20);
+            this.txtColoniaCliente.TabIndex = 33;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 122);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "NOMBRE:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 170);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 13);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "DIRECCION:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 214);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 13);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "ENTRE CALLES:";
+            // 
             // SevicioDomicilio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 751);
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.ClientSize = new System.Drawing.Size(1226, 755);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtColoniaCliente);
+            this.Controls.Add(this.txtEntreCallesCliente);
+            this.Controls.Add(this.txtDireccionCliente);
+            this.Controls.Add(this.txtNombreCliente);
+            this.Controls.Add(this.gridProductos);
             this.Controls.Add(this.button19);
             this.Controls.Add(this.button20);
             this.Controls.Add(this.button21);
@@ -538,6 +661,7 @@
             this.Name = "SevicioDomicilio";
             this.Text = "Sevicio a Domicilio";
             this.Load += new System.EventHandler(this.SevicioDomicilio_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -588,5 +712,17 @@
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.DataGridView gridProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadProducto;
+        private System.Windows.Forms.TextBox txtNombreCliente;
+        private System.Windows.Forms.TextBox txtDireccionCliente;
+        private System.Windows.Forms.TextBox txtEntreCallesCliente;
+        private System.Windows.Forms.TextBox txtColoniaCliente;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -232,7 +232,34 @@ namespace Pollos
             }
             return null;
         }
+        public Producto buscarProducto(int id)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
 
+            Producto producto = new Producto();
+
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "SELECT * FROM productos WHERE idProducto =" + id ), conectar);
+
+                MySqlDataReader lector = comando.ExecuteReader();
+
+                if (lector.Read())
+                {
+           
+                   producto.id = Convert.ToInt32(lector.GetString(0));
+                    producto.nombre = lector.GetString(1);
+                    producto.tipo = lector.GetString(2);
+                    producto.precio = Convert.ToDecimal(lector.GetString(3));
+                    producto.estatus = lector.GetString(4);
+
+                    
+                }
+                return producto;
+            }
+            return null;
+        }
         public int AgregarUsuario(string nombre, string pass, string permis)
         {
             MySqlConnection conectar = DB.ObtenerConexion();
