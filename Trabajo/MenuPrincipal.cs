@@ -50,5 +50,11 @@ namespace Pollos
             Configuracion config = new Configuracion();
             config.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            adminClientes adClientes = new adminClientes();
+            adClientes.Show();
+        }
     }
 }

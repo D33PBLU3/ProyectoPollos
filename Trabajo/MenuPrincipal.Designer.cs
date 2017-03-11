@@ -33,6 +33,7 @@
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnConfiguracionUsuarios = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnServicioDomicilio
@@ -74,11 +75,22 @@
             this.btnVentas.TabIndex = 1;
             this.btnVentas.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(304, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 55);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 79);
+            this.ClientSize = new System.Drawing.Size(410, 79);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnVentas);
             this.Controls.Add(this.btnConfiguracionUsuarios);
             this.Controls.Add(this.btnProductos);
@@ -97,5 +109,6 @@
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnConfiguracionUsuarios;
         private System.Windows.Forms.Button btnVentas;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -272,6 +272,7 @@ namespace Pollos
                     query.AgregarDetallePedido(p.cantidad, p.precio, Convert.ToInt32(pedido.idPedidos), p.id);
                     listaProductos.Add(p);
                 }
+                pedido.comentarios = txtComen.Text;
                 Impresion im = new Impresion();
                 im.imprimirPedido(c,pedido,listaProductos);
                 MessageBox.Show("Pedido creado exitosamente");
