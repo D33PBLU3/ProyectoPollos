@@ -13,6 +13,7 @@ namespace Pollos
     
     public partial class ProductosAdmin : Form
     {
+    
         Producto prod;
         public int operacion;
         public ProductosAdmin()
