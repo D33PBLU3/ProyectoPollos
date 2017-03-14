@@ -14,6 +14,7 @@ namespace Pollos
     public partial class Form1 : Form
     {
         public bool loginSuccesful = false;
+       
         public Form1()
         {
             InitializeComponent();
@@ -50,6 +51,11 @@ namespace Pollos
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             //loginSuccesful = false;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

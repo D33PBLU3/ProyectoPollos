@@ -8,9 +8,9 @@ namespace Pollos
 {
     class detallePedido
     {
-        decimal cantidad;
-        decimal precio;
-        int idProducto;
-        int idPedido;
+        public decimal cantidad;
+        public decimal precio;
+        public  int idProducto;
+        public int idPedido;
     }
 }

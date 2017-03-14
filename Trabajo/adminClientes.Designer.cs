@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminClientes));
             this.listClientes = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NOMBRE = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -131,8 +132,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.listClientes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "adminClientes";
-            this.Text = "adminClientes";
+            this.Text = "Clientes";
             this.Load += new System.EventHandler(this.adminClientes_Load);
             this.ResumeLayout(false);
 

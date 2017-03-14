@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Pollos
 {
-    class SubProducto
+    public class   SubProducto
     {
        public int idProductos;
        public int idSubProducto;

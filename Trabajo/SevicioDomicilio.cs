@@ -12,6 +12,11 @@ namespace Pollos
 {
     public partial class SevicioDomicilio : Form
     {
+        String nombreAux = "";
+        String dirAux = "";
+        String entreAux = "";
+        String colAux = "";
+        List<detallePedido> detalle;
         List<Producto> lista;
         Decimal [] preciosProd;
         Clientes c;
@@ -68,8 +73,13 @@ namespace Pollos
                 button21.Text = lista[18].nombre;
                 button22.Text = lista[19].nombre;
                 button23.Text = lista[20].nombre;
+                button24.Text = lista[21].nombre;
+                button25.Text = lista[22].nombre;
+                button26.Text = lista[23].nombre;
+                button27.Text = lista[24].nombre;
 
-                preciosProd = new Decimal[22];
+
+                preciosProd = new Decimal[30];
 
                 foreach (Producto p in lista)
                 {
@@ -251,15 +261,28 @@ namespace Pollos
         {
             Querys query = new Querys();
             Producto p;
+            c.id = idCliente.Text;
             if (c.id == "")
             {
-                return;
+                c.nombre = txtNombreCliente.Text;
+                c.tel = txtBuscar.Text; 
+                c.direccion = txtDireccionCliente.Text;
+                c.colonia = txtColoniaCliente.Text;
+                c.calles = txtEntreCallesCliente.Text;
+                c.id = Convert.ToString(query.AgregarClienteRetornId(txtNombreCliente.Text, txtBuscar.Text, txtDireccionCliente.Text, textColonia.Text, txtEntreCallesCliente.Text));
+                //return;
             }
-            else
+            
+            if (nombreAux != txtNombreCliente.Text || dirAux != txtDireccionCliente.Text || entreAux != txtEntreCallesCliente.Text || colAux != textColonia.Text)
             {
+                query.EditarCliente(c.id, txtNombreCliente.Text, txtBuscar.Text, txtDireccionCliente.Text, txtEntreCallesCliente.Text, textColonia.Text);
+            }
+
+            //else
+            //{
                 actualizarTotal();
                 pedido.idPedidos = Convert.ToInt32(query.AgregarPedido(Convert.ToInt32(c.id), txtComen.Text, Convert.ToDecimal(labelTotal.Text)));
-
+            pedido = query.buscarPedido(pedido.idPedidos);
                 for (int i = 0; i < gridProductos.RowCount - 1; i++)
                 {
                     p = new Producto();
@@ -274,7 +297,12 @@ namespace Pollos
                 }
                 pedido.comentarios = txtComen.Text;
                 Impresion im = new Impresion();
-                im.imprimirPedido(c,pedido,listaProductos);
+                c.nombre = txtNombreCliente.Text;
+                c.tel = txtBuscar.Text;
+                c.direccion = txtDireccionCliente.Text;
+                c.colonia = txtColoniaCliente.Text;
+                c.calles = txtEntreCallesCliente.Text;
+            im.imprimirPedido(c,pedido,listaProductos);
                 MessageBox.Show("Pedido creado exitosamente");
                 Close();
             //}
@@ -289,7 +317,7 @@ namespace Pollos
 
                 }
                 */
-            }
+            //}
         }
 
         private void listClientes_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -391,7 +419,22 @@ namespace Pollos
         private void button10_Click(object sender, EventArgs e)
         {
             agregarProducto(7);
-          
+            seleccionEnsalada sl = new seleccionEnsalada();
+            sl.ShowDialog();
+            for (int i = 0; i < 4; i++)
+            {
+                if (sl.ensaladas.ElementAt(i).cantidad > 0)
+                {
+                    DataGridViewRow row = (DataGridViewRow)gridProductos.Rows[0].Clone();
+                    row.Cells[0].Value = Convert.ToString(sl.ensaladas.ElementAt(i).idProductos);
+                    row.Cells[1].Value = sl.ensaladas.ElementAt(i).nombre;
+                    row.Cells[2].Value = Convert.ToString(0.00);
+                    row.Cells[3].Value = Convert.ToString(sl.ensaladas.ElementAt(i).cantidad);
+                    gridProductos.Rows.Add(row);
+                }
+            }
+
+
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -506,7 +549,7 @@ namespace Pollos
 
         private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter|| e.KeyCode == Keys.Tab)
             {
                 Querys query = new Querys();
                 List<Clientes> listClientes;
@@ -514,26 +557,123 @@ namespace Pollos
                 if (listClientes.Count == 0)
                 {
                     idCliente.Text = "";
-                    textColonia.Text = "";
-                    txtNombreCliente.Text = "";
-                    txtDireccionCliente.Text = "";
-                    txtEntreCallesCliente.Text = "";
+                    colAux = textColonia.Text = "";
+                    nombreAux = txtNombreCliente.Text = "";
+                    dirAux = txtDireccionCliente.Text = "";
+                    entreAux = txtEntreCallesCliente.Text = "";
                     telLabel.Text = "";
-                    MessageBox.Show("Cliente no registrado");
+                    MessageBox.Show("Registre al cliente");
                 }
                 else
                 {
                     foreach (Clientes cliente in listClientes)
                     {
                         idCliente.Text = cliente.id;
-                        textColonia.Text = cliente.colonia;
-                        txtNombreCliente.Text = cliente.nombre;
-                        txtDireccionCliente.Text = cliente.direccion;
-                        txtEntreCallesCliente.Text = cliente.calles;
+                        colAux = textColonia.Text = cliente.colonia;
+                        nombreAux = txtNombreCliente.Text = cliente.nombre;
+                        dirAux = txtDireccionCliente.Text = cliente.direccion;
+                        entreAux = txtEntreCallesCliente.Text = cliente.calles;
                         telLabel.Text = txtBuscar.Text;
                     }
                 }
             }
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            agregarProducto(21);
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            agregarProducto(22);
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            agregarProducto(23);
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            agregarProducto(24);
+        }
+        
+        private void numPedido_KeyDown(object sender, KeyEventArgs e)
+        {   Querys query=new Querys();
+            try
+            {
+                if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+                {
+                    pedido.idPedidos = Convert.ToInt32(numPedido.Text);
+                    pedido = query.buscarPedido(pedido.idPedidos);
+                    c = query.BuscarClienteId(pedido.idCliente);
+                    txtNombreCliente.Text = c.nombre;
+                    txtBuscar.Text = c.tel;
+                    txtDireccionCliente.Text = c.direccion;
+                    txtColoniaCliente.Text= c.colonia;
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void numPedido_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            Querys query = new Querys();
+            try
+            {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                pedido.idPedidos = Convert.ToInt32(numPedido.Text);
+
+                pedido = query.buscarPedido(pedido.idPedidos);
+                if (pedido != null)
+                {
+                        gridProductos.Rows.Clear();
+                        
+                    txtComen.Text = pedido.comentarios;
+                    lbFecha.Text = Convert.ToString(pedido.fechaPedido);
+                    c = query.BuscarClienteId(pedido.idCliente);
+                    if (c != null)
+                    {
+                        txtNombreCliente.Text = c.nombre;
+                        txtBuscar.Text = c.tel;
+                        txtDireccionCliente.Text = c.direccion;
+                        txtColoniaCliente.Text = c.colonia;
+                        txtEntreCallesCliente.Text = c.calles;
+                    }
+                    detalle = query.buscarDetalle(pedido.idPedidos);
+                    if (detalle != null)
+                    {
+                        foreach (detallePedido dp in detalle)
+                        {
+                            Producto p = new Producto();
+                            p = query.buscarProducto(dp.idProducto);
+                            DataGridViewRow row = (DataGridViewRow)gridProductos.Rows[0].Clone();
+                            row.Cells[0].Value = Convert.ToString(p.id);
+                            row.Cells[1].Value = p.nombre;
+                            row.Cells[2].Value = Convert.ToString(p.precio);
+                            row.Cells[3].Value = dp.cantidad;
+                            gridProductos.Rows.Add(row);
+                        }
+                        actualizarTotal();
+                    }
+                        btnAceptarPedido.Visible = false;
+                }
+            }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void gridProductos_CellValueChanged_1(object sender, DataGridViewCellEventArgs e)
+        {
+            actualizarTotal();
         }
     }
    

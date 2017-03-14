@@ -90,7 +90,36 @@ namespace Pollos
             }
             return null;
         }
+        public Clientes BuscarClienteId(int id)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
 
+           
+
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "SELECT * FROM clientes WHERE idClientes = '{0}' ",id), conectar);
+
+                MySqlDataReader lector = comando.ExecuteReader();
+
+               if (lector.Read())
+                {
+                    Clientes cliente = new Clientes();
+                    cliente.id = lector.GetString(0);
+                    cliente.nombre = lector.GetString(1);
+                    cliente.tel = lector.GetString(2);
+                    cliente.direccion = lector.GetString(3);
+                    cliente.calles = lector.GetString(4);
+                    cliente.colonia = lector.GetString(5);
+                    cliente.status = lector.GetString(6);
+
+                    return cliente;
+                }
+                
+            }
+            return null;
+        }
         public int EditarCliente(string id, string nombre, string tel, string dir, string calle, string colonia)
         {
             MySqlConnection conectar = DB.ObtenerConexion();
@@ -272,7 +301,7 @@ namespace Pollos
             if (conectar != null)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format(
-                "SELECT * FROM productos WHERE idProducto =" + id ), conectar);
+                "SELECT * FROM productos WHERE idProductos =" + id ), conectar);
 
                 MySqlDataReader lector = comando.ExecuteReader();
 
@@ -280,8 +309,8 @@ namespace Pollos
                 {
            
                    producto.id = Convert.ToInt32(lector.GetString(0));
-                    producto.nombre = lector.GetString(1);
-                    producto.tipo = lector.GetString(2);
+                    producto.nombre = lector.GetString(2);
+                    producto.tipo = lector.GetString(1);
                     producto.precio = Convert.ToDecimal(lector.GetString(3));
                     producto.estatus = lector.GetString(4);
 
@@ -482,6 +511,7 @@ namespace Pollos
             }
             return null;
         }
+
         public long AgregarPedido(int id, string comentario, decimal total)
         {
             MySqlConnection conectar = DB.ObtenerConexion();
@@ -507,6 +537,30 @@ namespace Pollos
             }
             return 0;
         }
+
+        public long AgregarClienteRetornId(string nombre, string tel, string direccion, string colonia, string entre)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            if (conectar != null)
+            {
+
+                int retorno = 0;
+
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "INSERT INTO clientes(nombreCliente, telefonoCliente, direccionCliente, entreCallesCLiente, coloniaCliente) VALUES('{0}', '{1}', '{2}', '{3}', '{4}')",
+                nombre, tel, direccion, entre, colonia), conectar);
+
+                retorno = comando.ExecuteNonQuery();
+
+                if (retorno == 1)
+                {
+                    return comando.LastInsertedId;
+                }
+            }
+            return 0;
+        }
+
         public int AgregarDetallePedido(decimal cantidad, decimal precio, int idPedido, int idProducto)
         {
             MySqlConnection conectar = DB.ObtenerConexion();
@@ -528,6 +582,53 @@ namespace Pollos
                 return retorno;
             }
             return 0;
+        }
+        public Pedido buscarPedido(int idPedido)
+        {
+            Pedido p = new Pedido();
+            MySqlConnection conectar = DB.ObtenerConexion();
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+               "SELECT * FROM pedidos WHERE idPedidos='{0}'",idPedido),conectar);
+                MySqlDataReader lector = comando.ExecuteReader();
+                if (lector.Read())
+                {
+                    p.idPedidos= Convert.ToInt32(lector.GetString(0));
+                    p.idCliente = Convert.ToInt32(lector.GetString(1));
+                    p.fechaPedido = Convert.ToDateTime(lector.GetString(2));
+                    p.comentarios = lector.GetString(3);
+                    p.totalPedido = Convert.ToDecimal(lector.GetString(4));
+
+                }
+                return p;
+            }
+            return null;
+           
+        }
+        public List<detallePedido> buscarDetalle(int idPedido)
+        {
+            List<detallePedido> detalle = new List<detallePedido>();
+            MySqlConnection conectar = DB.ObtenerConexion();
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+               "SELECT * FROM detallePedido WHERE idPedido='{0}'", idPedido), conectar);
+                MySqlDataReader lector = comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    detallePedido dp = new detallePedido();
+                    dp.idPedido = Convert.ToInt32(lector.GetString(2));
+                    dp.idProducto = Convert.ToInt32(lector.GetString(3));
+                    dp.precio = Convert.ToDecimal(lector.GetString(1));
+                    dp.cantidad = Convert.ToDecimal(lector.GetString(0));
+                    detalle.Add(dp);              
+    
+                }
+                return detalle;
+            }
+            return null;
+
         }
     }
 }

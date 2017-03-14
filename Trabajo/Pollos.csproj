@@ -98,6 +98,12 @@
     <Compile Include="detallePedido.cs" />
     <Compile Include="Impresion.cs" />
     <Compile Include="Pedido.cs" />
+    <Compile Include="seleccionEnsalada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="seleccionEnsalada.Designer.cs">
+      <DependentUpon>seleccionEnsalada.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubProducto.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Clientes.cs" />
@@ -199,6 +205,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="seleccionEnsalada.resx">
+      <DependentUpon>seleccionEnsalada.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SevicioDomicilio.resx">
       <DependentUpon>SevicioDomicilio.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +237,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mas.ico" />
+    <None Include="menos.ico" />
     <Content Include="pollo.ico" />
     <Content Include="pollo1.ico" />
   </ItemGroup>
