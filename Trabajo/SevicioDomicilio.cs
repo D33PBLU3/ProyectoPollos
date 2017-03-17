@@ -224,8 +224,9 @@ namespace Pollos
         private void SevicioDomicilio_Load(object sender, EventArgs e)
         {
             listClientes.FullRowSelect = true;
-            Actualizar();
+            //Actualizar();
             listaProductos = new List<Producto>();
+            gridProductos.MultiSelect = false;
             pedido = new Pedido();
             DateTime Hoy = DateTime.Today;
             string fecha_actual = Hoy.ToString("dd-MM-yyyy");
@@ -359,7 +360,7 @@ namespace Pollos
         {
             Decimal auxTotal = 0;
            Decimal total = 0;
-
+            labelTotal.Text = Convert.ToString("0");
             for (int i = 0; i < gridProductos.RowCount - 1; i++)
             {
                 auxTotal = Convert.ToDecimal(gridProductos.Rows[i].Cells[2].Value) * Convert.ToDecimal(gridProductos.Rows[i].Cells[3].Value);
@@ -526,6 +527,8 @@ namespace Pollos
             row.Cells[2].Value = Convert.ToString(lista[pos].precio);
             row.Cells[3].Value = "1";
             gridProductos.Rows.Add(row);
+            row.Cells[3].Selected = true;
+            gridProductos.BeginEdit(true);
             actualizarTotal();
         }
 
@@ -563,6 +566,7 @@ namespace Pollos
                     entreAux = txtEntreCallesCliente.Text = "";
                     telLabel.Text = "";
                     MessageBox.Show("Registre al cliente");
+                    txtNombreCliente.Focus();
                 }
                 else
                 {
@@ -672,6 +676,16 @@ namespace Pollos
         }
 
         private void gridProductos_CellValueChanged_1(object sender, DataGridViewCellEventArgs e)
+        {
+            actualizarTotal();
+        }
+
+        private void gridProductos_RowsRemoved_1(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            actualizarTotal();
+        }
+
+        private void gridProductos_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
         {
             actualizarTotal();
         }

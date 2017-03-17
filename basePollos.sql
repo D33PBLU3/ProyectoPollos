@@ -202,7 +202,14 @@ INSERT INTO `productos` VALUES (18, 'NORMAL', 'papas', 4.00, 'ACTIVO');
 INSERT INTO `productos` VALUES (19, 'NORMAL', 'tortilla_extra', 4.00, 'ACTIVO');
 INSERT INTO `productos` VALUES (20, 'NORMAL', 'cupon', -15.00, 'ACTIVO');
 INSERT INTO `productos` VALUES (21, 'NORMAL', 'p_familiar_st', 244.00, 'ACTIVO');
-
+INSERT INTO `productos` VALUES (22, 'NORMAL', 'p1', 0.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (23, 'NORMAL', 'p2', 0.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (24, 'NORMAL', 'p3', 0.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (25, 'NORMAL', 'p4', 0.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (26, 'NORMAL', 'paq_pure', 0.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (27, 'NORMAL', 'paq_verduras', 0.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (28, 'NORMAL', 'paq_col', 0.00, 'ACTIVO');
+INSERT INTO `productos` VALUES (29, 'NORMAL', 'paq_codito', 0.00, 'ACTIVO');
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

@@ -24,7 +24,7 @@ namespace Pollos
             tiket.AppendLine("La Barca Rosticerias");
             tiket.AppendLine("Nombre cliente:");
             tiket.AppendLine(c.nombre+"\n");
-            tiket.AppendLine("");
+            //tiket.AppendLine("");
             tiket.AppendLine("Telefono:");
             tiket.AppendLine(c.tel+"\n");
             tiket.AppendLine("");
@@ -32,7 +32,7 @@ namespace Pollos
             tiket.AppendLine(c.direccion+"\n");
             //tiket.AppendLine("Colonia:");
             //tiket.AppendLine(c.colonia+"\n");
-            tiket.AppendLine("");
+            //tiket.AppendLine("");
             tiket.AppendLine("Entre:");
             tiket.AppendLine(c.calles+"\n");
             tiket.AppendLine("");
@@ -52,7 +52,10 @@ namespace Pollos
 
             try
             {
+                System.IO.StreamWriter file = new System.IO.StreamWriter("tikets/ticket" + Convert.ToString(p.idPedidos) + ".txt");
+                file.WriteLine(tiket.ToString());
                 RawPrinterHelper.SendStringToPrinter(getImpresoraPorDefecto(), tiket.ToString());
+                file.Close();
             }
             catch
             {
