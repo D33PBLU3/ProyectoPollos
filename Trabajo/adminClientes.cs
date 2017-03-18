@@ -12,6 +12,8 @@ namespace Pollos
 {
     public partial class adminClientes : Form
     {
+        List<Clientes> listaAux = new List<Clientes>();
+
         public adminClientes()
         {
             InitializeComponent();
@@ -34,6 +36,7 @@ namespace Pollos
             string buscar = "";
 
             lista = query.BuscarCliente(buscar);
+            listaAux = lista;
 
             int cont = 0;
 
@@ -92,6 +95,27 @@ namespace Pollos
             catch
             {
                 MessageBox.Show("No se ha seleccionado algun cliente");
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            listClientes.Items.Clear();
+            String buscar = buscarNombre.Text;
+            int cont = 0;
+
+            List<Clientes> lista = listaAux.Where(clienteAux => (clienteAux.nombre.ToUpper()).Contains(buscar.ToUpper())).ToList();
+
+            foreach (Clientes cliente in lista)
+            {
+                listClientes.Items.Add(cliente.id, 0);
+                listClientes.Items[cont].SubItems.Add(cliente.nombre);
+                listClientes.Items[cont].SubItems.Add(cliente.tel);
+                listClientes.Items[cont].SubItems.Add(cliente.direccion);
+                listClientes.Items[cont].SubItems.Add(cliente.calles);
+                listClientes.Items[cont].SubItems.Add(cliente.colonia);
+
+                cont++;   
             }
         }
     }

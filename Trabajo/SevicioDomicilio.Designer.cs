@@ -72,6 +72,10 @@
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.gridProductos = new System.Windows.Forms.DataGridView();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.txtDireccionCliente = new System.Windows.Forms.TextBox();
             this.txtEntreCallesCliente = new System.Windows.Forms.TextBox();
@@ -89,10 +93,6 @@
             this.button27 = new System.Windows.Forms.Button();
             this.numPedido = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -520,6 +520,33 @@
             this.gridProductos.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.gridProductos_RowsRemoved_1);
             this.gridProductos.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.gridProductos_UserDeletedRow);
             // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "ID";
+            this.idProducto.Name = "idProducto";
+            this.idProducto.ReadOnly = true;
+            this.idProducto.Visible = false;
+            this.idProducto.Width = 30;
+            // 
+            // nombreProducto
+            // 
+            this.nombreProducto.HeaderText = "NOMBRE";
+            this.nombreProducto.Name = "nombreProducto";
+            this.nombreProducto.ReadOnly = true;
+            // 
+            // precioProducto
+            // 
+            this.precioProducto.HeaderText = "PRECIO";
+            this.precioProducto.Name = "precioProducto";
+            this.precioProducto.ReadOnly = true;
+            this.precioProducto.Width = 50;
+            // 
+            // cantidadProducto
+            // 
+            this.cantidadProducto.HeaderText = "CANTIDAD";
+            this.cantidadProducto.Name = "cantidadProducto";
+            this.cantidadProducto.Width = 70;
+            // 
             // txtNombreCliente
             // 
             this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -674,33 +701,6 @@
             this.label3.Size = new System.Drawing.Size(102, 13);
             this.label3.TabIndex = 46;
             this.label3.Text = "NUMERO PEDIDO:";
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "ID";
-            this.idProducto.Name = "idProducto";
-            this.idProducto.ReadOnly = true;
-            this.idProducto.Visible = false;
-            this.idProducto.Width = 30;
-            // 
-            // nombreProducto
-            // 
-            this.nombreProducto.HeaderText = "NOMBRE";
-            this.nombreProducto.Name = "nombreProducto";
-            this.nombreProducto.ReadOnly = true;
-            // 
-            // precioProducto
-            // 
-            this.precioProducto.HeaderText = "PRECIO";
-            this.precioProducto.Name = "precioProducto";
-            this.precioProducto.ReadOnly = true;
-            this.precioProducto.Width = 50;
-            // 
-            // cantidadProducto
-            // 
-            this.cantidadProducto.HeaderText = "CANTIDAD";
-            this.cantidadProducto.Name = "cantidadProducto";
-            this.cantidadProducto.Width = 70;
             // 
             // SevicioDomicilio
             // 
