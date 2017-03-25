@@ -74,6 +74,7 @@
             this.btnVentas.Size = new System.Drawing.Size(67, 57);
             this.btnVentas.TabIndex = 1;
             this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // button1
             // 

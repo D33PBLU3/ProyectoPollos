@@ -17,7 +17,7 @@ namespace Pollos
             if(conectar != null)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format(
-                "SELECT nickName from usuarios where nickName = '{0}' and password = '{1}'",
+                "SELECT idUsuario from usuarios where nickName = '{0}' and password = '{1}' and estatusUsuario = 'ACTIVO'",
                 usuario, contrasena), conectar);
 
                 MySqlDataReader lector = comando.ExecuteReader();

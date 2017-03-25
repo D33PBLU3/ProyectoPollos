@@ -93,8 +93,9 @@
             // 
             this.comboPermiso.FormattingEnabled = true;
             this.comboPermiso.Items.AddRange(new object[] {
-            "NINGUNO",
-            "ADMINISTRADOR"});
+            "ADMINISTRADOR",
+            "VENTAS",
+            "PEDIDOS"});
             this.comboPermiso.Location = new System.Drawing.Point(75, 94);
             this.comboPermiso.Name = "comboPermiso";
             this.comboPermiso.Size = new System.Drawing.Size(121, 21);

@@ -13,11 +13,10 @@ namespace Pollos
 {
     public partial class MenuPrincipal : Form
     {
+        Usuarios usuario;
         public MenuPrincipal()
         {
             InitializeComponent();
-          
-            
         }
 
         private void btnServicioDomicilio_Click(object sender, EventArgs e)
@@ -33,6 +32,34 @@ namespace Pollos
             login.ShowDialog();
             if (login.loginSuccesful)
             {
+                usuario = new Usuarios();
+
+                Querys query = new Querys();
+
+                usuario = query.BuscarUsuarioId(login.idUsuario);
+                if (usuario.tipo.Equals("VENTAS"))
+                {
+                    btnServicioDomicilio.Enabled = false;
+                    btnProductos.Enabled = false;
+                    btnConfiguracionUsuarios.Enabled = false;
+                }
+
+                if (usuario.tipo.Equals("PEDIDOS"))
+                {
+                    btnProductos.Enabled = false;
+                    btnConfiguracionUsuarios.Enabled = false;
+                    btnVentas.Enabled = false;
+                }
+
+                if (usuario.tipo.Equals("NINGUNO"))
+                {
+                    btnServicioDomicilio.Enabled = false;
+                    btnProductos.Enabled = false;
+                    btnConfiguracionUsuarios.Enabled = false;
+                    btnVentas.Enabled = false;
+                    button1.Enabled = false;
+                }
+
                 Show();
             }
             else
@@ -55,6 +82,12 @@ namespace Pollos
         {
             adminClientes adClientes = new adminClientes();
             adClientes.Show();
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            Ventas ventas = new Ventas(usuario.id);
+            ventas.Show();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pollos
     public partial class Form1 : Form
     {
         public bool loginSuccesful = false;
+        public String idUsuario = "";
        
         public Form1()
         {
@@ -34,7 +35,8 @@ namespace Pollos
                 MessageBox.Show("Error al conectarse a la base de datos");
             }
             else
-            {                
+            {
+                idUsuario = respuesta;
                 loginSuccesful = true;
                 Close();
                 

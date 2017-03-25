@@ -12,13 +12,56 @@ namespace Pollos
 {
     class Impresion
     {
+        public int imprimirVenta(String nombre, VentaClas p, List<Producto> listProductos)
+        {
+            StringBuilder tiket = new StringBuilder();
+            DateTime thisDay = DateTime.Today;
+            tiket.AppendLine("*****Servicio a domicilio*****");
+            tiket.AppendLine("");
+            tiket.AppendLine("Numero de venta: " + Convert.ToString(p.idVenta));
+            tiket.AppendLine("Fecha:" + Convert.ToString(p.fechaPedido));
+            tiket.AppendLine("Nombre:");
+            tiket.AppendLine("La Barca Rosticerias");
+            tiket.AppendLine("Nombre vendedor:");
+            tiket.AppendLine(nombre + "\n");
+           
+            
+            tiket.AppendLine("");
+            tiket.AppendLine("venta:");
+            foreach (Producto pr in listProductos)
+            {
+                tiket.AppendLine(pr.cantidad + " " + pr.nombre + " " + pr.cantidad * pr.precio);
+            }
+            tiket.AppendLine("");
+            tiket.AppendLine("\nTotal: " + p.totalVenta);
+
+            tiket.AppendLine(p.comentarios);
+            tiket.AppendLine("");
+            tiket.AppendLine("");
+            tiket.AppendLine("");
+            tiket.AppendLine("");
+
+            try
+            {
+                System.IO.StreamWriter file = new System.IO.StreamWriter("tikets/ticket" + Convert.ToString(p.idVenta) + ".txt");
+                file.WriteLine(tiket.ToString());
+                RawPrinterHelper.SendStringToPrinter(getImpresoraPorDefecto(), tiket.ToString());
+                file.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Ocurrio un error al imprimir tiket");
+                return -1;
+            }
+            return 1;
+        }
         public int imprimirPedido(Clientes c, Pedido p,List<Producto> listProductos)
         {
             StringBuilder tiket = new StringBuilder();
             DateTime thisDay = DateTime.Today;
             tiket.AppendLine("*****Servicio a domicilio*****");
             tiket.AppendLine("");
-            tiket.AppendLine("Numero de pedido: " + Convert.ToString(p.idPedidos));
+            tiket.AppendLine("Numero de venta: " + Convert.ToString(p.idPedidos));
             tiket.AppendLine("Fecha:"+ Convert.ToString(p.fechaPedido));
             tiket.AppendLine("Nombre:");
             tiket.AppendLine("La Barca Rosticerias");
@@ -28,7 +71,7 @@ namespace Pollos
             tiket.AppendLine("Telefono:");
             tiket.AppendLine(c.tel+"\n");
             tiket.AppendLine("");
-            tiket.AppendLine("Direccion de pedido:");
+            tiket.AppendLine("Direccion de venta:");
             tiket.AppendLine(c.direccion+"\n");
             //tiket.AppendLine("Colonia:");
             //tiket.AppendLine(c.colonia+"\n");

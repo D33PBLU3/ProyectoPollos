@@ -630,5 +630,81 @@ namespace Pollos
             return null;
 
         }
+
+        public long AgregarVenta(int id, decimal total, string comentario)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+            string totaltxt = String.Format("{0:0.00}", total);
+            totaltxt = totaltxt.Replace(",", ".");
+            if (conectar != null)
+            {
+
+                int retorno = 0;
+
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "INSERT INTO ventas(idusuario, total, comentarios) VALUES('{0}', '{1}', '{2}')",
+                id, total, comentario), conectar);
+
+                retorno = comando.ExecuteNonQuery();
+
+                if (retorno == 1)
+                {
+                    return comando.LastInsertedId;
+                }
+
+                return retorno;
+            }
+            return 0;
+        }
+
+        public int AgregarDetalleVenta(decimal cantidad, decimal precio, int idVenta, int idProducto)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+            string preciotxt = String.Format("{0:0.00}", precio);
+            preciotxt = preciotxt.Replace(",", ".");
+            string cantidadtxt = String.Format("{0:0.00}", cantidad);
+            cantidadtxt = cantidadtxt.Replace(",", ".");
+            if (conectar != null)
+            {
+
+                int retorno = 0;
+
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "INSERT INTO detalleventa(cantidad, precio, idventa, idproducto) VALUES('{0}', '{1}', '{2}', '{3}')",
+                cantidadtxt, preciotxt, idVenta, idProducto), conectar);
+
+                retorno = comando.ExecuteNonQuery();
+
+                return retorno;
+            }
+            return 0;
+        }
+
+        public Usuarios BuscarUsuarioId(string id)
+        {
+            MySqlConnection conectar = DB.ObtenerConexion();
+
+            List<Clientes> lista = new List<Clientes>();
+
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+                "SELECT * FROM usuarios WHERE idUsuario= " + id), conectar);
+
+                MySqlDataReader lector = comando.ExecuteReader();
+                
+                Usuarios usuarios = new Usuarios();
+                if (lector.Read()) { 
+                    usuarios.id = lector.GetString(0);
+                    usuarios.nickName = lector.GetString(1);
+                    usuarios.pass = lector.GetString(3);
+                    usuarios.tipo = lector.GetString(3);
+                    usuarios.status = lector.GetString(4);
+                 }
+
+                return usuarios;
+            }
+            return null;
+        }
     }
 }
