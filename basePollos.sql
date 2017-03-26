@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `pollos`.`ventas` (
   `idusuario` INT(11) NULL DEFAULT NULL,
   `total` DECIMAL(10,2) NULL DEFAULT NULL,
   `estatus` VARCHAR(45) NULL DEFAULT 'ACTIVA',
-  `fecha` DATETIME NULL DEFAULT NULL,
+  `fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `comentarios` VARCHAR(200) NULL DEFAULT NULL,
   PRIMARY KEY (`idventa`),
   INDEX `idusuario_venta_idx` (`idusuario` ASC),
