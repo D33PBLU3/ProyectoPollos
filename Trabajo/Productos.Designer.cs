@@ -73,12 +73,13 @@
             // 
             // btnEditarProducto
             // 
+            this.btnEditarProducto.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEditarProducto.Location = new System.Drawing.Point(490, 12);
             this.btnEditarProducto.Name = "btnEditarProducto";
-            this.btnEditarProducto.Size = new System.Drawing.Size(102, 23);
+            this.btnEditarProducto.Size = new System.Drawing.Size(102, 66);
             this.btnEditarProducto.TabIndex = 2;
             this.btnEditarProducto.Text = "Editar Producto";
-            this.btnEditarProducto.UseVisualStyleBackColor = true;
+            this.btnEditarProducto.UseVisualStyleBackColor = false;
             this.btnEditarProducto.Click += new System.EventHandler(this.btnEditarProducto_Click);
             // 
             // Productos

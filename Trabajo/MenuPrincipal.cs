@@ -89,5 +89,11 @@ namespace Pollos
             Ventas ventas = new Ventas(usuario.id);
             ventas.Show();
         }
+
+        private void btnRep_Click(object sender, EventArgs e)
+        {
+            reportes rep = new reportes();
+            rep.Show();
+        }
     }
 }

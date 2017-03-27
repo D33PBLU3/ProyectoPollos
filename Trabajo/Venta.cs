@@ -12,12 +12,16 @@ namespace Pollos
         public DateTime fechaPedido;
         public string comentarios;
         public Decimal totalVenta;
+        public decimal efectivo;
+        public decimal cambio;
         public VentaClas()
         {
             idVenta = 0;
             idUsuario = 0;
             comentarios = "";
             totalVenta = 0;
+            cambio = 0;
+            efectivo = 0;
 
         }
     }

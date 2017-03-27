@@ -271,7 +271,13 @@ namespace Pollos
             else
             {
                 actualizarTotal();
-                int idVenta = Convert.ToInt32(query.AgregarVenta(Convert.ToInt32(idUsuario), Convert.ToDecimal(labelTotal.Text),
+                actualizarCambio();
+                if (Convert.ToDecimal(cambio.Text) < 0)
+                {
+                    MessageBox.Show("El pago no cubre el total de la venta");
+                    return;
+                }
+                venta.idVenta = Convert.ToInt32(query.AgregarVenta(Convert.ToInt32(idUsuario), Convert.ToDecimal(labelTotal.Text),
                    txtComen.Text));
 
                 for (int i = 0; i < gridProductos.RowCount - 1; i++)
@@ -283,15 +289,25 @@ namespace Pollos
                     p.cantidad = Convert.ToDecimal(gridProductos.Rows[i].Cells[3].Value);
 
                     int idpro = Convert.ToInt32(gridProductos.Rows[i].Cells[0].Value);
-                    query.AgregarDetalleVenta(p.cantidad, p.precio, Convert.ToInt32(idVenta), p.id);
+                    query.AgregarDetalleVenta(p.cantidad, p.precio, venta.idVenta, p.id);
                     listaProductos.Add(p);
                 }
-                venta.comentarios = txtComen.Text;
+                venta = query.buscarVenta(venta.idVenta);
+                venta.cambio = Convert.ToDecimal(cambio.Text);
+                venta.efectivo = pagoTotal.Value;
                 Impresion im = new Impresion();
                 
                 im.imprimirVenta("nombre", venta, listaProductos);
                 MessageBox.Show("Venta creada exitosamente");
-                Close();
+                gridProductos.Rows.Clear();
+                pagoTotal.Value = 0;
+                venta = new VentaClas();
+                actualizarCambio();
+                actualizarTotal();
+                listaProductos.Clear();
+                txtComen.Text = "";
+                                
+                //Close();
             }
         }
 
@@ -481,6 +497,7 @@ namespace Pollos
             row.Cells[3].Selected = true;
             gridProductos.BeginEdit(true);
             actualizarTotal();
+            actualizarCambio();
         }
 
         private void txtBuscar_Enter(object sender, EventArgs e)
@@ -630,16 +647,19 @@ namespace Pollos
         private void gridProductos_CellValueChanged_1(object sender, DataGridViewCellEventArgs e)
         {
             actualizarTotal();
+            actualizarCambio();
         }
 
         private void gridProductos_RowsRemoved_1(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             actualizarTotal();
+            actualizarCambio();
         }
 
         private void gridProductos_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
         {
             actualizarTotal();
+            actualizarCambio();
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -662,6 +682,32 @@ namespace Pollos
                 }
                 cambio.Text = Convert.ToString(total);
             }
+        }
+
+        private void pago_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pagoTotal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                actualizarCambio();
+            }
+        }
+        private void actualizarCambio()
+        {
+            decimal total = 0;
+            try
+            {
+                total = pagoTotal.Value - Convert.ToDecimal(labelTotal.Text);
+            }
+            catch
+            {
+                ;
+            }
+            cambio.Text = Convert.ToString(total);
         }
     }
    

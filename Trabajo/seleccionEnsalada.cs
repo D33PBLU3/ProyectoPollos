@@ -21,29 +21,29 @@ namespace Pollos
         private void seleccionEnsalada_Load(object sender, EventArgs e)
         {
             SubProducto sp = new SubProducto();
-            txtCod.Text = "1";
-            txtPur.Text = "1";
-            txtVer.Text = "1";
-            txtCol.Text = "1";
+            txtCod.Text = "0";
+            txtPur.Text = "0";
+            txtVer.Text = "0";
+            txtCol.Text = "0";
             ensaladas = new List<SubProducto>();
             sp.nombre = "paq_pure";
             sp.idProductos = 26;
-            sp.cantidad = 1;
+            sp.cantidad = 0;
             ensaladas.Add(sp);
             sp = new SubProducto();
             sp.nombre = "paq_verduras";
             sp.idProductos = 27;
-            sp.cantidad = 1;
+            sp.cantidad = 0;
             ensaladas.Add(sp);
             sp = new SubProducto();
             sp.nombre = "paq_Codito";
             sp.idProductos = 28;
-            sp.cantidad = 1;
+            sp.cantidad = 0;
             ensaladas.Add(sp);
             sp = new SubProducto();
             sp.nombre = "paq_Col";
             sp.idProductos = 29;
-            sp.cantidad = 1;
+            sp.cantidad = 0;
             ensaladas.Add(sp);
 
         }

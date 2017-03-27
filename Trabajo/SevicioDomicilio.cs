@@ -304,7 +304,7 @@ namespace Pollos
                 c.colonia = txtColoniaCliente.Text;
                 c.calles = txtEntreCallesCliente.Text;
             im.imprimirPedido(c,pedido,listaProductos);
-                MessageBox.Show("Pedido creado exitosamente");
+               // MessageBox.Show("Pedido creado exitosamente");
                 Close();
             //}
            /* for (int i = 0; i < listClientes.Items.Count; i++)
