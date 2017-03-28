@@ -22,11 +22,11 @@ USE `pollos` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pollos`.`clientes` (
   `idclientes` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombreCliente` VARCHAR(200) NOT NULL,
-  `telefonoCliente` VARCHAR(50) NOT NULL,
-  `direccionCliente` VARCHAR(200) NULL DEFAULT NULL,
-  `entreCallesCliente` VARCHAR(200) NULL DEFAULT NULL,
-  `coloniaCliente` VARCHAR(200) NULL DEFAULT NULL,
+  `nombreCliente` VARCHAR(200) NOT NULL DEFAULT ' ',
+  `telefonoCliente` VARCHAR(50) NOT NULL DEFAULT ' ',
+  `direccionCliente` VARCHAR(200) NOT NULL DEFAULT ' ',
+  `entreCallesCliente` VARCHAR(200) NOT NULL DEFAULT ' ',
+  `coloniaCliente` VARCHAR(200) NOT NULL DEFAULT ' ',
   `estatusCliente` VARCHAR(45) NOT NULL DEFAULT 'ACTIVO',
   PRIMARY KEY (`idclientes`))
 ENGINE = InnoDB
