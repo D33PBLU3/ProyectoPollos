@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 //using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace Pollos
 {
@@ -659,13 +660,23 @@ namespace Pollos
             if (conectar != null)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format(
-               "SELECT count(*) FROM ventas,detalleventa where date(fecha)='{0}' and"+
-               "ventas.idventa = detalleventa.idventa"+
+               "SELECT SUM(detalleventa.cantidad) FROM ventas,detalleventa where date(fecha)='{0}' and " +
+               "ventas.idventa = detalleventa.idventa "+
                 "and detalleventa.idproducto = '{1}'; ", date,idProducto), conectar);
                 MySqlDataReader lector = comando.ExecuteReader();
                 while (lector.Read())
-                {                  
-                    cant= Convert.ToInt32(lector.GetString(0));        
+                {
+                    try
+                    {
+                        cant = Convert.ToInt32(lector.GetString(0));
+                     }
+                    catch
+                    {
+                      ;
+                    }
+                   // MessageBox.Show(Convert.ToString(cant));
+                    return cant;
+                    
                 }
             }
             return cant;
