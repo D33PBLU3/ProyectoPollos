@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 //using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace Pollos
 {
@@ -593,18 +594,93 @@ namespace Pollos
                "SELECT * FROM pedidos WHERE idPedidos='{0}'",idPedido),conectar);
                 MySqlDataReader lector = comando.ExecuteReader();
                 if (lector.Read())
-                {
+                {       
                     p.idPedidos= Convert.ToInt32(lector.GetString(0));
                     p.idCliente = Convert.ToInt32(lector.GetString(1));
                     p.fechaPedido = Convert.ToDateTime(lector.GetString(2));
                     p.comentarios = lector.GetString(3);
                     p.totalPedido = Convert.ToDecimal(lector.GetString(4));
-
+                 
                 }
                 return p;
             }
             return null;
            
+        }
+        public VentaClas buscarVenta(int idVenta)
+        {
+            VentaClas v = new VentaClas();
+            MySqlConnection conectar = DB.ObtenerConexion();
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+               "SELECT * FROM ventas WHERE idVenta='{0}'", idVenta), conectar);
+                MySqlDataReader lector = comando.ExecuteReader();
+                if (lector.Read())
+                {
+                    v.idVenta = Convert.ToInt32(lector.GetString(0));
+                    v.idUsuario = Convert.ToInt32(lector.GetString(1));
+                    v.totalVenta= Convert.ToDecimal(lector.GetString(2));
+                    v.fechaPedido = Convert.ToDateTime(lector.GetString(4));
+                    v.comentarios = lector.GetString(5);
+
+                }
+                return v;
+            }
+            return null;
+
+        }
+        public List<Pedido> buscarPedidosFecha(string date)
+        {
+            List<Pedido> pedidos = new List<Pedido>();
+            MySqlConnection conectar = DB.ObtenerConexion();
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+               "SELECT * FROM pedidos WHERE date(fecha)='{0}'", date), conectar);
+                MySqlDataReader lector = comando.ExecuteReader();
+                if (lector.Read())
+                {
+                    Pedido p = new Pedido();
+                    p.idPedidos = Convert.ToInt32(lector.GetString(0));
+                    p.idCliente = Convert.ToInt32(lector.GetString(1));
+                    p.fechaPedido = Convert.ToDateTime(lector.GetString(2));
+                    p.comentarios = lector.GetString(3);
+                    p.totalPedido = Convert.ToDecimal(lector.GetString(4));
+                    pedidos.Add(p);
+                }
+                return pedidos;
+            }
+            return null;
+        }
+        public int contarProducto(int idProducto, string date)
+        {
+            int cant=0;
+            MySqlConnection conectar = DB.ObtenerConexion();
+            if (conectar != null)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format(
+               "SELECT SUM(detalleventa.cantidad) FROM ventas,detalleventa where date(fecha)='{0}' and " +
+               "ventas.idventa = detalleventa.idventa "+
+                "and detalleventa.idproducto = '{1}'; ", date,idProducto), conectar);
+                MySqlDataReader lector = comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    try
+                    {
+                        cant = Convert.ToInt32(lector.GetString(0));
+                     }
+                    catch
+                    {
+                      ;
+                    }
+                   // MessageBox.Show(Convert.ToString(cant));
+                    return cant;
+                    
+                }
+            }
+            return cant;
+
         }
         public List<detallePedido> buscarDetalle(int idPedido)
         {
@@ -643,7 +719,7 @@ namespace Pollos
 
                 MySqlCommand comando = new MySqlCommand(String.Format(
                 "INSERT INTO ventas(idusuario, total, comentarios) VALUES('{0}', '{1}', '{2}')",
-                id, total, comentario), conectar);
+                id, totaltxt, comentario), conectar);
 
                 retorno = comando.ExecuteNonQuery();
 

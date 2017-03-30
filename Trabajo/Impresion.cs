@@ -18,14 +18,23 @@ namespace Pollos
             DateTime thisDay = DateTime.Today;
             tiket.AppendLine("*****Servicio a domicilio*****");
             tiket.AppendLine("");
-            tiket.AppendLine("Numero de venta: " + Convert.ToString(p.idVenta));
+            tiket.AppendLine("Nota de venta No. " + Convert.ToString(p.idVenta));
             tiket.AppendLine("Fecha:" + Convert.ToString(p.fechaPedido));
             tiket.AppendLine("Nombre:");
             tiket.AppendLine("La Barca Rosticerias");
-            tiket.AppendLine("Nombre vendedor:");
-            tiket.AppendLine(nombre + "\n");
-           
-            
+            tiket.AppendLine("Telefono:");
+            tiket.AppendLine("38542175");
+            tiket.AppendLine("Direccion:");
+            tiket.AppendLine("Av. de los Maestros 1316");
+            tiket.AppendLine("Entre:");
+            tiket.AppendLine("Jose Maria Coss y Federalismo");
+            // tiket.AppendLine("Telefono:");
+            //tiket.AppendLine("38542175");
+
+            // tiket.AppendLine("Nombre vendedor:");
+            //tiket.AppendLine(nombre + "\n");
+
+
             tiket.AppendLine("");
             tiket.AppendLine("venta:");
             foreach (Producto pr in listProductos)
@@ -34,7 +43,8 @@ namespace Pollos
             }
             tiket.AppendLine("");
             tiket.AppendLine("\nTotal: " + p.totalVenta);
-
+            tiket.AppendLine("Efectivo: " + p.efectivo);
+            tiket.AppendLine("Cambio: " + p.cambio);
             tiket.AppendLine(p.comentarios);
             tiket.AppendLine("");
             tiket.AppendLine("");
@@ -43,7 +53,7 @@ namespace Pollos
 
             try
             {
-                System.IO.StreamWriter file = new System.IO.StreamWriter("tikets/ticket" + Convert.ToString(p.idVenta) + ".txt");
+                System.IO.StreamWriter file = new System.IO.StreamWriter("ticketsVentas/ticket" + Convert.ToString(p.idVenta) + ".txt");
                 file.WriteLine(tiket.ToString());
                 RawPrinterHelper.SendStringToPrinter(getImpresoraPorDefecto(), tiket.ToString());
                 file.Close();
@@ -86,7 +96,7 @@ namespace Pollos
             }
             tiket.AppendLine("");
             tiket.AppendLine("\nTotal: " + p.totalPedido);
-
+            
             tiket.AppendLine(p.comentarios);
             tiket.AppendLine("");
             tiket.AppendLine("");
@@ -95,7 +105,7 @@ namespace Pollos
 
             try
             {
-                System.IO.StreamWriter file = new System.IO.StreamWriter("tikets/ticket" + Convert.ToString(p.idPedidos) + ".txt");
+                System.IO.StreamWriter file = new System.IO.StreamWriter("ticketsPedidos/ticket" + Convert.ToString(p.idPedidos) + ".txt");
                 file.WriteLine(tiket.ToString());
                 RawPrinterHelper.SendStringToPrinter(getImpresoraPorDefecto(), tiket.ToString());
                 file.Close();

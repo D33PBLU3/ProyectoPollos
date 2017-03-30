@@ -34,6 +34,7 @@
             this.btnConfiguracionUsuarios = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnRep = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnServicioDomicilio
@@ -59,7 +60,7 @@
             // btnConfiguracionUsuarios
             // 
             this.btnConfiguracionUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnConfiguracionUsuarios.Image")));
-            this.btnConfiguracionUsuarios.Location = new System.Drawing.Point(231, 12);
+            this.btnConfiguracionUsuarios.Location = new System.Drawing.Point(393, 14);
             this.btnConfiguracionUsuarios.Name = "btnConfiguracionUsuarios";
             this.btnConfiguracionUsuarios.Size = new System.Drawing.Size(67, 57);
             this.btnConfiguracionUsuarios.TabIndex = 3;
@@ -79,18 +80,29 @@
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(304, 12);
+            this.button1.Location = new System.Drawing.Point(231, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 55);
             this.button1.TabIndex = 4;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnRep
+            // 
+            this.btnRep.Image = ((System.Drawing.Image)(resources.GetObject("btnRep.Image")));
+            this.btnRep.Location = new System.Drawing.Point(312, 14);
+            this.btnRep.Name = "btnRep";
+            this.btnRep.Size = new System.Drawing.Size(75, 55);
+            this.btnRep.TabIndex = 5;
+            this.btnRep.UseVisualStyleBackColor = true;
+            this.btnRep.Click += new System.EventHandler(this.btnRep_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 79);
+            this.ClientSize = new System.Drawing.Size(471, 79);
+            this.Controls.Add(this.btnRep);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnVentas);
             this.Controls.Add(this.btnConfiguracionUsuarios);
@@ -111,5 +123,6 @@
         private System.Windows.Forms.Button btnConfiguracionUsuarios;
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRep;
     }
 }
