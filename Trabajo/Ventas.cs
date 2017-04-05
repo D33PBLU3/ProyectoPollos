@@ -79,6 +79,11 @@ namespace Pollos
                 button25.Text = lista[22].nombre;
                 button26.Text = lista[23].nombre;
                 button27.Text = lista[24].nombre;
+                button28.Text = lista[25].nombre;
+                button29.Text = lista[26].nombre;
+                button30.Text = lista[27].nombre;
+                button31.Text = lista[28].nombre;
+                button32.Text = lista[29].nombre;
 
 
                 preciosProd = new Decimal[30];
@@ -708,6 +713,31 @@ namespace Pollos
                 ;
             }
             cambio.Text = Convert.ToString(total);
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            agregarProducto(25);
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            agregarProducto(26);
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            agregarProducto(27);
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            agregarProducto(28);
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            agregarProducto(29);
         }
     }
    
