@@ -15,4 +15,9 @@ namespace Pollos
         public decimal precio;
         public decimal cantidad;
     }
+    public partial class TotalProducto
+    {
+        public int cantidad;
+        public Decimal precio;
+    }
 }

@@ -84,7 +84,7 @@ namespace Pollos
                 button32.Text = lista[29].nombre;
 
 
-                preciosProd = new Decimal[30];
+                preciosProd = new Decimal[50];
 
                 foreach (Producto p in lista)
                 {

@@ -19,9 +19,10 @@ namespace Pollos
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
-            System.IO.StreamReader filer = new System.IO.StreamReader("reportsPaths.txt");
+            Impresion imp = new Impresion();
+            imp.granTicket(dateReport.Text);
+            imp = null;
+         /*   System.IO.StreamReader filer = new System.IO.StreamReader("reportsPaths.txt");
             string path = filer.ReadLine();
             string fileName = "reporte" + dateReport.Text.Replace("/","-")+".xls";
             System.IO.File.Copy(path+"/plantilla.xls", "reportes/"+fileName, true);
@@ -73,8 +74,9 @@ namespace Pollos
             cantidad = query.contarProducto(18, dateReport.Text);
             ws.Cells[34, 2] = cantidad;
             xlApp.Visible = true;
+            */
         }
-
+      
         private void reportes_Load(object sender, EventArgs e)
         {
             dateReport.CustomFormat = "yyyy/MM/dd";

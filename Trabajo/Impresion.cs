@@ -11,7 +11,8 @@ using System.IO;
 namespace Pollos
 {
     class Impresion
-    {
+    {   private static int CANT_SPACES=20;
+        Decimal total = 0;
         public int imprimirVenta(String nombre, VentaClas p, List<Producto> listProductos)
         {
             StringBuilder tiket = new StringBuilder();
@@ -128,7 +129,112 @@ namespace Pollos
             }
             return string.Empty;
         }
+        public int granTicket(string dateTicket)
+        {
+            TotalProducto tp;
+            Producto p;
+            total = 0;
+            int totalCantEndaladas = 0;
+            Decimal totalPrecioEnsaladas = 0;
+            StringBuilder tiket = new StringBuilder();
+            Querys query = new Querys();
+            tiket.AppendLine("Total venta " + dateTicket);
+            tiket.AppendLine("");
+            escribeProducto(1, tiket, dateTicket);
+            escribeProducto(14, tiket, dateTicket);
+            escribeProducto(39, tiket, dateTicket);
+            escribeProducto(40, tiket, dateTicket);
+            escribeProducto(31, tiket, dateTicket);
+            escribeProducto(41, tiket, dateTicket);
+            escribeProducto(8, tiket, dateTicket);
+            escribeProducto(21, tiket, dateTicket);
+            escribeProducto(9, tiket, dateTicket);
+            escribeProducto(32, tiket, dateTicket);
+            escribeProducto(33, tiket, dateTicket);
+            escribeProducto(42, tiket, dateTicket);
+            escribeProducto(2, tiket, dateTicket);
+            escribeProducto(34, tiket, dateTicket);
+            tp = query.contarProducto(3, dateTicket);
+            totalCantEndaladas += tp.cantidad;
+            totalPrecioEnsaladas += tp.precio * tp.cantidad;
+            tp = query.contarProducto(4, dateTicket);
+            totalCantEndaladas += tp.cantidad;
+            totalPrecioEnsaladas += tp.precio * tp.cantidad;
+            tp = query.contarProducto(5, dateTicket);
+            totalCantEndaladas += tp.cantidad;
+            totalPrecioEnsaladas += tp.precio * tp.cantidad;
+            tp = query.contarProducto(6, dateTicket);
+            totalCantEndaladas += tp.cantidad;
+            totalPrecioEnsaladas += tp.precio*tp.cantidad;
+            tp.cantidad = totalCantEndaladas;
+            tp.precio = totalPrecioEnsaladas;
+            tiket.AppendLine(tp.cantidad+new string(' ', ((tp.cantidad>9)? 2:3))+ "Ensaladas" + new string(' ' , 11) + "$" + tp.precio);
+            escribeProducto(3, tiket, dateTicket);
+            escribeProducto(4, tiket, dateTicket);
+            escribeProducto(5, tiket, dateTicket);
+            escribeProducto(6, tiket, dateTicket);
+            totalPrecioEnsaladas = 0;
+            totalCantEndaladas = 0;
+            tp = query.contarProducto(26, dateTicket);
+            totalCantEndaladas += tp.cantidad;
+            totalPrecioEnsaladas += tp.precio;
+            tp = query.contarProducto(27, dateTicket);
+            totalCantEndaladas += tp.cantidad;
+            totalPrecioEnsaladas += tp.precio;
+            tp = query.contarProducto(28, dateTicket);
+            totalCantEndaladas += tp.cantidad;
+            totalPrecioEnsaladas += tp.precio;
+            tp = query.contarProducto(29, dateTicket);
+            totalCantEndaladas += tp.cantidad;
+            totalPrecioEnsaladas += tp.precio;
+            tp.cantidad = totalCantEndaladas;
+            tp.precio = totalPrecioEnsaladas;
+            tiket.AppendLine(tp.cantidad + new string(' ', ((tp.cantidad > 9) ? 2 : 3)) + "Ensaladas de Paquete" + new string(' ', 9) );
+            escribeProducto(35, tiket, dateTicket);
+            escribeProducto(20, tiket, dateTicket);
+            escribeProducto(36 ,tiket, dateTicket);
+            escribeProducto(7, tiket, dateTicket);
+            escribeProducto(16, tiket, dateTicket);
+            escribeProducto(37, tiket, dateTicket);
+            escribeProducto(38, tiket, dateTicket);
+            escribeProducto(18, tiket, dateTicket);
+            escribeProducto(10, tiket, dateTicket);
+            escribeProducto(13, tiket, dateTicket);
+            escribeProducto(12, tiket, dateTicket);
+            tiket.AppendLine(new string('_', 30));
+            tiket.AppendLine("Total:"+new string(' ', 17)+"$"+total.ToString());
+           
+    try
+            {
+                System.IO.StreamWriter file = new System.IO.StreamWriter("GranTicket/ticket" +dateTicket.Replace("/","_")+ ".txt");
+                file.WriteLine(tiket.ToString());
+                RawPrinterHelper.SendStringToPrinter(getImpresoraPorDefecto(), tiket.ToString());
+                file.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Ocurrio un error al imprimir tiket");
+                return -1;
+            }
+                return 1;
+        }
+        void escribeProducto(int id,StringBuilder tiket,string dateTicket) 
+        {
+            TotalProducto tp;
+            Producto p=new Producto();
+            Querys query = new Querys();
+            tp = query.contarProducto(id, dateTicket);
+            p = query.buscarProducto(id);
+            if (p != null && tp != null)
+            {
+                if (id == 3 || id == 4 || id == 5 || id == 6)
+                    tiket.Append("      ");
+                tiket.AppendLine(tp.cantidad + new string(' ', ((tp.cantidad > 9) ? 2 : 3)) + p.nombre + new string(' ', CANT_SPACES - p.nombre.Length) + "$" + (tp.precio * tp.cantidad).ToString());
+                total += (tp.precio * tp.cantidad);
+            }
+         }
     }
+   
     public class RawPrinterHelper
     {
         // Structure and API declarions:

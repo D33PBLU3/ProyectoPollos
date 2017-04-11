@@ -84,9 +84,19 @@ namespace Pollos
                 button30.Text = lista[27].nombre;
                 button31.Text = lista[28].nombre;
                 button32.Text = lista[29].nombre;
-
-
-                preciosProd = new Decimal[30];
+                button33.Text = lista[30].nombre;
+                button34.Text = lista[31].nombre;
+                button35.Text = lista[32].nombre;
+                button36.Text = lista[33].nombre;
+                button37.Text = lista[34].nombre;
+                button38.Text = lista[35].nombre;
+                button39.Text = lista[36].nombre;
+                button40.Text = lista[37].nombre;
+                button41.Text = lista[38].nombre;
+                button42.Text = lista[39].nombre;
+                button43.Text = lista[40].nombre;
+                button44.Text = lista[41].nombre;
+                preciosProd = new Decimal[50];
 
                 foreach (Producto p in lista)
                 {
@@ -738,6 +748,67 @@ namespace Pollos
         private void button32_Click(object sender, EventArgs e)
         {
             agregarProducto(29);
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            agregarProducto(30);
+        }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            agregarProducto(31);
+        }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            agregarProducto(32);
+
+        }
+
+        private void button36_Click(object sender, EventArgs e)
+        {
+            agregarProducto(33);
+        }
+
+        private void button37_Click(object sender, EventArgs e)
+        {
+            agregarProducto(34);
+        }
+
+        private void button38_Click(object sender, EventArgs e)
+        {
+            agregarProducto(35);
+        }
+
+        private void button39_Click(object sender, EventArgs e)
+        {
+            agregarProducto(36);
+        }
+
+        private void button40_Click(object sender, EventArgs e)
+        {
+            agregarProducto(37);
+        }
+
+        private void button41_Click(object sender, EventArgs e)
+        {
+            agregarProducto(38);
+        }
+
+        private void button42_Click(object sender, EventArgs e)
+        {
+            agregarProducto(39);
+        }
+
+        private void button43_Click(object sender, EventArgs e)
+        {
+            agregarProducto(40);
+        }
+
+        private void button44_Click(object sender, EventArgs e)
+        {
+            agregarProducto(41);
         }
     }
    

@@ -302,7 +302,7 @@ namespace Pollos
             if (conectar != null)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format(
-                "SELECT * FROM productos WHERE idProductos =" + id ), conectar);
+                "SELECT * FROM productos WHERE idProductos ={0}" , id ), conectar);
 
                 MySqlDataReader lector = comando.ExecuteReader();
 
@@ -653,14 +653,14 @@ namespace Pollos
             }
             return null;
         }
-        public int contarProducto(int idProducto, string date)
+        public TotalProducto contarProducto(int idProducto, string date)
         {
-            int cant=0;
+            TotalProducto tp=new TotalProducto();
             MySqlConnection conectar = DB.ObtenerConexion();
             if (conectar != null)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format(
-               "SELECT SUM(detalleventa.cantidad) FROM ventas,detalleventa where date(fecha)='{0}' and " +
+               "SELECT SUM(detalleventa.cantidad),precio FROM ventas,detalleventa where date(fecha)='{0}' and " +
                "ventas.idventa = detalleventa.idventa "+
                 "and detalleventa.idproducto = '{1}'; ", date,idProducto), conectar);
                 MySqlDataReader lector = comando.ExecuteReader();
@@ -668,18 +668,20 @@ namespace Pollos
                 {
                     try
                     {
-                        cant = Convert.ToInt32(lector.GetString(0));
-                     }
+                        tp.cantidad = Convert.ToInt32(lector.GetString(0));
+                        tp.precio = Convert.ToDecimal(lector.GetString(1));
+                      
+                    }
                     catch
                     {
                       ;
                     }
                    // MessageBox.Show(Convert.ToString(cant));
-                    return cant;
+                    return tp;
                     
                 }
             }
-            return cant;
+            return tp;
 
         }
         public List<detallePedido> buscarDetalle(int idPedido)
