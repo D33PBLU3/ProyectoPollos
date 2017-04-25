@@ -31,7 +31,7 @@ namespace Pollos
         {
             Querys query = new Querys();
 
-            if(txtNombreC.Text == "" || txtTelC.Text == "" || txtEntreC.Text == "" || txtColoniaC.Text == "" || txtDirC.Text == "")
+            if(txtNombreC.Text == "" || txtTelC.Text == "" || txtEntreC.Text == "" || txtDirC.Text == "")
             {
                 MessageBox.Show("Todos los campos deben de estar llenos");
             }else

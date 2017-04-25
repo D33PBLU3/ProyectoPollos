@@ -140,6 +140,7 @@
             this.listClientes.TabIndex = 4;
             this.listClientes.UseCompatibleStateImageBehavior = false;
             this.listClientes.View = System.Windows.Forms.View.Details;
+            this.listClientes.Visible = false;
             this.listClientes.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listClientes_ItemCheck);
             this.listClientes.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listClientes_ItemChecked);
             this.listClientes.SelectedIndexChanged += new System.EventHandler(this.listClientes_SelectedIndexChanged);
@@ -202,6 +203,7 @@
             this.textTicketPedido.Name = "textTicketPedido";
             this.textTicketPedido.Size = new System.Drawing.Size(100, 20);
             this.textTicketPedido.TabIndex = 11;
+            this.textTicketPedido.Visible = false;
             // 
             // txtComen
             // 
@@ -442,7 +444,7 @@
             // 
             this.button16.BackColor = System.Drawing.Color.Salmon;
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button16.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button16.Location = new System.Drawing.Point(193, 221);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(89, 36);
@@ -549,6 +551,7 @@
             this.gridProductos.TabIndex = 29;
             this.gridProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellContentClick_1);
             this.gridProductos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellValueChanged_1);
+            this.gridProductos.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridProductos_RowHeaderMouseClick);
             this.gridProductos.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.gridProductos_RowsRemoved_1);
             this.gridProductos.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.gridProductos_UserDeletedRow);
             // 
@@ -585,6 +588,7 @@
             this.txtColoniaCliente.Name = "txtColoniaCliente";
             this.txtColoniaCliente.Size = new System.Drawing.Size(167, 20);
             this.txtColoniaCliente.TabIndex = 33;
+            this.txtColoniaCliente.Visible = false;
             // 
             // idCliente
             // 
@@ -606,9 +610,9 @@
             // 
             // button24
             // 
-            this.button24.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button24.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button24.Location = new System.Drawing.Point(8, 518);
+            this.button24.Location = new System.Drawing.Point(8, 515);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(89, 36);
             this.button24.TabIndex = 41;
@@ -618,9 +622,9 @@
             // 
             // button25
             // 
-            this.button25.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button25.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button25.Location = new System.Drawing.Point(101, 518);
+            this.button25.Location = new System.Drawing.Point(101, 515);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(89, 36);
             this.button25.TabIndex = 42;
@@ -630,9 +634,9 @@
             // 
             // button26
             // 
-            this.button26.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button26.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button26.Location = new System.Drawing.Point(193, 519);
+            this.button26.Location = new System.Drawing.Point(193, 516);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(89, 36);
             this.button26.TabIndex = 43;
@@ -642,9 +646,9 @@
             // 
             // button27
             // 
-            this.button27.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button27.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button27.Location = new System.Drawing.Point(288, 518);
+            this.button27.Location = new System.Drawing.Point(288, 515);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(89, 36);
             this.button27.TabIndex = 44;
@@ -731,9 +735,9 @@
             // 
             // button28
             // 
-            this.button28.BackColor = System.Drawing.Color.White;
+            this.button28.BackColor = System.Drawing.Color.LightGreen;
             this.button28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button28.Location = new System.Drawing.Point(8, 567);
+            this.button28.Location = new System.Drawing.Point(8, 642);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(89, 36);
             this.button28.TabIndex = 52;
@@ -744,9 +748,9 @@
             // 
             // button29
             // 
-            this.button29.BackColor = System.Drawing.Color.White;
+            this.button29.BackColor = System.Drawing.Color.LightGreen;
             this.button29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button29.Location = new System.Drawing.Point(383, 567);
+            this.button29.Location = new System.Drawing.Point(288, 642);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(89, 36);
             this.button29.TabIndex = 53;
@@ -757,9 +761,9 @@
             // 
             // button30
             // 
-            this.button30.BackColor = System.Drawing.Color.White;
+            this.button30.BackColor = System.Drawing.Color.LightGreen;
             this.button30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button30.Location = new System.Drawing.Point(288, 567);
+            this.button30.Location = new System.Drawing.Point(193, 642);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(89, 36);
             this.button30.TabIndex = 54;
@@ -770,9 +774,9 @@
             // 
             // button31
             // 
-            this.button31.BackColor = System.Drawing.Color.White;
+            this.button31.BackColor = System.Drawing.Color.LightGreen;
             this.button31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button31.Location = new System.Drawing.Point(193, 567);
+            this.button31.Location = new System.Drawing.Point(100, 642);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(89, 36);
             this.button31.TabIndex = 55;
@@ -942,7 +946,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(782, 558);
+            this.ClientSize = new System.Drawing.Size(782, 555);
             this.Controls.Add(this.button44);
             this.Controls.Add(this.button43);
             this.Controls.Add(this.button42);
@@ -1011,7 +1015,7 @@
             this.Controls.Add(this.btnClientes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Ventas";
-            this.Text = "Sevicio a Domicilio";
+            this.Text = "Ventas";
             this.Load += new System.EventHandler(this.SevicioDomicilio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pagoTotal)).EndInit();

@@ -662,7 +662,7 @@ namespace Pollos
                 MySqlCommand comando = new MySqlCommand(String.Format(
                "SELECT SUM(detalleventa.cantidad),precio FROM ventas,detalleventa where date(fecha)='{0}' and " +
                "ventas.idventa = detalleventa.idventa "+
-                "and detalleventa.idproducto = '{1}'; ", date,idProducto), conectar);
+                "and detalleventa.idproducto = '{1}' group by precio ", date,idProducto), conectar);
                 MySqlDataReader lector = comando.ExecuteReader();
                 while (lector.Read())
                 {

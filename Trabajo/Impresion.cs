@@ -11,15 +11,15 @@ using System.IO;
 namespace Pollos
 {
     class Impresion
-    {   private static int CANT_SPACES=20;
+    {   private  int CANT_SPACES=22;
         Decimal total = 0;
         public int imprimirVenta(String nombre, VentaClas p, List<Producto> listProductos)
         {
             StringBuilder tiket = new StringBuilder();
             DateTime thisDay = DateTime.Today;
-            tiket.AppendLine("*****Servicio a domicilio*****");
+            //tiket.AppendLine("*****Servicio a domicilio*****");
             tiket.AppendLine("");
-            tiket.AppendLine("Nota de venta No. " + Convert.ToString(p.idVenta));
+            
             tiket.AppendLine("Fecha:" + Convert.ToString(p.fechaPedido));
             tiket.AppendLine("Nombre:");
             tiket.AppendLine("La Barca Rosticerias");
@@ -47,6 +47,7 @@ namespace Pollos
             tiket.AppendLine("Efectivo: " + p.efectivo);
             tiket.AppendLine("Cambio: " + p.cambio);
             tiket.AppendLine(p.comentarios);
+            tiket.AppendLine("Nota de venta No. " + Convert.ToString(p.idVenta));
             tiket.AppendLine("");
             tiket.AppendLine("");
             tiket.AppendLine("");
@@ -70,39 +71,45 @@ namespace Pollos
         {
             StringBuilder tiket = new StringBuilder();
             DateTime thisDay = DateTime.Today;
-            tiket.AppendLine("*****Servicio a domicilio*****");
+            //tiket.AppendLine("*****Servicio a domicilio*****");
             tiket.AppendLine("");
-            tiket.AppendLine("Numero de venta: " + Convert.ToString(p.idPedidos));
-            tiket.AppendLine("Fecha:"+ Convert.ToString(p.fechaPedido));
-            tiket.AppendLine("Nombre:");
-            tiket.AppendLine("La Barca Rosticerias");
+            
+            //tiket.AppendLine("Nombre:");
+           // tiket.AppendLine("La Barca Rosticerias");
             tiket.AppendLine("Nombre cliente:");
             tiket.AppendLine(c.nombre+"\n");
             //tiket.AppendLine("");
             tiket.AppendLine("Telefono:");
             tiket.AppendLine(c.tel+"\n");
-            tiket.AppendLine("");
+            //tiket.AppendLine("");
             tiket.AppendLine("Direccion de venta:");
             tiket.AppendLine(c.direccion+"\n");
             //tiket.AppendLine("Colonia:");
             //tiket.AppendLine(c.colonia+"\n");
             //tiket.AppendLine("");
             tiket.AppendLine("Entre:");
-            tiket.AppendLine(c.calles+"\n");
-            tiket.AppendLine("");
-          tiket.AppendLine("Pedido:");
-            foreach(Producto pr in listProductos)
+            tiket.AppendLine(c.calles);
+            //tiket.AppendLine("");
+            tiket.AppendLine("Pedido:");
+           
+
+            foreach (Producto pr in listProductos)
             {
                 tiket.AppendLine(pr.cantidad + " " + pr.nombre + " " + pr.cantidad * pr.precio);
             }
-            tiket.AppendLine("");
+            //tiket.AppendLine("");
             tiket.AppendLine("\nTotal: " + p.totalPedido);
             
             tiket.AppendLine(p.comentarios);
+            tiket.AppendLine("Numero de venta: " + Convert.ToString(p.idPedidos));
+            tiket.AppendLine("Fecha:" + Convert.ToString(p.fechaPedido));
             tiket.AppendLine("");
             tiket.AppendLine("");
             tiket.AppendLine("");
             tiket.AppendLine("");
+            tiket.AppendLine("");
+            tiket.AppendLine("");
+            
 
             try
             {
@@ -131,17 +138,19 @@ namespace Pollos
         }
         public int granTicket(string dateTicket)
         {
-            TotalProducto tp;
-            Producto p;
+            TotalProducto tp=new TotalProducto();
+            Producto p=new Producto();
             total = 0;
             int totalCantEndaladas = 0;
             Decimal totalPrecioEnsaladas = 0;
             StringBuilder tiket = new StringBuilder();
             Querys query = new Querys();
+            
             tiket.AppendLine("Total venta " + dateTicket);
             tiket.AppendLine("");
             escribeProducto(1, tiket, dateTicket);
             escribeProducto(14, tiket, dateTicket);
+            escribeProducto(15, tiket, dateTicket);
             escribeProducto(39, tiket, dateTicket);
             escribeProducto(40, tiket, dateTicket);
             escribeProducto(31, tiket, dateTicket);
@@ -168,11 +177,8 @@ namespace Pollos
             totalPrecioEnsaladas += tp.precio*tp.cantidad;
             tp.cantidad = totalCantEndaladas;
             tp.precio = totalPrecioEnsaladas;
-            tiket.AppendLine(tp.cantidad+new string(' ', ((tp.cantidad>9)? 2:3))+ "Ensaladas" + new string(' ' , 11) + "$" + tp.precio);
-            escribeProducto(3, tiket, dateTicket);
-            escribeProducto(4, tiket, dateTicket);
-            escribeProducto(5, tiket, dateTicket);
-            escribeProducto(6, tiket, dateTicket);
+            tiket.AppendLine(tp.cantidad+new string(' ', ((tp.cantidad>9)? 2:3))+ "Ensaladas Mostrador" + new string(' ' , 3) + "$" + tp.precio);
+       
             totalPrecioEnsaladas = 0;
             totalCantEndaladas = 0;
             tp = query.contarProducto(26, dateTicket);
@@ -189,7 +195,7 @@ namespace Pollos
             totalPrecioEnsaladas += tp.precio;
             tp.cantidad = totalCantEndaladas;
             tp.precio = totalPrecioEnsaladas;
-            tiket.AppendLine(tp.cantidad + new string(' ', ((tp.cantidad > 9) ? 2 : 3)) + "Ensaladas de Paquete" + new string(' ', 9) );
+            tiket.AppendLine(tp.cantidad + new string(' ', ((tp.cantidad > 9) ? 2 : 3)) + "Ensaladas de Paquete" + new string(' ', 2)+ "$"+tp.precio);
             escribeProducto(35, tiket, dateTicket);
             escribeProducto(20, tiket, dateTicket);
             escribeProducto(36 ,tiket, dateTicket);
@@ -202,9 +208,13 @@ namespace Pollos
             escribeProducto(13, tiket, dateTicket);
             escribeProducto(12, tiket, dateTicket);
             tiket.AppendLine(new string('_', 30));
-            tiket.AppendLine("Total:"+new string(' ', 17)+"$"+total.ToString());
-           
-    try
+            tiket.AppendLine("Total:"+new string(' ', 19)+"$"+total.ToString());
+            tiket.AppendLine("");
+            tiket.AppendLine("");
+            tiket.AppendLine("");
+            tiket.AppendLine("");
+
+            try
             {
                 System.IO.StreamWriter file = new System.IO.StreamWriter("GranTicket/ticket" +dateTicket.Replace("/","_")+ ".txt");
                 file.WriteLine(tiket.ToString());
@@ -216,6 +226,7 @@ namespace Pollos
                 MessageBox.Show("Ocurrio un error al imprimir tiket");
                 return -1;
             }
+                
                 return 1;
         }
         void escribeProducto(int id,StringBuilder tiket,string dateTicket) 
@@ -225,12 +236,19 @@ namespace Pollos
             Querys query = new Querys();
             tp = query.contarProducto(id, dateTicket);
             p = query.buscarProducto(id);
-            if (p != null && tp != null)
+            try
             {
+                // if (p != null && tp != null)
+                //{
                 if (id == 3 || id == 4 || id == 5 || id == 6)
                     tiket.Append("      ");
                 tiket.AppendLine(tp.cantidad + new string(' ', ((tp.cantidad > 9) ? 2 : 3)) + p.nombre + new string(' ', CANT_SPACES - p.nombre.Length) + "$" + (tp.precio * tp.cantidad).ToString());
                 total += (tp.precio * tp.cantidad);
+                //}
+            }
+            catch
+            {
+                return;
             }
          }
     }

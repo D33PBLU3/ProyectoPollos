@@ -20,7 +20,6 @@ namespace Pollos
         List<Producto> lista;
         Decimal [] preciosProd;
         Clientes c;
-        Decimal TotalPedido;
         Pedido pedido;
         List<Producto> listaProductos;
         public SevicioDomicilio()
@@ -718,6 +717,12 @@ namespace Pollos
         private void button32_Click(object sender, EventArgs e)
         {
             agregarProducto(29);
+        }
+
+        private void gridProductos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            gridProductos.CurrentCell = null;
+            gridProductos.Rows[e.RowIndex].Selected = true;
         }
     }
    

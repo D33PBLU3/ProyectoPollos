@@ -12,16 +12,10 @@ namespace Pollos
 {
     public partial class Ventas : Form
     {
-        String idUsuario = "";
-        String nombreAux = "";
-        String dirAux = "";
-        String entreAux = "";
-        String colAux = "";
-        List<detallePedido> detalle;
+        String idUsuario = "";   
         List<Producto> lista;
         Decimal [] preciosProd;
         Clientes c;
-        Decimal TotalPedido;
         VentaClas venta;
         List<Producto> listaProductos;
         public Ventas(String idUsuario)
@@ -249,6 +243,7 @@ namespace Pollos
             string fecha_actual = Hoy.ToString("dd-MM-yyyy");
             lbFecha.Text = fecha_actual;
             c = new Clientes();
+           // AutoSize = true;
         }
 
         private void gridProductos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -758,6 +753,20 @@ namespace Pollos
         private void button34_Click(object sender, EventArgs e)
         {
             agregarProducto(31);
+            seleccionEnsalada sl = new seleccionEnsalada();
+            sl.ShowDialog();
+            for (int i = 0; i < 4; i++)
+            {
+                if (sl.ensaladas.ElementAt(i).cantidad > 0)
+                {
+                    DataGridViewRow row = (DataGridViewRow)gridProductos.Rows[0].Clone();
+                    row.Cells[0].Value = Convert.ToString(sl.ensaladas.ElementAt(i).idProductos);
+                    row.Cells[1].Value = sl.ensaladas.ElementAt(i).nombre;
+                    row.Cells[2].Value = Convert.ToString(0.00);
+                    row.Cells[3].Value = Convert.ToString(sl.ensaladas.ElementAt(i).cantidad);
+                    gridProductos.Rows.Add(row);
+                }
+            }
         }
 
         private void button35_Click(object sender, EventArgs e)
@@ -809,6 +818,12 @@ namespace Pollos
         private void button44_Click(object sender, EventArgs e)
         {
             agregarProducto(41);
+        }
+
+        private void gridProductos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            gridProductos.CurrentCell = null;
+            gridProductos.Rows[e.RowIndex].Selected = true;
         }
     }
    

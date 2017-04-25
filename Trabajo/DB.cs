@@ -45,7 +45,7 @@ namespace Pollos
                     conectar.Open();
                     return conectar;
                 }
-                catch (Exception e)
+                catch 
                 {
                     return null;
                 }

@@ -118,5 +118,37 @@ namespace Pollos
                 cont++;   
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Querys query = new Querys();
+            try
+            {
+                string id = listClientes.SelectedItems[0].SubItems[0].Text;
+                string nombre = listClientes.SelectedItems[0].SubItems[1].Text;
+                string tel = listClientes.SelectedItems[0].SubItems[2].Text;
+                string dir = listClientes.SelectedItems[0].SubItems[3].Text;
+                string calles = listClientes.SelectedItems[0].SubItems[4].Text;
+                string colonia = listClientes.SelectedItems[0].SubItems[5].Text;
+
+
+
+
+                if (id == "")
+                {
+                    MessageBox.Show("No se ha seleccionado algun cliente");
+                }
+                else
+                {
+                    query.EliminarCliente(id);
+                    Actualizar();
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("No se ha seleccionado algun cliente");
+            }
+        }
     }
 }

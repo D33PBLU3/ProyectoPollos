@@ -14,9 +14,7 @@ namespace Pollos
     {
         string forma;
         string id;
-        string nick;
-        string pass;
-        string permis;
+        
 
         public addEdit(string forma, string id, string nick, string pass, string permis)
         {
