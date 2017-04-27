@@ -49,6 +49,7 @@
             this.gridBusquedaProductos.Name = "gridBusquedaProductos";
             this.gridBusquedaProductos.Size = new System.Drawing.Size(392, 417);
             this.gridBusquedaProductos.TabIndex = 0;
+            this.gridBusquedaProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridBusquedaProductos_CellContentClick);
             this.gridBusquedaProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridBusquedaProductos_CellDoubleClick);
             this.gridBusquedaProductos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridBusquedaProductos_CellMouseDoubleClick);
             // 

@@ -95,5 +95,11 @@ namespace Pollos
             reportes rep = new reportes();
             rep.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+       {
+            Form2 form = new Form2();
+            form.Show();
+        }
     }
 }

@@ -35,6 +35,7 @@
             this.btnVentas = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnRep = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnServicioDomicilio
@@ -97,11 +98,22 @@
             this.btnRep.UseVisualStyleBackColor = true;
             this.btnRep.Click += new System.EventHandler(this.btnRep_Click);
             // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(466, 14);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(67, 57);
+            this.button2.TabIndex = 6;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 79);
+            this.ClientSize = new System.Drawing.Size(545, 79);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnRep);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnVentas);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnRep;
+        private System.Windows.Forms.Button button2;
     }
 }

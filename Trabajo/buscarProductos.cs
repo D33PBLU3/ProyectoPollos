@@ -53,5 +53,10 @@ namespace Pollos
             encontrado = true;
             Close();
         }
+
+        private void gridBusquedaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
